@@ -5,7 +5,6 @@
 <c:url value="/resources/main/css/main.css" var="css" />
 <c:url value="/resources/common/css/nav_side.css" var="css2" />
 <c:url value="/resources/cs/js/cs_sideNav.js" var="sideNave_js" />
-<%@ include file="../common/commonCss.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -66,6 +65,22 @@
 	            }
        		});
        	}
+    });
+    
+    <!-- [사이드 메뉴] 하위 버튼 ON/OFF -->
+    
+    $(document).ready(function() {
+        // 초기 설정: 모든 .ssub 요소들을 숨김
+        $('.ssub').hide();
+
+        // .stitle 요소 클릭 이벤트 핸들러
+        $('.stitle').click(function() {
+            // 현재 클릭된 .stitle의 바로 다음 .ssub 요소를 선택하고 토글 효과 적용
+            $(this).next('.ssub').slideToggle(200);
+
+            // 다른 .stitle의 바로 다음 .ssub 요소들은 모두 숨김
+            $('.stitle').not(this).next('.ssub').slideUp(200);
+        });
     });
     
 	<!-- [사이드 메뉴] 공지사항 하위 버튼 매핑 -->

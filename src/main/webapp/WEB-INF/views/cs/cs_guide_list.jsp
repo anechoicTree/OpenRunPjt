@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/resources/cs/css/cs.css" var="css" />
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>[고객센터] 이용 가이드</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>[고객센터] 이용 가이드</title>
+	<link rel="stylesheet" href="${css}">
 </head>
 <body>
-	<div id="cs-board-image">
+	<div id="cs-board-list-guide">
 	
-	</div>
-
-	<div id="cs-board-list">
+		<div id="cs-board-image"> 상단 설명 이미지 넣을 공간</div>
+		<br>
+		
 		<c:forEach var="guide" items="${guidesList}">     
 		    <div id="cs-board-list-row-guide">
 		        <div class="cs-board-list-row-box-img">

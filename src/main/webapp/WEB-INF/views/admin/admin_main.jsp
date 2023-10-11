@@ -6,7 +6,6 @@
 <c:url value="/resources/main/css/main.css" var="css" />
 <c:url value="/resources/common/css/nav_side.css" var="css2" />
 <c:url value="/resources/admin/js/admin_main.js" var="js_admin" />
-<%@ include file="../common/commonCss.jsp" %>
 
 <!DOCTYPE html>
 <html>

@@ -104,7 +104,6 @@ var currentPage = ${currentPage}; // 현재 페이지
 	});
 	
 </script>
-
 </head>
 <body>
 	<div id="cs-container">

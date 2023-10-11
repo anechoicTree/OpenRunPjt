@@ -1,5 +1,7 @@
+
 * {
 	box-sizing: border-box;
+	height: fit-content;
 }
 
 
@@ -83,6 +85,7 @@
 		grid-template-columns: 75% 25%;
 		margin-top: 10px;
 		background-color: #6E63CF;
+		align-items: center;
 	}
 
 	#main-nav-item1 {

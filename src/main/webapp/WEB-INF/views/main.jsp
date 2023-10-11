@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/resources/main/css/main.css" var="css" />
 <!-- <c:url value="/resources/main/js/main.js" var="js" /> -->
-<%@ include file="./common/commonCss.jsp" %>
 
 <!DOCTYPE html>
 <html>
