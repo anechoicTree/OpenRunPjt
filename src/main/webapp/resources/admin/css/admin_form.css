@@ -1,0 +1,267 @@
+
+#admin-inputform-container {
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	column-gap: 20px;
+}
+
+#cs-container > * {
+	border-radius: 15px;
+	padding: 15px 10px 0;
+}
+
+#cs-board {
+	width: 100%;
+	background-color: white;
+
+}
+#cs-board > #cs-board-list-page-buttons{
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+
+#cs-board-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #555;
+	padding: 0 0 20px 0;
+}
+
+#cs-board-category {
+	padding: 15px 0px 15px 0px;
+	width: 100%;
+}
+
+#cs-board-category-nav {
+	padding: 10px 0px 10px 0px;
+	display: flex;
+	flex-direction: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 12px;
+}
+
+.category-box {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.category-btn {
+	border: none;
+	font-family: SUITE;
+	font-weight: 800;
+	font-size: 18px;	
+	color: #000000;
+	background-color: #FFFFFF;
+	padding: 1px 1px;
+}
+
+.category-btn:hover {
+	cursor: pointer;
+	color: #6E63CF;
+	font-weight: bold;
+}
+
+#cs-board-list {
+	margin-top: 10px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+#cs-board-list-head {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 10% 15% 60% 15%;
+	place-items: center; 
+}
+
+#cs-board-list-head-faq {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	place-items: center; 
+}
+
+.cs-board-list-head-box {
+	height: 100%;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	color: #6E63CF;
+	background-color: #F5F5F5;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#cs-board-list-row {
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 10% 15% 60% 15%;
+	place-items: center; 
+}
+
+#cs-board-list-row-faq {
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	place-items: center; 
+}
+
+.cs-board-list-row-box {
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+#cs-board-page {
+	height: 120px;
+}
+
+#cs-board-list-category-freq {
+	font-size: 1.1rem;
+	font-weight: 500;
+	text-align: center;
+	border: none;
+	background-color: rgb(236, 236, 236);
+}
+.cs-board-list-board-freq{
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	padding: 10px 20px;
+	border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.cs-board-list-board-freq>div:first-child {
+	text-align: center;
+}
+
+.cs-board-list-board-freq>div:last-child {
+	text-align: left;
+	padding: 0 50px;
+}
+.cs-board-list-board-freq>div:last-child:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.cs-board-list-board-freq a {
+	text-decoration: none;
+	color: black;
+}
+
+.cs-board-list-board {
+	border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.cs-board-list-board>div:first-child {
+	text-align: center;
+}
+
+.cs-board-list-board a {
+	text-decoration: none;
+	color: black;
+}
+
+.cs-board-list-board>div:nth-child(2):hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.cs-board-list-board>div:nth-child(3) {
+	text-align: center;
+}
+
+/*공지사항 우선순위*/
+.level1 {
+	font-weight: bold;
+}
+
+/* 고정 공지사항 태그 */
+.notice_top {
+	background-color: rgb(159, 64, 255);
+	color: white;
+	font-weight: 500;
+	border-radius: 10px;
+	padding: 0 5px;
+}
+.page-buttons{
+	border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 2px;
+    margin: 20px 0;
+}
+.page-buttons:hover{
+    border: none;
+    background-color: rgb(240, 239, 239);
+    cursor: pointer;
+}
+
+.page-buttons:hover {
+	border: 0.1px solid gray;
+	background-color: rgb(240, 239, 239);
+	cursor: pointer;
+}
+
+.page-buttons.selected {
+	border: none;
+	color: rgb(70, 200, 180);
+}
+
+.move-buttons {
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	border-radius: 2px;
+	margin: 20px 0;
+	font-weight: 700;
+}
+
+.move-buttons:hover {
+	border: 0.1px solid gray;
+	background-color: rgb(240, 239, 239);
+	cursor: pointer;
+}
+
+/* 고객센터 - 자주묻는 질문 css */
+#freq-questions-top3-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border-radius: 15px;
+	background-color: rgb(231, 245, 243);
+	margin: 5px 0 20px 0;
+}
+
+#freq-questions-top3-container>* {
+	text-align: center;
+	margin: 30px;
+	display: grid;
+	grid-template-rows: 4fr 1fr;
+}
+
+.freq-question-top3-module {
+	cursor: pointer;
+}
+
+.freq-q-top3-icon {
+	font-size: 50px;
+}
+
+.freq-q-top3-icon>img {
+	width: 100px;
+	height: 100px;
+}
+
+.freq-q-span {
+	color: rgb(70, 200, 180);
+	font-weight: 600;
+	margin-right: 10px;
+}

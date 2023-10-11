@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.openrun.ticket.mappers.SellerMapper">
+	<resultMap id="sellerResult" type="sellerVO">
+		<result property="seller_no" column="seller_no" />
+		<result property="s_level" column="s_level" />
+		<result property="s_id" column="s_id" />
+		<result property="s_pw" column="s_pw" />
+		<result property="s_business_name" column="s_business_name" />
+		<result property="s_business_reg_no" column="s_business_reg_no" />
+		<result property="s_address" column="s_address" />
+		<result property="s_phone" column="s_phone" />
+		<result property="s_email" column="s_email" />
+		<result property="s_bank_name" column="s_bank_name" />
+		<result property="s_account_no" column="s_account_no" />
+		<result property="s_join_date" column="s_join_date" />
+	</resultMap>
+	
+	<select id="selectAllSellerList" resultMap="sellerResult">
+			select * from seller order by seller_no desc 
+	</select>
+	
+    <!-- 페이지네이션을 위한 쿼리 -->
+	<select id="selectAllSellerListWithPagination" resultMap="sellerResult" parameterType="map">
+	    select * from seller
+	    order by seller_no desc
+	    limit #{pageSize} offset #{start}
+	</select>
+
+    <!-- 전체 공지사항 개수를 가져오는 쿼리 -->
+    <select id="selectTotalSellerCount" resultType="int">
+        select count(*) from seller
+    </select>
+	
+    <select id="getSellerBySellerNo" resultMap="sellerResult" parameterType="int">
+        	select * from seller where seller_no=#{seller_no}
+    </select>
+	
+	<update id="approvalSeller" parameterType="sellerVO">
+			update seller
+			set s_level=1
+			where
+			seller_no=#{seller_no} 
+	</update>
+
+</mapper>

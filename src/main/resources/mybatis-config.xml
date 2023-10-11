@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <typeAliases>    
+	<typeAlias alias="Test" type="com.openrun.ticket.bean.TestBean" />
+	<typeAlias alias="noticeVO" type="com.openrun.ticket.vo.NoticeVO" />
+	<typeAlias alias="faqVO" type="com.openrun.ticket.vo.FaqVO" />
+	<typeAlias alias="adminVO" type="com.openrun.ticket.vo.AdminVO" />
+	<typeAlias alias="sellerVO" type="com.openrun.ticket.vo.SellerVO" />
+	<typeAlias alias="guideVO" type="com.openrun.ticket.vo.GuideVO" />
+  </typeAliases>
+</configuration>
