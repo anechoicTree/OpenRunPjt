@@ -175,16 +175,22 @@
 		line-height: 1.2;
 	}
 
-	.footer-container-sub {
+	.footer-container-sub1 {
 		width: 1080px;
-		display: grid;
-		grid-template-columns: 10% 45% 45%;
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.footer-container-sub2 {
+		width: 1080px;
+		display: flex;
 		margin-left: auto;
 		margin-right: auto;
 	}
 	/* 회사소개 */
 	#footer-company {
-		width: 400px;
+		width: 100%;
 	    font-size: 14px;
  	  	line-height: 2.1;
 	    color: #888;
