@@ -103,7 +103,6 @@ textarea {
 }
 
 #cs-board-category-nav {
-	padding: 10px 0px 10px 0px;
 	display: flex;
 	flex-direction: row nowrap;
 	justify-content: space-between;
@@ -222,7 +221,7 @@ textarea {
     position: relative;  /* 이미지를 부모 안에서 절대 위치로 설정하기 위한 기준이 됩니다. */
     overflow: hidden;    /* 이미지가 부모 컨테이너를 넘어갈 경우 숨깁니다. */
     width: 100%;         /* 또는 원하는 너비로 설정 */
-    height: 100px;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
+    height: 30vh;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
     display: flex;       /* Flexbox 레이아웃을 사용합니다. */
     align-items: center; /* 자식 요소들을 세로 중앙으로 정렬합니다. */
     justify-content: center;
@@ -241,7 +240,13 @@ textarea {
 }
 
 #cs-board-page {
-	height: 120px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+#cs-board-page > * {
+	margin: 5px;
 }
 
 #cs-board-list-category-freq {
@@ -302,11 +307,12 @@ textarea {
 	display: flex;
 	flex-direction: row;
 	justify-content: end;
+	margin: 15px 0;
 }
 
 .cud-btn {
-    width: 60px;
-    height: 24px;
+    width: 72px;
+    height: 28px;
     margin: 2px;
     background: #6E63CF;
     border: none;
@@ -314,7 +320,7 @@ textarea {
     font-family: 'SUITE';
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     line-height: 15px;
 }
@@ -324,8 +330,8 @@ textarea {
 }
 
 .form-btn {
-    width: 60px;
-    height: 24px;
+    width: 72px;
+    height: 28px;
     margin: 2px;
     background: #6E63CF;
     border: none;
@@ -333,7 +339,7 @@ textarea {
     font-family: 'SUITE';
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     line-height: 15px;
 }
@@ -346,19 +352,6 @@ textarea {
 	cursor: pointer;
 }
 
-/*공지사항 우선순위*/
-.level1 {
-	font-weight: bold;
-}
-
-/* 고정 공지사항 태그 */
-.notice_top {
-	background-color: rgb(159, 64, 255);
-	color: white;
-	font-weight: 500;
-	border-radius: 10px;
-	padding: 0 5px;
-}
 .page-buttons{
 	border: none;
     background-color: white;
@@ -398,37 +391,4 @@ textarea {
 	cursor: pointer;
 }
 
-/* 고객센터 - 자주묻는 질문 css */
-#freq-questions-top3-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	border-radius: 15px;
-	background-color: rgb(231, 245, 243);
-	margin: 5px 0 20px 0;
-}
 
-#freq-questions-top3-container>* {
-	text-align: center;
-	margin: 30px;
-	display: grid;
-	grid-template-rows: 4fr 1fr;
-}
-
-.freq-question-top3-module {
-	cursor: pointer;
-}
-
-.freq-q-top3-icon {
-	font-size: 50px;
-}
-
-.freq-q-top3-icon>img {
-	width: 100px;
-	height: 100px;
-}
-
-.freq-q-span {
-	color: rgb(70, 200, 180);
-	font-weight: 600;
-	margin-right: 10px;
-}

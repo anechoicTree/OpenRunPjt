@@ -143,7 +143,7 @@ public class FaqController /*implements FaqController*/ {
             if (result > 0) {
                 return "admin/admin_main";
             } else {
-                return "errorPage";
+                return "errorPage";	
             }
         } catch (Exception e) {
             return "errorPage";

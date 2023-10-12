@@ -85,7 +85,7 @@ console.log(document.getElementById("categoryNo").value);
         </tr>
 
 
-        <tr align="center" valign="middle">
+        <tr align="right" valign="middle">
             <td colspan="5">
 
                 <input class="form-btn" type="submit" value="등록" >
