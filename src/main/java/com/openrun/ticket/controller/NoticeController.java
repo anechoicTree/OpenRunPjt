@@ -139,6 +139,7 @@ public class NoticeController /*implements NoticeController*/ {
     public String insertNotice(@ModelAttribute("noticeVO") NoticeVO noticeVO) throws Exception {
         try {
             int result = noticeService.insertNotice(noticeVO);
+            System.out.println(result);
             if (result > 0) {
                 return "admin/admin_main";
             } else {
@@ -163,13 +164,16 @@ public class NoticeController /*implements NoticeController*/ {
     public String updateNotice(@ModelAttribute("noticeVO") NoticeVO noticeVO) throws Exception {
         try {
             int result = noticeService.updateNotice(noticeVO);
+            System.out.println(noticeVO.getCategory());
+            System.out.println(noticeVO.getTitle());
+            System.out.println(noticeVO.getBody());
             if (result > 0) {
                 return "admin/admin_main";
             } else {
-                return "errorPage";
+                return "admin/admin_main";
             }
         } catch (Exception e) {
-            return "errorPage";
+            return "admin/admin_main";
         }
     }
     

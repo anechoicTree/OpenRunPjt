@@ -4,7 +4,6 @@
 
 <c:url value="/resources/main/css/main.css" var="css" />
 <c:url value="/resources/common/css/nav_side.css" var="css2" />
-<c:url value="/resources/cs/js/cs_sideNav.js" var="sideNave_js" />
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,7 @@
 <link rel="stylesheet" href="${css2}">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="<c:out value='${sideNav_js}' />"></script> 
+<script src="${sideNav_js}"></script>
 <script type="text/javascript">
 
 	// 각 카테고리 버튼에 대한 클릭 이벤트 리스너 추가
@@ -44,7 +43,6 @@
         'guide_btn': 'guide',
         'notice_btn': 'notice',
         'qna_btn': 'qna',
-        // 다른 버튼들도 추가할 수 있습니다.
     };
 
     $(document).on('click', '.stitle', function() {
@@ -82,7 +80,9 @@
             $('.stitle').not(this).next('.ssub').slideUp(200);
         });
     });
-    
+   
+
+	
 	<!-- [사이드 메뉴] 공지사항 하위 버튼 매핑 -->
 	$(document).on('click', '#notice_general_btn', function() {
 	    $('.category-btn[data-id="general"]').trigger('click');

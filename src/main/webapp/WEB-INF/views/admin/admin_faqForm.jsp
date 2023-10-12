@@ -85,15 +85,15 @@
                 내용
             </td>
             <td class="input-content">
-                 <textarea id="textarea-body" name="body" cols="72" rows="24"></textarea>          
+                 <textarea id="textarea-body" name="body" cols="72" rows="18"></textarea>          
             </td>        
         </tr>
 
         <tr align="center" valign="middle">
             <td colspan="5">
 
-                <input type="submit" value="등록" >
-                <input type="button" value="취소" >            
+                <input class="form-btn" type="submit" value="등록" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
             </td>
         </tr>
     </table>    

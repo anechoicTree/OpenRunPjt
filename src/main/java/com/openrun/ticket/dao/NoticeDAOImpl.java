@@ -56,6 +56,7 @@ public class NoticeDAOImpl implements NoticeDAO {
 	@Override
 	public int updateNotice(NoticeVO noticeVO) throws DataAccessException {
 		int result = sqlSession.update("com.openrun.ticket.mappers.NoticeMapper.updateNotice", noticeVO);
+		System.out.println("업데이트 결과 : " + result);
 		return result;
 	}
 

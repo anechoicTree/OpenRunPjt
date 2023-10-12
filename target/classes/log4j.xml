@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.openrun.ticket">
-		<level value="info" />
+		<level value="DEBUG" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->

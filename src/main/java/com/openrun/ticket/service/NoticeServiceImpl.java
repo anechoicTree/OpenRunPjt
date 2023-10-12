@@ -51,7 +51,9 @@ public class NoticeServiceImpl implements NoticeService{
 	   
 	   @Override
 	   public int updateNotice(NoticeVO noticeVO) throws DataAccessException {
+		   System.out.println("서비스 : " + noticeDAO.updateNotice(noticeVO));
 		   return noticeDAO.updateNotice(noticeVO);
+		   
 	   }
 	   
 	   @Override

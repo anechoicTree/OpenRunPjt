@@ -1,6 +1,6 @@
 form {
-    padding-top: 20px;
-    padding-left: 15px;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 
@@ -78,7 +78,6 @@ textarea {
 
 #cs-container > * {
 	border-radius: 15px;
-	padding: 15px 10px 0;
 }
 
 #cs-board {
@@ -299,7 +298,53 @@ textarea {
 	text-align: center;
 }
 
+.cud-btn-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+}
 
+.cud-btn {
+    width: 60px;
+    height: 24px;
+    margin: 2px;
+    background: #6E63CF;
+    border: none;
+    border-radius: 6px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    line-height: 15px;
+}
+
+.cud-btn:hover {
+	cursor: pointer;
+}
+
+.form-btn {
+    width: 60px;
+    height: 24px;
+    margin: 2px;
+    background: #6E63CF;
+    border: none;
+    border-radius: 6px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    line-height: 15px;
+}
+
+#form-cancel-btn {
+    background: #CCCCCC;
+}
+
+.form-btn:hover {
+	cursor: pointer;
+}
 
 /*공지사항 우선순위*/
 .level1 {

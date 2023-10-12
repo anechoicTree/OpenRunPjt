@@ -39,7 +39,7 @@
 	<div id="main-nav">
 		<div id="main-nav-item1">
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="home">홈</button>
+				<button class="menu-btn" data-id="home" onclick="location.href='/ticket'">홈</button>
 			</div>
 			<div class="main-nav-btn">
 				<button class="menu-btn" data-id="musical">뮤지컬</button>

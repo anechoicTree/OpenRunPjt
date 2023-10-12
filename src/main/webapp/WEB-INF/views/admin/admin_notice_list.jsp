@@ -28,17 +28,9 @@
 				<div class="cs-board-list-row-box">
             		<a href="#" class="notice-link" data-notice-id="${notice.noticeNo}">${notice.title}</a>
         		</div>
-        		<!-- 
-				<div class="cs-board-list-row-box notice-link" data-notice-id="${notice.noticeNo}">
-            		<span>${notice.title}</span>
-        		</div>
-        		 -->
 				<div class="cs-board-list-row-box">
 					${notice.regDate}
 				</div>
-				<!-- 
-				<div class="cs-board-list-row"><a href="${contextPath}/notice/remove?noticeNo=${notice.noticeNo}">삭제하기</a></div>
-				 -->
 			</div>
 		</c:forEach>
 	</div>

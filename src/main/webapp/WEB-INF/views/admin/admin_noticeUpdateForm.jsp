@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:url value="/resources/cs/css/admin_cs.css" var="css" />
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${css}">
+
 <script>
     // 공지사항 정보에서 카테고리 값을 가져옵니다.
     var categoryValue = "${notice.category}"; 
@@ -40,20 +45,22 @@
         }
         // 설정된 categoryNo를 숨겨진 필드에 설정
         document.getElementById("categoryNo").value = selectedCategoryNo;
-    }	
+    }
+
 </script>
 </head>
 <body>
 <form action="/ticket/notice/updateNotice" method="post">
-    <br>
-    <b><font size="6" color="gray">공지사항</font></b>
-    <br>
-    <table>
+	<div id="cs-board-title">
+		<span>공지사항 수정</span>
+	</div>
+	<div id="input-form-container">
+    <table class="input-table" id="notice-input-table">
         <tr>
-            <td class="title">
+            <td class="input-title">
                 유형
             </td>
-            <td id="notice-category">
+            <td class="input-content" id="notice-category">
                 <input type="radio" name="category" value="일반" id="normalType" checked onclick="setCategoryNo()">
                 <label for="normalType">일반</label>
                 
@@ -61,33 +68,35 @@
                 <label for="systemType">시스템</label>
                 
                 <input type="hidden" id="categoryNo" name="categoryNo" value="10">
+                <input type="hidden" name="noticeNo" value="${notice.noticeNo}">
             </td>
         </tr>
         <tr>
-            <td class="title">
+            <td class="input-title">
                 제목
             </td>
-            <td id="notice-title">
-                 <textarea name="title" cols="72" rows="1">${notice.title}</textarea>   
+            <td class="input-content">
+                 <textarea id="textarea-title" name="title" cols="72" rows="1">${notice.title}</textarea>   
             </td>        
         </tr>
         <tr>
-            <td id="notice-body">
+            <td class="input-title" id="notice-body">
                 내용
             </td>
-            <td>
-                   <textarea name="body" cols="72" rows="20">${notice.body}</textarea>          
+            <td class="input-content">
+                <textarea id="textarea-body" name="body" cols="72" rows="18">${notice.body}</textarea>          
             </td>        
         </tr>
 
         <tr align="center" valign="middle">
             <td colspan="5">
 
-                <input type="submit" value="등록" >
-                <input type="button" value="취소" >            
+                <input class="form-btn" type="submit" value="수정" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
             </td>
         </tr>
-    </table>    
+    </table>
+    </div>    
 </form>
 </body>
 </html>

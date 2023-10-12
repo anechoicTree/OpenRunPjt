@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="${css}">
 
 <script>
-
 function setCategoryNo() {
     var categoryRadioButtons = document.getElementsByName("category");
     var selectedCategoryNo = 0; // 기본값으로 0을 설정
@@ -44,7 +43,7 @@ console.log(document.getElementById("categoryNo").value);
 <body>
 <form action="/ticket/notice/insertNotice" method="post">
 	<div id="cs-board-title">
-		<span>공지사항</span>
+		<span>공지사항 등록</span>
 	</div>
     <div id="input-form-container">
     <table class="input-table" id="notice-input-table">
@@ -67,7 +66,7 @@ console.log(document.getElementById("categoryNo").value);
                 제목
             </td>
             <td class="input-content">
-                 <textarea id="textarea-title"  name="title" cols="72" rows="1"> </textarea>     
+                 <textarea id="textarea-title" name="title" cols="72" rows="1"> </textarea>     
             </td>        
         </tr>
         <tr>
@@ -75,15 +74,15 @@ console.log(document.getElementById("categoryNo").value);
                 내용
             </td>
             <td class="input-content">
-                 <textarea id="textarea-body" name="body" cols="72" rows="24"> </textarea>          
+                <textarea id="textarea-body" name="body" cols="72" rows="18"> </textarea>          
             </td>        
         </tr>
 
         <tr align="center" valign="middle">
             <td colspan="5">
 
-                <input type="submit" value="등록" >
-                <input type="button" value="취소" >            
+                <input class="form-btn" type="submit" value="등록" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
             </td>
         </tr>
     </table> 

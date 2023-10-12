@@ -88,8 +88,8 @@ console.log(document.getElementById("categoryNo").value);
         <tr align="center" valign="middle">
             <td colspan="5">
 
-                <input type="submit" value="등록" >
-                <input type="button" value="취소" >            
+                <input class="form-btn" type="submit" value="등록" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
             </td>
         </tr>
     </table> 
