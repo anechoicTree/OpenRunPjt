@@ -15,4 +15,5 @@ public interface NoticeDAO {
 	public int insertNotice(NoticeVO noticeVO) throws DataAccessException;
 	public int updateNotice(NoticeVO noticeVO) throws DataAccessException;
 	public int removeNotice(int noticeNo) throws DataAccessException;
+	public List<NoticeVO> searchNoticesByTitle(String searchKeyword) throws DataAccessException;
 }

@@ -73,6 +73,14 @@
 	    <property name="guideDAO" ref="guideDAO" />
 	</bean>
 	
+	<bean id="qnaDAO" class="com.openrun.ticket.dao.QnaDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="qnaService" class="com.openrun.ticket.service.QnaServiceImpl">
+	    <property name="qnaDAO" ref="qnaDAO" />
+	</bean>
+	
 	<!-- MultipartResolver 설정 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	  <property name="maxUploadSize" value="100000000" />

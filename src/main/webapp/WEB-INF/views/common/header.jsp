@@ -68,13 +68,12 @@
 		</div>
 		<div id="main-nav-item2">
 			<div class="search">
-				<!-- 나중에 input 태그 form 추가하세요 -->
-				<form id="search" action="">
-				<div>
-					<input type="text" id="search-box"/>
-					<input type="image" id="search-submit" src="${search_btn}" alt="검색" />
-				</div>
-				</form>
+			    <form id="search" action="/ticket/search" method="post"> <!-- action에 "/search" 추가 -->
+			        <div>
+			            <input type="text" id="search-box" name="searchKeyword"/> <!-- name 속성 "query" 추가 -->
+			            <input type="image" id="search-submit" src="${search_btn}" alt="검색"/>
+			        </div>
+			    </form>
 			</div>
 		</div>
 	</div>

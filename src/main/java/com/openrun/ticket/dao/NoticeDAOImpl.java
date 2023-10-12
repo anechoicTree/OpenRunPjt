@@ -64,4 +64,9 @@ public class NoticeDAOImpl implements NoticeDAO {
     public int removeNotice(int noticeNo) throws DataAccessException {
         return sqlSession.delete("com.openrun.ticket.mappers.NoticeMapper.deleteNotice", noticeNo);
     }
+	
+	@Override
+	public List<NoticeVO> searchNoticesByTitle(String searchKeyword) throws DataAccessException {
+	    return sqlSession.selectList("com.openrun.ticket.mappers.NoticeMapper.searchNoticesByTitle", searchKeyword);
+	}
 }

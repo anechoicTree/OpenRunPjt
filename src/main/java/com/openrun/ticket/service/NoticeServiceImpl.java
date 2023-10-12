@@ -64,4 +64,9 @@ public class NoticeServiceImpl implements NoticeService{
 	       }
 	       return result;
 	   }
+	   
+	   @Override
+	   public List<NoticeVO> searchNoticesByTitle(String searchKeyword) {
+	       return noticeDAO.searchNoticesByTitle(searchKeyword);
+	   }
 }

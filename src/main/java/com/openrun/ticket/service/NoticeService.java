@@ -16,5 +16,5 @@ public interface NoticeService {
 	 public int insertNotice(NoticeVO noticeVO) throws DataAccessException;
 	 public int updateNotice(NoticeVO noticeVO) throws DataAccessException;
 	 public int removeNotices(List<Integer> noticeNos) throws DataAccessException;
-
+	 List<NoticeVO> searchNoticesByTitle(String searchKeyword);
 }

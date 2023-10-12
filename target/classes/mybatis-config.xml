@@ -11,5 +11,6 @@
 	<typeAlias alias="adminVO" type="com.openrun.ticket.vo.AdminVO" />
 	<typeAlias alias="sellerVO" type="com.openrun.ticket.vo.SellerVO" />
 	<typeAlias alias="guideVO" type="com.openrun.ticket.vo.GuideVO" />
+	<typeAlias alias="qnaVO" type="com.openrun.ticket.vo.QnaVO" />
   </typeAliases>
 </configuration>

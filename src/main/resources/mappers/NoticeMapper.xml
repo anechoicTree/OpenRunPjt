@@ -60,4 +60,9 @@
 			NOTICE_NO=#{noticeNo}
 	</delete>
 	
+	<select id="searchNoticesByTitle" resultMap="noticeResult">
+    	select * from notice where TITLE like CONCAT('%', #{searchKeyword}, '%') order by NOTICE_NO desc
+	</select>
+
+	
 </mapper>

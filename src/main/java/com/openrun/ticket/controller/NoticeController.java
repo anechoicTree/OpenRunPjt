@@ -217,4 +217,12 @@ public class NoticeController /*implements NoticeController*/ {
 		return "admin/admin_notice";
 	}
 	
+	//search test
+	@PostMapping("/search")
+	public String searchNotices(@RequestParam("searchKeyword") String searchKeyword, Model model) {
+	    List<NoticeVO> searchResults = noticeService.searchNoticesByTitle(searchKeyword);
+	    model.addAttribute("searchResults", searchResults);
+	    return "cs/searchResults";
+	}
+	
 }
