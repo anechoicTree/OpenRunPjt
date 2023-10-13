@@ -26,5 +26,6 @@
 	<beans:bean id="uploadPath" class="java.lang.String">
 	    <beans:constructor-arg value="D:\springMVC_STS\project\OPENRUN\src\main\webapp\resources\admin\img" />
 	</beans:bean>
+
 	
 </beans:beans>

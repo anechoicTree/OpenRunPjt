@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="${css}">
 <link rel="stylesheet" href="${css2}">
 
+<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="${sideNav_js}"></script>
 <script type="text/javascript">

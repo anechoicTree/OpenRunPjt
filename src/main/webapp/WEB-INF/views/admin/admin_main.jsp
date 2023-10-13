@@ -34,7 +34,7 @@
 						<div class="stitle" id="notice_btn">공지사항</div>
 						<div class="stitle" id="guide_btn">이용 가이드</div>
 						<div class="stitle" id="faq_btn">자주 묻는 질문</div>
-						<div class="stitle" id="qna_btn">1:1문의</div>
+						<div class="stitle" id="qna_btn">1:1 문의</div>
 						<div class="stitle" id="sellerApproval_btn">판매자 인증</div>
 					</div>
 				</div>

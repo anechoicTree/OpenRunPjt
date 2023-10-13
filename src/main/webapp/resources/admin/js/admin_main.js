@@ -2,7 +2,7 @@
 		'faq_btn': '/ticket/admin/faq',
         'guide_btn': '/ticket/admin/guide',
         'notice_btn': '/ticket/admin/notice',
-        'qna_btn': 'qna',
+        'qna_btn': '/ticket/admin/qna',
         'sellerApproval_btn': '/ticket/admin/seller',
         'notice-create-btn': 'noticeForm',
         'notice-update-btn': 'noticeUpdateForm',

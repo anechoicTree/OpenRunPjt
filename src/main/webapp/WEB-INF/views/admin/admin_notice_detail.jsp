@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[고객센터] 자주 묻는 질문</title>
+    <title>[고객센터] 공지사항</title>
     <link rel="stylesheet" href="${css}">
 
 </head>
@@ -17,37 +17,19 @@
 			<div id="cs-board-title">
 				<span>공지사항 상세 조회</span>
 			</div>
-			<div id="cs-board-category">
-				<div id="cs-board-category-nav">
-					<div class="category-box">
-						<button class="" data-id=""></button>
-					</div>
-					<div class="category-box">
-						<button class="" data-id=""></button>
-					</div>
-					<div class="category-box">
-						<button class="" data-id="system"></button>
-					</div>
-					<div class="category-box">
-						<button class="" data-id=""></button>
-					</div>
-					<div class="category-box">
-						<button class="" data-id=""></button>
-					</div>
+			<div id="cs-board-detail">
+				<div id="cs-board-detail-head-notice">
+					<div class="cs-board-detail-head-box">${notice.category}</div>
+					<div class="cs-board-detail-head-box" id="detail-title">${notice.title}</div>
+					<div class="cs-board-detail-head-box">${notice.regDate}</div>
 				</div>
+			    <div class="cs-board-detail-content">
+			        <div>
+			        	${notice.body}
+			       	</div>
+		    	</div>
 			</div>
-	    <div id="notice-detail">
-			<div>
-				<div>${notice.category}</div>
-				<div>${notice.title}</div>
-				<div>${notice.regDate}</div>
-	    	</div>	
-	        <div>
-	        	${notice.body}
-	       	</div>
-    	</div>
 		</div>
 	</div>
-
 </body>
 </html>
