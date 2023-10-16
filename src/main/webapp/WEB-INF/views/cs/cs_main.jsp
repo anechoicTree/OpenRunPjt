@@ -131,16 +131,8 @@
 
 </head>
 <body>
-<!--  +"<td><input type='checkbox' name='_selected_all_'/></td>"+-->
-
     <%@ include file="../common/header.jsp" %>
 
-    <!-- 상단 메뉴바 
-    <div class="topnav">
-        <a class="active" href="/admin/api">관리자 페이지</a>
-        <input type="button" value="로그아웃" onclick="location.href='/logout'">
-    </div>
-    -->
     <!-- 사이드 메뉴바 -->
     <div class="body">
 	    <div class="side">

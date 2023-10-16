@@ -265,3 +265,92 @@
 	font-weight: 600;
 	margin-right: 10px;
 }
+
+
+.admin-login-container {
+	margin: 10% auto auto auto;
+	padding: 50px;
+	display: flex;
+	flex-direction : column;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
+	height: 30%;
+	max-width: 100%;
+	font-family: 'SUITE';
+	font-size: 24px;
+	line-height: 48px;
+	border: 5px solid #6E63CF; 
+	border-radius: 8px;  
+}
+
+#admin-login-title {
+	font-size: 36px;
+	font-weight: bolder;
+	margin-bottom: 60px;
+}
+
+.admin-login-box {
+	width: fit-content;
+}
+
+
+.admin-login-box div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   	line-height: 24px;
+   	margin: 10px;
+}
+
+.admin-login-title {
+	margin-bottom: 20px;
+}
+
+.admin-login-label {
+	font-family: 'SUITE';
+	flex: 3;
+	color: #6E63CF;
+	font-weight: bold;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.admin-login-input {
+    flex: 2;
+    outline: none;
+    border-color: #6E63CF;
+    line-height: 24px;
+}
+
+.form-btn {
+    width: 128px;
+    height: 48px;
+    background: #6E63CF;
+    border: none;
+    border-radius: 6px;
+    margin-top: 40px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    line-height: 15px;
+    -webkit-appearance: none; /* 웹킷 기반 브라우저(예: 크롬, 사파리)에서 기본 모양 제거 */
+    -moz-appearance: none;    /* 파이어폭스에서 기본 모양 제거 */
+}
+
+.form-btn button {
+    width: 100%;              /* 버튼의 너비를 부모의 100%로 설정 */
+    height: 100%;             /* 버튼의 높이를 부모의 100%로 설정 */
+    background: transparent;  /* 배경 투명 */
+    border: none;             /* 테두리 제거 */
+    outline: none;            /* 클릭 시 테두리 제거 */
+    font-family: 'SUITE';    /* 글꼴 설정 */
+    font-weight: 600;         /* 글꼴 굵기 설정 */
+    font-size: 20px;          /* 글꼴 크기 설정 */
+    color: white;             /* 글자 색상 설정 */
+    cursor: pointer;          /* 마우스를 올렸을 때 손 모양으로 변경 */
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서 기본 모양 제거 */
+    -moz-appearance: none;    /* 파이어폭스에서 기본 모양 제거 */
+}

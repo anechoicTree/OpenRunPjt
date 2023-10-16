@@ -13,4 +13,12 @@ public interface SellerDAO {
 	int selectTotalSellerCount();
 	public SellerVO getSellerBySellerNo(int seller_no) throws DataAccessException;
 	public int approvalSeller(int Seller_no) throws DataAccessException;
+	
+	// 혜빈
+	public void insertSeller(SellerVO sellerVO) throws Exception;
+	public int idCheck(String s_id);
+	public SellerVO Login(SellerVO sellerVO);
+	public SellerVO findIdCheck(SellerVO sellerVO);
+	public SellerVO findPwCheck(SellerVO sellerVO);
+	public String pwChange(SellerVO sellerVO);
 }

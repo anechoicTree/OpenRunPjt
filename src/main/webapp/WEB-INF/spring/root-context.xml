@@ -87,4 +87,43 @@
 	  <property name="maxInMemorySize" value="100000000" />
 	  <property name="defaultEncoding" value="utf-8" />
 	</bean>
+
+	<!-- 혜빈 -->
+	
+	<bean id="userDAO" class="com.openrun.ticket.dao.UserDAOImpl">
+		<property name="sqlSession"  ref="sqlSession" />
+	</bean>
+	<bean id="userService" class="com.openrun.ticket.service.UserServiceImpl">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<!--  황집과 중복이라 주석처리
+	
+	<bean  id="sellerDao" class="com.openrun.ticket.dao.SellerDAOImpl">
+		<property name="sqlSession"  ref="sqlSession" />
+	</bean>
+	
+	<bean id="sellerService" class="com.openrun.ticket.service.SellerServiceImpl">
+		<property name="sellerDAO" ref="sellerDAO" />
+	</bean>
+	
+	 -->
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" />
+		<property name="username" value="choihyebin971130@gmail.com" />
+		<property name="password" value="pacntmrkhclsvmde" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

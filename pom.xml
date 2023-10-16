@@ -164,6 +164,29 @@
 		    <artifactId>commons-io</artifactId>
 		    <version>2.4</version>
 		</dependency>
+		
+		<!-- 혜빈 -->
+		<!-- 이메일 인증 -->
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>        
+        
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        
+        <dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>2.12.3</version> <!-- 버전은 최신으로 확인하십시오 -->
+		</dependency>
+		
 	</dependencies>
     <build>
         <plugins>

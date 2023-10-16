@@ -1,3 +1,6 @@
+<%@ page import="com.openrun.ticket.vo.UserVO"%> 
+<%@ page import="com.openrun.ticket.vo.SellerVO" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -15,23 +18,58 @@
 		<!-- 로그인 성공시 로그아웃, 마이페이지, 고객센터로 바뀌어야함 -->
 		
 		<!-- 로그인 전 -->
-		<ul id="user-nav">
+		<%
+		UserVO userLoginResult = (UserVO) session.getAttribute("userLoginResult");
+				SellerVO sellerLoginResult = (SellerVO) session.getAttribute("sellerLoginResult");
+		%>
+		<% 
+		if (userLoginResult != null){
+		%>
+			<ul id="user-nav">
 			<li class="user-nav-item">
-			    <button class="user-nav-btn" id="login" onclick="location.href='/ticket/admin/admin_login'">로그인</button>
-				<button class="user-nav-btn" id="join" onclick="location.href='/openRun/admin/member/createAccountForm'">회원가입</button>
+			    <button class="user-nav-btn" id="login" onclick="location.href='exLoginOut'">로그아웃</button>
+				<button class="user-nav-btn" id="join" onclick="location.href='receiveType'">마이페이지</button>
 				<button class="user-nav-btn" id="as" onclick="location.href='/ticket/cs/main'">고객센터</button>
 			</li>	
 		</ul>
-	</div>
-	
-	<div id="main-title">
-		<div id="main-logo">
-			<a href="/ticket">
-				<img src="${logo}" alt="로고"></img>
-			</a>
+		<%
+		}
+		%>
+		
+		<%
+    	if (sellerLoginResult != null){
+		%>
+		<ul id="user-nav">
+			<li class="user-nav-item">
+			    <button class="user-nav-btn" id="login" onclick="location.href='exLoginOut'">로그아웃</button>
+				<button class="user-nav-btn" id="join" onclick="location.href='receiveType'">마이페이지</button>
+				<button class="user-nav-btn" id="as" onclick="location.href='/ticket/cs/main'">고객센터</button>
+			</li>	
+		</ul>
+		<%
+		}
+		%>
+		<!-- 로그인 전 -->
+		<%
+		if(userLoginResult == null && sellerLoginResult == null){
+		%>
+		<ul id="user-nav">
+			<li class="user-nav-item">
+			    <button class="user-nav-btn" id="login" onclick="location.href='/ticket/loginForm'">로그인</button>
+				<button class="user-nav-btn" id="join" onclick="location.href='/ticket/joinMember'">회원가입</button>
+				<button class="user-nav-btn" id="as" onclick="location.href='/ticket/cs/main'">고객센터</button>
+			</li>	
+		</ul>
+		<%
+		}
+		%>
 		</div>
+		<div id="main-title">
+			<div id="main-logo">
+				<a href="/ticket"><img src="${logo}" alt="로고"  onclick="location.href='/ticket'"></img></a>
+			</div>
 		<div>
-		</div>
+	</div>
 	</div>
 	</div>
 	<!-- 네비바 -->
