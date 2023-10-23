@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+
+.review-container{
+	width:1000px;
+	height:1000px;
+	
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.review-title{
+
+position:relative;
+left: 240px;
+bottom: 750px;
+
+width:800px;
+height:100px;
+
+font-family: 'SUITE';
+font-style: normal;
+font-weight: 700;
+font-size: 26px;
+line-height: 32px;
+
+color: #000000;
+}
+/* 상품 문의 조회 */
+
+.review-menu{
+position: relative;
+	
+border: 2px black solid;
+border-bottom: 0px;
+
+width:50%;
+height:45px;
+padding:10px;
+
+font-family: 'SUITE';
+font-style: normal;
+font-weight: 0;
+font-size: 20px;
+line-height: 20px;
+text-align:center;
+
+float: left; 
+
+
+color: #6E63CF;
+}
+
+.review-menu2{
+position: relative;
+	
+border: 2px #C6C6C6 solid;
+border-bottom: 1px black solid;
+
+width:50%;
+height:45px;
+padding:10px;
+
+font-family: 'SUITE';
+font-style: normal;
+font-weight: 10;
+font-size: 20px;
+line-height: 20px;
+text-align:center;
+
+float: left; 
+}
+
+.filter-container{
+position:relative;
+bottom: 710px;
+left:240px;
+	
+width:800px;
+height:56px;
+
+border: 1px gray solid;
+}
+	
+.content-container{
+position:relative;
+bottom: 670px;
+left:240px;
+	
+width:800px;
+height:700px;
+
+border: 1px gray solid;
+	
+}	
+
+
+.filter-menu{
+position:relative;
+top:2px;
+left: 20px;
+	
+border: 1px black solid;
+float:left;
+	
+width: 90px;
+height: 40px;
+padding: 6px;
+
+font-family: 'SUITE';
+font-style: normal;
+font-weight: 10;
+font-size: 20px;
+line-height: 20px;
+text-align:center;
+	
+}
+
+
+.reviews{
+
+}
+
+
+
+a {
+  text-decoration-line: none;
+  color: #6E63CF;
+  }

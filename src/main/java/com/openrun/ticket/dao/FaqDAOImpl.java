@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 
 import com.openrun.ticket.vo.FaqVO;
 import com.openrun.ticket.vo.FaqVO;
+import com.openrun.ticket.vo.FaqVO;
 
 public class FaqDAOImpl implements FaqDAO {
 	private SqlSession sqlSession;
@@ -33,13 +34,22 @@ public class FaqDAOImpl implements FaqDAO {
 	};
 	
     @Override
-    public List<FaqVO> selectFaqsByCategory(int categoryNo) throws DataAccessException {
-        return sqlSession.selectList("com.openrun.ticket.mappers.FaqMapper.selectFaqsByCategory", categoryNo);
-    }
-
-    @Override
     public int selectTotalFaqCount() throws DataAccessException {
         return sqlSession.selectOne("com.openrun.ticket.mappers.FaqMapper.selectTotalFaqCount");
+    }
+    
+    @Override
+    public List<FaqVO> selectFaqsByCategoryWithPagination(int categoryNo, int start, int pageSize) throws DataAccessException {
+    	Map<String, Integer> params = new HashMap<>();
+        params.put("start", start);
+        params.put("pageSize", pageSize);
+        params.put("categoryNo", categoryNo);
+    	return sqlSession.selectList("com.openrun.ticket.mappers.FaqMapper.selectFaqsByCategoryWithPagination", params);
+    }
+    
+    @Override
+    public int selectTotalFaqCountByCategory(int categoryNo) throws DataAccessException {
+        return sqlSession.selectOne("com.openrun.ticket.mappers.FaqMapper.selectTotalFaqCountByCategory", categoryNo);
     }
 	
 	@Override

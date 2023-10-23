@@ -1,0 +1,100 @@
+
+.main-banner-container {
+	font-family: 'SUITE';
+	maxwidth: 100%;
+	padding: 50px 0;
+    background-color: #ffffff;
+    vertical-align: top;
+}
+	
+.main-banner-container-sub {
+	width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    align-items: center;
+    text-align: center;
+}
+
+#main-banner-title {
+	font-weight: 900;
+	font-size: 36px;
+	margin-bottom: 50px;
+}
+
+.main-banner-body {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.filter {
+	max-width: 100%;
+}
+
+#filter-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0 200px 0 200px;
+    vertical-align: center;
+    justify-content: space-around;
+}
+
+.filter-btn {
+    font-size: 20px;
+    background-color: transparent;
+    /* border-radius: 15px; */
+    padding: 5px 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-item {
+    margin-top: 10px;
+    /* margin-right: 6px; */
+}
+
+
+.ls_wrap{
+    margin: 30px 0 30px 0;
+    padding: 0 10px 0 10px;
+}
+.ls_div_content{
+	width: 80%;
+    margin: auto;
+    height: 275px;
+    border: 1px solid #dadada;
+}
+.image_wrap{
+	width: 80%;
+    height: 60%;
+    margin: auto;
+    padding: 5% 0 5% 0;
+    display: flex;
+    align-items: center;    
+}
+.ls_category{
+	text-align: center;
+    font-size: 13px;
+    color: #3e74ab;
+}
+.ls_rating{
+	text-align: center;
+    font-size: 13px;
+    color: #e15b6e;
+}
+.ls_bookName{
+	text-align: center;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+}
+.ls_div_subject{
+	font-weight: bold;
+	font-size: 26px;
+	padding-bottom: 10px;
+}

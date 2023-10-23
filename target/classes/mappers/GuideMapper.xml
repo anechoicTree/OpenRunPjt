@@ -13,17 +13,17 @@
 	</resultMap>
 	
 	<select id="selectAllGuideList" resultMap="guideResult">
-			select * from guide order by GUIDE_NO desc 
+			select * from guide order by GUIDE_NO asc 
 	</select>
 	
     <!-- 페이지네이션을 위한 쿼리 -->
 	<select id="selectAllGuideListWithPagination" resultMap="guideResult" parameterType="map">
 	    select * from guide
-	    order by GUIDE_NO desc
+	    order by GUIDE_NO asc
 	    limit #{pageSize} offset #{start}
 	</select>
 
-    <!-- 전체 공지사항 개수를 가져오는 쿼리 -->
+    <!-- 전체 이용가이드 개수를 가져오는 쿼리 -->
     <select id="selectTotalGuideCount" resultType="int">
         select count(*) from guide
     </select>
@@ -32,13 +32,20 @@
         	select * from guide where GUIDE_NO=#{guideNo}
     </select>
     
-    <!-- 카테고리로 필터링된 공지사항 목록을 가져오는 쿼리 -->
-	<select id="selectGuidesByCategory" resultMap="guideResult" parameterType="int">
+    <!-- 카테고리로 필터링된 이용가이드 목록을 가져오는 쿼리 -->
+	<select id="selectGuidesByCategoryWithPagination" resultMap="guideResult" parameterType="map">
 	    select * from guide
 	    where CATEGORY_NO=#{categoryNo}
-	    order by GUIDE_NO desc
+	    order by GUIDE_NO asc
+	    limit #{pageSize} offset #{start}
 	</select>
-	
+    
+    <!-- 카테고리별 이용가이드 개수를 가져오는 쿼리 -->
+    <select id="selectTotalGuideCountByCategory" parameterType="int" resultType="int">
+        select count(*) from guide
+        where CATEGORY_NO=#{categoryNo}
+    </select>
+
 	<insert id="insertGuide" parameterType="guideVO">
 			insert into guide(CATEGORY, CATEGORY_NO, IMG_ORIGIN_NAME, IMG_SAVE_NAME, IMG_PATH)
 			values(#{category}, #{categoryNo}, #{imgOriginName}, #{imgSaveName}, #{imgPath})

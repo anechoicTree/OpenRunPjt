@@ -12,8 +12,9 @@
 </head>
 <body>
 	<div id="cs-board-list-guide">
-	
-		<div id="cs-board-image"> 상단 설명 이미지 넣을 공간</div>
+		<!-- 
+		<div id="cs-board-image"> DUMMY 상단 설명 이미지 넣을 공간</div>
+		 -->
 		<br>
 		
 		<c:forEach var="guide" items="${guidesList}">     

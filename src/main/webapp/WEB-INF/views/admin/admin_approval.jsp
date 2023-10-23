@@ -23,16 +23,16 @@ var currentPage = ${currentPage}; // 현재 페이지
 		<div id="cs-board">
 			<div id="cs-board-title">
 				<span>판매자 인증</span>
+				<div>
+					<div class="cud-btn-box">
+						<button class="cud-btn" id="seller-approval-btn">승인</button>
+					</div>
+				</div>	
 			</div>
 			<div id="view2">
 				<%@ include file="admin_approval_list.jsp" %>
 			</div>
 		</div>
-		<div>
-			<div class="cud-btn-box">
-				<button class="cud-btn" id="seller-approval-btn">승인</button>
-			</div>
-		</div>		
 		<div id="cs-board-page">
 		<!-- 이전 페이지로 이동하는 버튼 -->
 			<button id="seller-prev-btn" class="move-buttons" onclick="changePage(${currentPage - 1})">&lt;</button>

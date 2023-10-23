@@ -53,6 +53,14 @@ form {
 	text-align: left;
 }
 
+#qna-q-body {
+	padding-top: 10px;
+}
+
+.contour-line {
+	height: 10vh;
+}
+
 textarea {
 	width: 100%;
 	height: 100%;
@@ -91,6 +99,9 @@ textarea {
 }
 
 #cs-board-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 	font-size: 24px;
 	font-weight: 700;
 	color: #555;
@@ -221,7 +232,7 @@ textarea {
     position: relative;  /* 이미지를 부모 안에서 절대 위치로 설정하기 위한 기준이 됩니다. */
     overflow: hidden;    /* 이미지가 부모 컨테이너를 넘어갈 경우 숨깁니다. */
     width: 100%;         /* 또는 원하는 너비로 설정 */
-    height: 30vh;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
+    height: 20vh;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
     display: flex;       /* Flexbox 레이아웃을 사용합니다. */
     align-items: center; /* 자식 요소들을 세로 중앙으로 정렬합니다. */
     justify-content: center;
@@ -243,6 +254,7 @@ textarea {
 	height: 30px;
 	display: flex;
 	justify-content: center;
+	padding-top: 15px;
 }
 
 #cs-board-page > * {
@@ -338,11 +350,10 @@ textarea {
 	display: flex;
 	flex-direction: row;
 	justify-content: end;
-	margin: 15px 0;
 }
 
 .cud-btn {
-    width: 72px;
+    width: 56px;
     height: 28px;
     margin: 2px;
     background: #6E63CF;
@@ -350,10 +361,10 @@ textarea {
     border-radius: 6px;
     font-family: 'SUITE';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     color: white;
-    line-height: 15px;
+    line-height: 14px;
 }
 
 .cud-btn:hover {
@@ -405,6 +416,11 @@ textarea {
 .page-buttons.selected {
 	border: none;
 	color: rgb(70, 200, 180);
+}
+
+.page-buttons.active {
+    color: #6E63CF; /* 선택된 페이지 버튼 색상 변경 */
+    font-weight: bold;  
 }
 
 .move-buttons {

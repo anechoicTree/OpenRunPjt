@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${css}">
 
 <script>
-    // 공지사항 정보에서 카테고리 값을 가져옵니다.
+    // 해당 공지사항 정보에서 카테고리 값을 가져옵니다.
     var categoryValue = "${notice.category}"; 
 
     // 카테고리 값에 따라 라디오 버튼 선택
@@ -46,6 +46,31 @@
         // 설정된 categoryNo를 숨겨진 필드에 설정
         document.getElementById("categoryNo").value = selectedCategoryNo;
     }
+
+    $(document).on('click', '#form-cancel-btn', function() {
+        $('#notice_btn').trigger('click');
+    });
+
+    $(document).off('click', '#form-submit-btn').on('click', '#form-submit-btn', function(e) {
+        e.preventDefault(); // 기본 제출 동작 방지
+        
+        $.ajax({
+            url: '/ticket/notice/updateNotice',
+            type: 'POST',
+            data: $('form').serialize(),
+            success: function(response) {
+                if (response == "success") {
+                    $('#notice_btn').trigger('click'); // Success 응답시 버튼 클릭 동작 수행
+                    $('form')[0].reset(); // 폼 초기화
+                } else {
+                    alert('Failed to submit form'); // 다른 응답시 알림 표시
+                }
+            },
+            error: function() {
+                alert('Error occurred while submitting the form');
+            }
+        });
+    });
 
 </script>
 </head>
@@ -89,10 +114,9 @@
         </tr>
 
         <tr align="right" valign="middle">
-            <td colspan="5">
-
-                <input class="form-btn" type="submit" value="수정" >
-                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
+            <td colspan="5">  
+                <input class="form-btn" id="form-submit-btn" type="submit" value="수정" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >           
             </td>
         </tr>
     </table>

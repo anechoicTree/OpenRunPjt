@@ -42,7 +42,9 @@
 	    </div>
 	    <!--  동적으로 전환되어 보여지는 뷰 영역 -->
 	    <div class="view" id="view">
-	    	<%@ include file="admin_notice.jsp" %>
+	    	<div class="view_dummy">
+	    		관리자 메인 페이지 - 미구현 영역
+	    	</div>
 		</div>    	
     </div>
 	

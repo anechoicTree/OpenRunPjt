@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.openrun.ticket.dao.FaqDAO;
 import com.openrun.ticket.vo.FaqVO;
 import com.openrun.ticket.vo.FaqVO;
+import com.openrun.ticket.vo.FaqVO;
 
 /*@Transactional(propagation=Propagation.REQUIRED) */
 @Service
@@ -28,15 +29,20 @@ public class FaqServiceImpl implements FaqService{
 	   public List<FaqVO> selectAllFaqListWithPagination(int start, int pageSize) throws DataAccessException {
 		   return faqDAO.selectAllFaqListWithPagination(start, pageSize);
 	   }
-	   
-	   @Override
-	   public List<FaqVO> selectFaqsByCategory(int categoryNo) {
-		   return faqDAO.selectFaqsByCategory(categoryNo);
-	   }
 		
 	   @Override
 	   public int selectTotalFaqCount() throws DataAccessException {
 		   return faqDAO.selectTotalFaqCount();
+	   }
+	   
+	   @Override
+	   public List<FaqVO> selectFaqsByCategoryWithPagination(int categoryNo, int start, int pageSize) throws DataAccessException {
+		   return faqDAO.selectFaqsByCategoryWithPagination(categoryNo, start, pageSize);
+	   }
+	   
+	   @Override
+	   public int selectTotalFaqCountByCategory(int categoryNo) throws DataAccessException {
+		   return faqDAO.selectTotalFaqCountByCategory(categoryNo);
 	   }
 
 	   @Override

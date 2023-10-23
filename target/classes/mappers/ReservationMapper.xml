@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.openrun.ticket.reservationMapper">
+  <insert id="insertReservation" parameterType="java.util.HashMap">
+        INSERT INTO reservation (r_count, r_amount, u_no, pay_no)
+        VALUES (#{r_count}, #{r_amount}, #{u_no}, #{pay_no})
+    </insert>
+  </mapper>

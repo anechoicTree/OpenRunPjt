@@ -1,0 +1,46 @@
+@charset "UTF-8";
+*{
+	font-family: 'SUITE';
+	margin:0;
+	padding:0;
+}
+#main_container{
+	height:500px;
+	width:1080px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#main_container_sub{
+	display: flex;
+	justify-content: center;
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+#main_content{
+	font-weight: 400;
+	font-size: 30px;
+	text-align: center;
+	color: #000000;	
+	margin-top:150px;
+	margin-bottom:10px;
+}
+#main_content_sub{
+	color: #808080;
+	margin-bottom:30px;
+	
+}
+.home_button{
+	border-radius: 5px;
+	width: 160px;
+	height: 48px;
+	border:none;
+	
+	background: #6E63CF;
+
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+
+	color: #FFFFFF;
+}

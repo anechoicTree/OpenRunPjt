@@ -12,7 +12,9 @@
 	<typeAlias alias="sellerVO" type="com.openrun.ticket.vo.SellerVO" />
 	<typeAlias alias="guideVO" type="com.openrun.ticket.vo.GuideVO" />
 	<typeAlias alias="qnaVO" type="com.openrun.ticket.vo.QnaVO" />
-	<typeAlias alias="UserVO" type="com.openrun.ticket.vo.UserVO"/>
-	<typeAlias alias="SellerVO" type="com.openrun.ticket.vo.SellerVO"/>
+	<typeAlias alias="userVO" type="com.openrun.ticket.vo.UserVO"/>
+	<typeAlias alias="searchVO" type="com.openrun.ticket.vo.SearchVO"/>
+	<typeAlias alias="reservationVO" type="com.openrun.ticket.vo.ReservationVO"/>
+	<typeAlias alias="selectVO" type="com.openrun.ticket.vo.SelectVO"/>
   </typeAliases>
 </configuration>

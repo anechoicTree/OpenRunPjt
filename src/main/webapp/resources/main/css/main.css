@@ -54,3 +54,119 @@ body:hover::-webkit-scrollbar-thumb {
 	font-size: 36px;
 	margin-bottom: 50px;
 }
+
+
+.main-banner-body {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.banner-list {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 120px;
+}
+
+<!-- 더미 이미지 -->
+.ticket-info img {
+    max-width: 15%; /* 이미지의 최대 너비를 부모 요소에 맞춥니다. */
+    height: auto; /* 이미지의 높이를 자동 조정하여 비율을 유지합니다. */
+    display: block; /* 이미지를 블록 요소로 표시합니다. */
+    margin: 0 auto; /* 가로 중앙 정렬합니다. */
+}
+
+.filter {
+	max-width: 100%;
+	margin-bottom: 40px;
+}
+
+#filter-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0 200px 0 200px;
+    vertical-align: center;
+    justify-content: space-around;
+}
+
+.filter-btn {
+    font-size: 20px;
+    background-color: transparent;
+    /* border-radius: 15px; */
+    padding: 5px 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-item {
+    margin-top: 10px;
+    /* margin-right: 6px; */
+}
+
+
+.ls_wrap{
+    margin: 30px 0 30px 0;
+    padding: 0 10px 0 10px;
+}
+.ls_div_content{
+	width: 80%;
+    margin: auto;
+    height: 275px;
+    border: 1px solid #dadada;
+}
+.image_wrap{
+	width: 80%;
+    height: 60%;
+    margin: auto;
+    padding: 5% 0 5% 0;
+    display: flex;
+    align-items: center;    
+}
+.ls_category{
+	text-align: center;
+    font-size: 13px;
+    color: #3e74ab;
+}
+.ls_rating{
+	text-align: center;
+    font-size: 13px;
+    color: #e15b6e;
+}
+.ls_bookName{
+	text-align: center;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+}
+.ls_div_subject{
+	font-weight: bold;
+	font-size: 26px;
+	padding-bottom: 10px;
+}
+
+.view_dummy {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	font-family: SUITE;
+	font-size: 48px;
+	font-weight: bolder;
+	color: #6E63CF;
+}
+
+.view_dummy {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	font-family: SUITE;
+	font-size: 48px;
+	font-weight: bolder;
+	color: #6E63CF;
+}

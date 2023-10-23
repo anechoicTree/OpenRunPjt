@@ -33,9 +33,7 @@ public class CsController {
 	
 //	고객센터 주소 매핑
 	@GetMapping("/cs/main")
-	public String csGET(Model model) {
-		//List<PerformanceDTO> performance_admin = product.getAllProduct();
-		//model.addAttribute("performance", performance_admin);
+	public String csMain(Model model) {
 		return "cs/cs_main";
 	}
 	

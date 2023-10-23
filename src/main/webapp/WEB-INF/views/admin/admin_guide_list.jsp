@@ -6,6 +6,62 @@
 <head>
 <meta charset="UTF-8">
 <title>[고객센터] 이용 가이드</title>
+<link rel="stylesheet" href="${css}">
+
+<script>
+	var totalPages = ${totalPages}; // 총 페이지 수
+	var currentPage = ${currentPage}; // 현재 페이지
+
+	// 1. 페이지 이동 버튼
+	$(document).ready(function() { // 페이지 로드 시 초기 버튼 상태 업데이트
+	    updatePageButtons(currentPage);
+	});
+	
+	function changePage(page) {
+		var url;
+		if (categoryNo) {
+			url = "/ticket/admin/guide/listGuidesByCategory?categoryNo=" + categoryNo + "&page=" + page;
+		} else {
+			url = "/ticket/admin/guide/listGuides?page=" + page;
+		}
+	    $.ajax({
+	        type: 'GET',
+	        url: url,
+	        success: function(data) {
+	            $('#view2').html(data);
+	            //updatePageButtons(currentPage); 테스트중
+	        },
+	        error: function() {
+	            // 오류 발생 시 실행되는 콜백 함수
+	            alert('페이지를 로드하는 동안 오류가 발생했습니다.');
+	        }
+	    });
+	}
+
+	function updatePageButtons(currentPage) {
+	    // 이전 페이지로 이동하는 버튼 활성화 여부 결정
+	    if (currentPage <= 1) {
+	        $('#guide-prev-btn').prop('disabled', true);
+	    } else {
+	        $('#guide-prev-btn').prop('disabled', false);
+	    }
+	    // 다음 페이지로 이동하는 버튼 활성화 여부 결정
+	    if (currentPage >= totalPages) {
+	        $('#guide-next-btn').prop('disabled', true);
+	    } else {
+	        $('#guide-next-btn').prop('disabled', false);
+	    }
+	    // 페이지 번호 버튼들 업데이트
+	    $('.page-buttons').each(function() {
+	        var pageNum = parseInt($(this).val());
+	        if (pageNum == currentPage) {
+	            $(this).addClass('active'); // 현재 페이지를 강조 표시
+	        } else {
+	            $(this).removeClass('active');
+	        }
+	    });
+	}
+</script>
 </head>
 <body>
 	<div id="cs-board-image">
@@ -18,7 +74,7 @@
 			<div class="cs-board-list-head-box">파일명</div>
 			<div class="cs-board-list-head-box">이미지</div>
 		</div>
-		<div>
+
 		<c:forEach var="guide" items="${guidesList}">     
 		    <div id="cs-board-list-row-guide">
 		        <div class="cs-board-list-row-box-img">
@@ -33,6 +89,17 @@
 		    </div>
 		</c:forEach>
 		</div>
-	</div>
+		<div id="cs-board-page">
+			<!-- 이전 페이지로 이동하는 버튼 -->
+			<button id="guide-prev-btn" class="move-buttons" onclick="changePage(${currentPage - 1})">&lt;</button>
+			
+			<!-- 페이지 번호 버튼들 -->
+			<c:forEach var="pageNum" begin="1" end="${totalPages}">
+			    <button class="guide-page-buttons page-buttons" onclick="changePage(${pageNum})" value="${pageNum}">${pageNum}</button>
+			</c:forEach>
+			
+			<!-- 다음 페이지로 이동하는 버튼 -->
+			<button id="guide-next-btn" class="move-buttons" onclick="changePage(${currentPage + 1})">&gt;</button>
+		</div>
 </body>
 </html>

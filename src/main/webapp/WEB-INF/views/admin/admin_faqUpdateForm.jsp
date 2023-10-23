@@ -48,14 +48,36 @@
 	                    selectedCategoryNo = 0; // 다른 경우에 대한 기본값
 	                    break;
 	            }
-	            // 디버그: 선택된 categoryNo를 콘솔에 출력
-	            console.log("Selected CategoryNo: " + selectedCategoryNo);
 	        }
 	    }
 	    // 설정된 categoryNo를 숨겨진 필드에 설정
 	    document.getElementById("categoryNo").value = selectedCategoryNo;
-	    console.log(document.getElementById("categoryNo").value);
 	}	
+
+    $(document).on('click', '#form-cancel-btn', function() {
+        $('#faq_btn').trigger('click');
+    });
+
+    $(document).off('click', '#form-submit-btn').on('click', '#form-submit-btn', function(e) {
+        e.preventDefault(); // 기본 제출 동작 방지
+        
+        $.ajax({
+            url: '/ticket/faq/updateFaq',
+            type: 'POST',
+            data: $('form').serialize(),
+            success: function(response) {
+                if (response == "success") {
+                    $('#faq_btn').trigger('click'); // Success 응답시 버튼 클릭 동작 수행
+                    $('form')[0].reset(); // 폼 초기화
+                } else {
+                    alert('Failed to submit form'); // 다른 응답시 알림 표시
+                }
+            },
+            error: function() {
+                alert('Error occurred while submitting the form');
+            }
+        });
+    });
 	
 </script>
 </head>
@@ -106,9 +128,8 @@
 
         <tr align="right" valign="middle">
             <td colspan="5">
-
-                <input class="form-btn" type="submit" value="수정" >
-                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
+                <input class="form-btn" id="form-submit-btn" type="submit" value="수정" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >             
             </td>
         </tr>
     </table>

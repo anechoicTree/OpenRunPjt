@@ -42,6 +42,32 @@
 	    document.getElementById("categoryNo").value = selectedCategoryNo;
 	    console.log(document.getElementById("categoryNo").value);
 	}	
+
+	$(document).on('click', '#form-cancel-btn', function() {
+	    $('#faq_btn').trigger('click');
+	});
+	
+	$(document).off('click', '#form-submit-btn').on('click', '#form-submit-btn', function(e) {
+	    e.preventDefault(); // 기본 제출 동작 방지
+	    
+	    $.ajax({
+	        url: '/ticket/faq/insertFaq',
+	        type: 'POST',
+	        data: $('form').serialize(),
+	        success: function(response) {
+	            if (response == "success") {
+	                $('#faq_btn').trigger('click'); // Success 응답시 버튼 클릭 동작 수행
+	                $('form')[0].reset(); // 폼 초기화
+	            } else {
+	                alert('Failed to submit form'); // 다른 응답시 알림 표시
+	            }
+	        },
+	        error: function() {
+	            alert('Error occurred while submitting the form');
+	        }
+	    });
+	});
+
 </script>
 
 </head>
@@ -91,9 +117,8 @@
 
         <tr align="right" valign="middle">
             <td colspan="5">
-
-                <input class="form-btn" type="submit" value="등록" >
-                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
+                <input class="form-btn" id="form-submit-btn" type="submit" value="등록" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >           
             </td>
         </tr>
     </table>    

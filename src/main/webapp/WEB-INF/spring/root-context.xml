@@ -81,6 +81,17 @@
 	    <property name="qnaDAO" ref="qnaDAO" />
 	</bean>
 	
+ 	<!-- 테스트 -->
+	 
+ 	<bean id="selectDAO" class="com.openrun.ticket.dao.SelectDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="selectService" class="com.openrun.ticket.service.SelectServiceImpl">
+	    <property name="selectDAO" ref="selectDAO" />
+	</bean>
+	 
+	
 	<!-- MultipartResolver 설정 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	  <property name="maxUploadSize" value="100000000" />
@@ -95,6 +106,13 @@
 	</bean>
 	<bean id="userService" class="com.openrun.ticket.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean  id="reservationDAO" class="com.openrun.ticket.dao.ReservationDAOImpl">
+		<property name="sqlSession"  ref="sqlSession" />
+	</bean>
+	<bean id="reservationService" class="com.openrun.ticket.service.ReservationServiceImpl">
+		<property name="reservationDAO" ref="reservationDAO" />
 	</bean>
 	
 	<!--  황집과 중복이라 주석처리
@@ -126,4 +144,22 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!-- 예종 -->
+	 
+ 	<bean id="searchDAO" class="com.openrun.ticket.dao.SearchDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="searchService" class="com.openrun.ticket.service.SearchServiceImpl">
+	    <property name="searchDAO" ref="searchDAO" />
+	</bean>
+	
+	<!-- 혜진 -->
+	
+	 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	 	<property name="dataSource" ref="dataSource" />
+	 </bean> 
+	 
+
 </beans>

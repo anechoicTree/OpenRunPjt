@@ -31,6 +31,20 @@
        	select * from faq where FAQ_NO=#{faqNo}
     </select>
     
+     <!-- 카테고리로 필터링된 FAQ 목록을 가져오는 쿼리 -->
+	<select id="selectFaqsByCategoryWithPagination" resultMap="faqResult" parameterType="map">
+	    select * from faq
+	    where CATEGORY_NO=#{categoryNo}
+	    order by FAQ_NO desc
+	    limit #{pageSize} offset #{start}
+	</select>
+    
+    <!-- 카테고리별 FAQ 개수를 가져오는 쿼리 -->
+    <select id="selectTotalFaqCountByCategory" parameterType="int" resultType="int">
+        select count(*) from faq
+        where CATEGORY_NO=#{categoryNo}
+    </select>
+    
     <!-- 카테고리로 필터링된 FAQ 목록을 가져오는 쿼리 -->
 	<select id="selectFaqsByCategory" resultMap="faqResult" parameterType="int">
 	    select * from faq
