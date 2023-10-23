@@ -30,23 +30,33 @@
     <select id="selectTotalNoticeCount" resultType="int">
         select count(*) from notice
     </select>
+    
+    <!-- 카테고리로 필터링된 공지사항 목록을 가져오는 쿼리 -->
+	<select id="selectNoticesByCategoryWithPagination" resultMap="noticeResult" parameterType="map">
+	    select * from notice
+	    where CATEGORY_NO=#{categoryNo}
+	    order by NOTICE_NO desc
+	    limit #{pageSize} offset #{start}
+	</select>
+    
+    <!-- 카테고리별 공지사항 개수를 가져오는 쿼리 -->
+    <select id="selectTotalNoticeCountByCategory" parameterType="int" resultType="int">
+        select count(*) from notice
+        where CATEGORY_NO=#{categoryNo}
+    </select>
 	
+	<!-- 공지사항 상세 조회 -->
     <select id="getNoticeByNoticeNo" resultMap="noticeResult" parameterType="int">
         	select * from notice where NOTICE_NO=#{noticeNo}
     </select>
     
-    <!-- 카테고리로 필터링된 공지사항 목록을 가져오는 쿼리 -->
-	<select id="selectNoticesByCategory" resultMap="noticeResult" parameterType="int">
-	    select * from notice
-	    where CATEGORY_NO=#{categoryNo}
-	    order by NOTICE_NO desc
-	</select>
-	
+	<!-- 공지사항 등록 -->
 	<insert id="insertNotice" parameterType="noticeVO">
 			insert into notice(CATEGORY, CATEGORY_NO, TITLE, BODY)
 			values(#{category}, #{categoryNo}, #{title}, #{body})
 	</insert>
 	
+	<!-- 공지사항 수정 -->
 	<update id="updateNotice" parameterType="noticeVO">
 			update notice
 			set CATEGORY=#{category}, CATEGORY_NO=#{categoryNo}, TITLE=#{title}, BODY=#{body}
@@ -54,15 +64,17 @@
 			NOTICE_NO=#{noticeNo} 
 	</update>
 	
+	<!-- 공지사항 삭제 -->
 	<delete id="deleteNotice" parameterType="noticeVO">
 			delete from notice
 			where
 			NOTICE_NO=#{noticeNo}
 	</delete>
 	
+	<!-- 검색 테스트 
 	<select id="searchNoticesByTitle" resultMap="noticeResult">
     	select * from notice where TITLE like CONCAT('%', #{searchKeyword}, '%') order by NOTICE_NO desc
 	</select>
-
+	-->
 	
 </mapper>

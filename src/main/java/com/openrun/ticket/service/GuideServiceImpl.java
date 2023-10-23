@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.openrun.ticket.dao.GuideDAO;
 import com.openrun.ticket.vo.FaqVO;
 import com.openrun.ticket.vo.GuideVO;
+import com.openrun.ticket.vo.GuideVO;
 
 /*@Transactional(propagation=Propagation.REQUIRED) */
 @Service
@@ -40,8 +41,13 @@ public class GuideServiceImpl implements GuideService{
 	   }
 	   
 	   @Override
-	   public List<GuideVO> selectGuidesByCategory(int categoryNo) {
-		   return guideDAO.selectGuidesByCategory(categoryNo);
+	   public List<GuideVO> selectGuidesByCategoryWithPagination(int categoryNo, int start, int pageSize) throws DataAccessException {
+		   return guideDAO.selectGuidesByCategoryWithPagination(categoryNo, start, pageSize);
+	   }
+	   
+	   @Override
+	   public int selectTotalGuideCountByCategory(int categoryNo) throws DataAccessException {
+		   return guideDAO.selectTotalGuideCountByCategory(categoryNo);
 	   }
 	   
 	   @Override

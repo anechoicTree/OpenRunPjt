@@ -42,8 +42,17 @@ public class GuideDAOImpl implements GuideDAO {
 	}
 	
     @Override
-    public List<GuideVO> selectGuidesByCategory(int categoryNo) throws DataAccessException {
-        return sqlSession.selectList("com.openrun.ticket.mappers.GuideMapper.selectGuidesByCategory", categoryNo);
+    public List<GuideVO> selectGuidesByCategoryWithPagination(int categoryNo, int start, int pageSize) throws DataAccessException {
+    	Map<String, Integer> params = new HashMap<>();
+        params.put("start", start);
+        params.put("pageSize", pageSize);
+        params.put("categoryNo", categoryNo);
+    	return sqlSession.selectList("com.openrun.ticket.mappers.GuideMapper.selectGuidesByCategoryWithPagination", params);
+    }
+    
+    @Override
+    public int selectTotalGuideCountByCategory(int categoryNo) throws DataAccessException {
+        return sqlSession.selectOne("com.openrun.ticket.mappers.GuideMapper.selectTotalGuideCountByCategory", categoryNo);
     }
 
 	@Override

@@ -13,15 +13,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.openrun.ticket.service.SelectService;
 import com.openrun.ticket.service.UserService;
+import com.openrun.ticket.vo.SelectVO;
 import com.openrun.ticket.vo.UserVO;
 
 @Controller
 public class MainController {
 	
+    @Autowired
+    private SelectService selectService;
+    
     @RequestMapping(value={"/"}, method = RequestMethod.GET)
-    public String listNotices(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "main";
+    public String listNotices(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+    	
+		List<SelectVO> selectList = selectService.getAllTicketsOrderBySelectNo();
+		model.addAttribute("selectList", selectList);
+	    return "main";
     }
     
 	private UserService service;

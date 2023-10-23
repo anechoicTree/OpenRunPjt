@@ -35,16 +35,44 @@ function setCategoryNo() {
                     selectedCategoryNo = 0; // 다른 경우에 대한 기본값
                     break;
             }
-         // 디버그: 선택된 categoryNo를 콘솔에 출력
-            console.log("Selected CategoryNo: " + selectedCategoryNo);
         }
     }
     // 설정된 categoryNo를 숨겨진 필드에 설정
     document.getElementById("categoryNo").value = selectedCategoryNo;
-    console.log(document.getElementById("categoryNo").value);
 }	
 
-console.log(document.getElementById("categoryNo").value);
+
+	$(document).on('click', '#form-cancel-btn', function() {
+	    $('#guide_btn').trigger('click');
+	});
+	
+	$(document).off('click', '#form-submit-btn').on('click', '#form-submit-btn', function(e) {
+	    e.preventDefault(); // 기본 제출 동작 방지
+
+	    var formData = new FormData($('form')[0]); // FormData 객체를 사용하여 폼 데이터를 가져옵니다.
+
+	    $.ajax({
+	        url: '/ticket/guide/insertGuide',
+	        type: 'POST',
+	        data: formData,
+	        processData: false, // 데이터 처리 방식을 false로 설정
+	        contentType: false, // 컨텐츠 타입을 false로 설정
+	        success: function(response) {
+	            if (response == "success") {
+	                $('#guide_btn').trigger('click'); // Success 응답시 버튼 클릭 동작 수행
+	                $('form')[0].reset(); // 폼 초기화
+	            } else {
+	                alert('Failed to submit form'); // 다른 응답시 알림 표시
+	            }
+	        },
+	        error: function() {
+	            alert('Error occurred while submitting the form');
+	        }
+	    });
+	});
+
+
+
 </script>
 </head>
 <body>
@@ -87,9 +115,8 @@ console.log(document.getElementById("categoryNo").value);
 
         <tr align="right" valign="middle">
             <td colspan="5">
-
-                <input class="form-btn" type="submit" value="등록" >
-                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >            
+                <input class="form-btn" id="form-submit-btn" type="submit" value="등록" >
+                <input class="form-btn" id="form-cancel-btn" type="button" value="취소" >           
             </td>
         </tr>
     </table> 

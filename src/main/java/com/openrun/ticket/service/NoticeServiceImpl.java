@@ -40,10 +40,15 @@ public class NoticeServiceImpl implements NoticeService{
 	   }
 	   
 	   @Override
-	   public List<NoticeVO> selectNoticesByCategory(int categoryNo) {
-		   return noticeDAO.selectNoticesByCategory(categoryNo);
+	   public List<NoticeVO> selectNoticesByCategoryWithPagination(int categoryNo, int start, int pageSize) throws DataAccessException {
+		   return noticeDAO.selectNoticesByCategoryWithPagination(categoryNo, start, pageSize);
 	   }
 	   
+	   @Override
+	   public int selectTotalNoticeCountByCategory(int categoryNo) throws DataAccessException {
+		   return noticeDAO.selectTotalNoticeCountByCategory(categoryNo);
+	   }
+
 	   @Override
 	   public int insertNotice(NoticeVO noticeVO) throws DataAccessException {
 		   return noticeDAO.insertNotice(noticeVO);
@@ -65,8 +70,8 @@ public class NoticeServiceImpl implements NoticeService{
 	       return result;
 	   }
 	   
-	   @Override
-	   public List<NoticeVO> searchNoticesByTitle(String searchKeyword) {
-	       return noticeDAO.searchNoticesByTitle(searchKeyword);
-	   }
+//	   @Override
+//	   public List<NoticeVO> searchNoticesByTitle(String searchKeyword) {
+//	       return noticeDAO.searchNoticesByTitle(searchKeyword);
+//	   }
 }

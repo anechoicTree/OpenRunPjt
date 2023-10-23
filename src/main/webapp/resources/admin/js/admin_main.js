@@ -27,6 +27,14 @@
 	    'cancel': '23',
 	    'delivery': '24'
     };
+    
+    const qnaUrlMap = {
+    	'q_general': '91',
+    	'q_system': '92',
+    	'q_book': '93',
+    	'q_payment': '94',
+    	'q_etc': '95'
+    };
 	
 	const cudUrlMap = {
         'notice-create-btn': '/ticket/notice/noticeForm',

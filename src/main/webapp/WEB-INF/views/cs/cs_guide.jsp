@@ -52,7 +52,6 @@
 						<button class="category-btn" id="guide-category-btn" data-id="delivery">배송/발권</button>
 					</div>
 					<div class="category-box">
-						<button class="" data-id=""></button>
 					</div>
 				</div>
 			</div>

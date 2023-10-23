@@ -41,7 +41,7 @@ public class SellerController /*implements SellerController*/ {
         HttpServletResponse response,
         @RequestParam(name = "page", defaultValue = "1") int page // 기본값은 1로 설정
     ) throws Exception {
-        // 한 페이지에 보여질 공지사항 개수
+        // 한 페이지에 보여질 판매자 개수
         int pageSize = 10;
         
         // 페이지 번호와 총 페이지 개수를 계산하여 전달
@@ -64,7 +64,7 @@ public class SellerController /*implements SellerController*/ {
     @GetMapping("/cs/seller/detail")
     public String showSellerDetail(HttpServletRequest request, @RequestParam("seller_no") int seller_no, Model model) throws Exception {
         request.setCharacterEncoding("utf-8");
-        // 공지사항 번호로 공지사항 정보를 가져옴
+        // 판매자 번호로 판매자 정보를 가져옴
         SellerVO seller = sellerService.getSellerBySellerNo(seller_no);
         // Model에 데이터를 추가하여 JSP로 전달
         model.addAttribute("seller", seller);
@@ -77,7 +77,7 @@ public class SellerController /*implements SellerController*/ {
         HttpServletResponse response,
         @RequestParam(name = "page", defaultValue = "1") int page // 기본값은 1로 설정
     ) throws Exception {
-        // 한 페이지에 보여질 공지사항 개수
+        // 한 페이지에 보여질 판매자 개수
         int pageSize = 10;
         
         // 페이지 번호와 총 페이지 개수를 계산하여 전달
@@ -117,7 +117,7 @@ public class SellerController /*implements SellerController*/ {
         HttpServletResponse response,
         @RequestParam(name = "page", defaultValue = "1") int page // 기본값은 1로 설정
 		) throws Exception {
-	        // 한 페이지에 보여질 공지사항 개수
+	        // 한 페이지에 보여질 판매자 개수
 	        int pageSize = 10;
 	        
 	        // 페이지 번호와 총 페이지 개수를 계산하여 전달
@@ -187,19 +187,25 @@ public class SellerController /*implements SellerController*/ {
 	// seller 로그인
 	@PostMapping("/seller/loginSeller")
 	@ResponseBody
-	public String Login(@ModelAttribute SellerVO sellerVO, HttpSession session) {
-		session.removeAttribute("userLoginResult");	
-		SellerVO sellerLoginResult  = sellerService.Login(sellerVO);
-	
+	public Map<String, String> Login(@ModelAttribute SellerVO sellerVO, HttpSession session) {
+		 System.out.println("sellerController / Login");
+		    session.removeAttribute("userLoginResult");
+		    SellerVO sellerLoginResult = sellerService.Login(sellerVO);
 
-		if (sellerLoginResult != null) {
-			session.setAttribute("sellerLoginResult", sellerLoginResult );	
-			System.out.println("Seller 세션 속성 추가: " + session.getAttribute("sellerLoginResult"));
-			return "1"; // 로그인 성공
-		} else {
-			return "0"; // 로그인 실패
+		    Map<String, String> response = new HashMap<>();
+		    System.out.println(sellerLoginResult);
+		    
+		    if (sellerLoginResult != null) {
+		        session.setAttribute("sellerLoginResult", sellerLoginResult);
+		        response.put("result", "1"); // 로그인 성공
+		        response.put("s_level", sellerLoginResult.getS_level());
+		    } else {
+		        response.put("result", "0"); // 로그인 실패
+		    }
+
+		    return response;
 		}
-	}
+	
 	// seller 로그인 완료
 	@GetMapping("/seller/loginOk")
 	public String loginOk() {

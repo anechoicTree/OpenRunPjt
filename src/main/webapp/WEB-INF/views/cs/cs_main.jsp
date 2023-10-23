@@ -66,17 +66,15 @@
        	}
     });
     
-    <!-- [사이드 메뉴] 하위 버튼 ON/OFF -->
+    <!-- [사이드 메뉴] 하위 버튼 ON/OFF 애니메이션 -->
     
     $(document).ready(function() {
         // 초기 설정: 모든 .ssub 요소들을 숨김
         $('.ssub').hide();
-
         // .stitle 요소 클릭 이벤트 핸들러
         $('.stitle').click(function() {
-            // 현재 클릭된 .stitle의 바로 다음 .ssub 요소를 선택하고 토글 효과 적용
+            // 현재 클릭된 .stitle의 바로 다음 .ssub 요소를 선택하고 토글 효과 적용(수치는 애니메이션 지속시간, ms)
             $(this).next('.ssub').slideToggle(200);
-
             // 다른 .stitle의 바로 다음 .ssub 요소들은 모두 숨김
             $('.stitle').not(this).next('.ssub').slideUp(200);
         });
@@ -170,7 +168,9 @@
 			</div>
 	    </div>
 	    <div class="view" id="view">
-	    
+	    	<div class="view_dummy">
+	    		고객센터 메인 페이지 - 미구현 영역
+	    	</div>
 		</div>    	
     </div>
     <%@ include file="../common/footer.jsp" %>

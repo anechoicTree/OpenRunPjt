@@ -263,7 +263,7 @@ textarea:focus {
     position: relative;  /* 이미지를 부모 안에서 절대 위치로 설정하기 위한 기준이 됩니다. */
     overflow: hidden;    /* 이미지가 부모 컨테이너를 넘어갈 경우 숨깁니다. */
     width: 100%;         /* 또는 원하는 너비로 설정 */
-    height: 180px;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
+    height: 480px;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
 }
 
 .cs-board-list-row-box-img img {
@@ -282,6 +282,7 @@ textarea:focus {
 	height: 30px;
 	display: flex;
 	justify-content: center;
+	margin-top: 15px;
 }
 
 #cs-board-page > * {
@@ -416,4 +417,3 @@ textarea:focus {
 	background-color: rgb(240, 239, 239);
 	cursor: pointer;
 }
-

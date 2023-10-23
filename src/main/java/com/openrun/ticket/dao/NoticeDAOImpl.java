@@ -43,10 +43,19 @@ public class NoticeDAOImpl implements NoticeDAO {
 	}
 	
     @Override
-    public List<NoticeVO> selectNoticesByCategory(int categoryNo) throws DataAccessException {
-        return sqlSession.selectList("com.openrun.ticket.mappers.NoticeMapper.selectNoticesByCategory", categoryNo);
+    public List<NoticeVO> selectNoticesByCategoryWithPagination(int categoryNo, int start, int pageSize) throws DataAccessException {
+    	Map<String, Integer> params = new HashMap<>();
+        params.put("start", start);
+        params.put("pageSize", pageSize);
+        params.put("categoryNo", categoryNo);
+    	return sqlSession.selectList("com.openrun.ticket.mappers.NoticeMapper.selectNoticesByCategoryWithPagination", params);
     }
-
+    
+    @Override
+    public int selectTotalNoticeCountByCategory(int categoryNo) throws DataAccessException {
+        return sqlSession.selectOne("com.openrun.ticket.mappers.NoticeMapper.selectTotalNoticeCountByCategory", categoryNo);
+    }
+    
 	@Override
 	public int insertNotice(NoticeVO noticeVO) throws DataAccessException {
 		int result = sqlSession.insert("com.openrun.ticket.mappers.NoticeMapper.insertNotice", noticeVO);
@@ -64,9 +73,9 @@ public class NoticeDAOImpl implements NoticeDAO {
     public int removeNotice(int noticeNo) throws DataAccessException {
         return sqlSession.delete("com.openrun.ticket.mappers.NoticeMapper.deleteNotice", noticeNo);
     }
-	
-	@Override
-	public List<NoticeVO> searchNoticesByTitle(String searchKeyword) throws DataAccessException {
-	    return sqlSession.selectList("com.openrun.ticket.mappers.NoticeMapper.searchNoticesByTitle", searchKeyword);
-	}
+//	
+//	@Override
+//	public List<NoticeVO> searchNoticesByTitle(String searchKeyword) throws DataAccessException {
+//	    return sqlSession.selectList("com.openrun.ticket.mappers.NoticeMapper.searchNoticesByTitle", searchKeyword);
+//	}
 }
