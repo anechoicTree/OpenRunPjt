@@ -32,7 +32,7 @@
 					</table>
 				</div>
 				<div class="modify_product_form">
-					<form action="<c:url value='/product/admin/modifyProductConfirm' />" name="modify_product_form" method="post" enctype="multipart/form-data">
+					<form action="<c:url value='/product/seller/modifyProductConfirm' />" name="modify_product_form" method="post" enctype="multipart/form-data">
 						<div class="filebox">
 							<input class="upload-name" value="상품이미지를 등록해주세요." placeholder="상품이미지를 등록해주세요." disabled>
 							<label for="file">파일찾기</label>

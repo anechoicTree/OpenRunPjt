@@ -19,7 +19,7 @@ import com.openrun.ticket.vo.ProductVO;
 
 
 @Controller
-@RequestMapping("/product/admin")
+@RequestMapping("/product/seller")
 public class ProductController {
 	
 	@Autowired
@@ -178,13 +178,4 @@ public class ProductController {
 		return nextPage;
 	}
 	
-	//seller_product_list.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
-	@GetMapping("/inquiryProductList")
-	public String inquiryProductList() {
-		System.out.println("[ProductController] inquiryProductList()");
-		
-		String nextPage = "admin/product/inquiry_product_list";
-		
-		return nextPage;
-	}
 }

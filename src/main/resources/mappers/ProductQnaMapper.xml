@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.openrun.ticket.mappers.ProductQnaMapper">
+	<resultMap id="productQnaResult" type="productQnaVO">
+		<result property="i_no" column="i_no"/>
+		<result property="i_category" column="i_category"/>
+		<result property="i_email" column="i_email"/>
+		<result property="i_title" column="i_title"/>
+		<result property="i_content" column="i_content"/>
+		<result property="i_regdate" column="i_regdate"/>
+		<result property="i_level" column="i_level"/>
+		<result property="i_answer" column="i_answer"/>
+		<result property="i_aRegdate" column="i_aRegdate"/>
+	</resultMap>
+
+	
+	<select id="isINum" resultType="int">
+        SELECT COUNT(*) FROM p_inquiry WHERE i_no = #{i_no}
+    </select>
+	
+	<insert id="insertProductQna" parameterType="productQnaVO">
+		INSERT INTO p_inquiry(i_no, i_category, i_email, i_title, i_content, i_regdate)
+        VALUES(#{i_no}, #{i_category}, #{i_email}, #{i_title}, #{i_content}, CURDATE())
+	</insert>
+	
+	<select id="selectAllProductQna" resultMap="productQnaResult">
+		SELECT * FROM p_inquiry ORDER BY i_level DESC, i_regdate ASC
+	</select>
+	
+	<select id="selectInquiry" resultMap="productQnaResult">
+        SELECT * FROM p_inquiry WHERE i_no = #{i_no}
+    </select>
+    
+    <update id="updateAnswer" parameterType="productQnaVO">
+		UPDATE p_inquiry
+		SET
+			i_answer = #{i_answer}, 
+			i_aRegdate = CURDATE()
+	    WHERE i_no = #{i_no}
+	</update>
+	
+</mapper>

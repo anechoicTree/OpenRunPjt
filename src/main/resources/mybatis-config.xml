@@ -18,5 +18,6 @@
 	<typeAlias alias="selectVO" type="com.openrun.ticket.vo.SelectVO"/>
 	<typeAlias alias="productVO" type="com.openrun.ticket.vo.ProductVO"/>
 	<typeAlias alias="locationVO" type="com.openrun.ticket.vo.LocationVO"/>
+	<typeAlias alias="productQnaVO" type="com.openrun.ticket.vo.ProductQnaVO"/>
   </typeAliases>
 </configuration>
