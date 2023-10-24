@@ -69,6 +69,6 @@
         UPDATE seller SET s_pw = #{s_pw} WHERE s_id = #{s_id}
     </update>
     <delete id="withdrawal" parameterType="SellerVo">
-       DELETE FROM seller WHERE seller_no = #{seller_no} AND s_pw = #{s_pw};
+       DELETE FROM seller WHERE s_id = #{s_id} AND s_pw = #{s_pw};
     </delete>
 </mapper>

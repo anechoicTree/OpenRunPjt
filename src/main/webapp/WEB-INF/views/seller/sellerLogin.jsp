@@ -52,7 +52,7 @@ $(document).ready(function() {
                         			window.location.href = "sellerLoginNo";
                     			} else {
                     				alert("로그인 성공");
-                       				 window.location.href = "exLoginOk";
+                       				 window.location.href = "/ticket";
                     			}
                 			} else if (response.result === '0') { // 로그인 실패
                    				 alert("로그인 실패. 아이디 또는 비밀번호가 일치하지 않습니다.");

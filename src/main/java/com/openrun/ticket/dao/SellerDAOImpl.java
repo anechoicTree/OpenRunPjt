@@ -98,13 +98,11 @@ public class SellerDAOImpl implements SellerDAO {
 		 @Override
 		 public String pwChange(SellerVO sellerVO) {
 			
-			 return sqlSession.selectOne(namespace + ".pwChange", sellerVO);
-			 
-			 
+			 return sqlSession.selectOne(namespace + ".pwChange", sellerVO);		 
 		 }
 		 @Override
-		 public SellerVO withdrawal(SellerVO sellerVO) {	
+		 public int withdrawal(SellerVO sellerVO) throws Exception{	
 			 
-			 return sqlSession.selectOne(namespace + ".withdrawal", sellerVO);
+			 return sqlSession.delete(namespace + ".withdrawal", sellerVO);
 		 }
-	}
+}

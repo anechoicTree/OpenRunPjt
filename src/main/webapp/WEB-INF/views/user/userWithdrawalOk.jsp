@@ -1,35 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<c:url value='/resources/seller/sellerWithdrawalOk.css'  var="css"/>
+<c:url value='/resources/user/userWithdrawalOk.css'  var="css"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link href="${css}" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>판매자 회원탈퇴 비밀번호 확인</title>
+<title>구매자 회원탈퇴 비밀번호 확인</title>
 </head>
 <body>
 <script>
 $(document).ready(function() {
-    $(document).on("click", "#sellerWithdrawalButton", function(e) {
+    $(document).on("click", "#userWithdrawalButton", function(e) {
         e.preventDefault();
         
-        var s_id = $("#s_id").val();
-        var s_pw = $("#s_pw").val();
+        var u_id = $("#u_id").val();
+        var u_pw = $("#u_pw").val();
         
-        if (s_pw === '') {
+        if (u_pw === '') {
             alert('비밀번호를 입력해주세요.');
             return;
         }
         
         var dataToSend = {
-                s_pw: s_pw,
-                s_id: s_id
+                u_pw: u_pw,
+                u_id: u_id
             };
         $.ajax({
-        	url: "withdrawalOk",
+        	url: "withdrawalOkUser",
         	type: "POST",
         	data: dataToSend,
         	cache: false,
@@ -52,19 +52,19 @@ $(document).ready(function() {
 <jsp:include page="../header.jsp" />
 	<div id="main_nav">
 	<div id="main_nav_container">
-		<jsp:include page="../seller/seller_nav_side.jsp" />
+		<jsp:include page="side/side.jsp" />
 		<div id="main_nav_sub">
 			<div id="main_title">회원 탈퇴 비밀번호 확인</div>
 			<div id="main_content_sub">
-			<form id="sellerWithdrawal" name="sellerWithdrawal" action="<c:url value='/product/admin/withdrawalOk' />" method="POST" >
+			<form id="userWithdrawal" name="userWithdrawal" action="<c:url value='/product/admin/withdrawalOkUser' />" method="POST" >
 				<div id="withdrawal_nav">
 					<div id="withdrawal_content">
-					<input class="input_text" type="hidden" id="s_id" name="s_id" value="${sellerLoginResult.s_id}">
+					<input class="input_text" type="hidden" id="u_id" name="u_id" value="${userLoginResult.u_id}">
 						<div id="withdrawal_content1">비밀번호
-							<input class="input_text" type="password" id="s_pw" name="s_pw" placeholder="8~12자 영문, 숫자, 특수문자">
+							<input class="input_text" type="password" id="u_pw" name="u_pw" placeholder="8~12자 영문, 숫자, 특수문자"><br>
 						</div>
 					</div>
-					<button class="next_button" id="sellerWithdrawalButton" type="submit">확인</button>
+					<button class="next_button" id="userWithdrawalButton" type="submit">확인</button>
 				</div>
 			</form>
 			</div>

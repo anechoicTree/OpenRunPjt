@@ -44,7 +44,7 @@ $(document).ready(function() {
                         success: function(result) {
                             if (result === '1') {
                                 alert("로그인 성공");
-                                window.location.href = "exLoginOk";
+                                window.location.href = "/ticket";
                             } else {
                                 alert("로그인 실패. 아이디 또는 비밀번호가 일치하지 않습니다.");
                             }

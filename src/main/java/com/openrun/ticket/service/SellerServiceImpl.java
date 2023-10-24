@@ -77,7 +77,7 @@ public class SellerServiceImpl implements SellerService{
 		return sellerDAO.pwChange(sellerVO);
 	}
 	@Override
-	public SellerVO withdrawal(SellerVO sellerVO) {
+	public int withdrawal(SellerVO sellerVO) throws Exception{
 		return sellerDAO.withdrawal(sellerVO);
 	}
 	

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.openrun.ticket.dao.UserDAO;
+import com.openrun.ticket.vo.SellerVO;
 import com.openrun.ticket.vo.UserVO;
 
 @Service
@@ -46,6 +47,9 @@ public class UserServiceImpl implements UserService {
 	public String pwChange(UserVO userVO){
 		return userDAO.pwChange(userVO);
 	}
-
+	@Override
+	public int withdrawal(UserVO userVO) throws Exception{
+		return userDAO.withdrawal(userVO);
+	}
 	
 }

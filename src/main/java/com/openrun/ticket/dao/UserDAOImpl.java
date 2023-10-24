@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
+import com.openrun.ticket.vo.SellerVO;
 import com.openrun.ticket.vo.UserVO;
 
 @Repository
@@ -54,5 +55,10 @@ public class UserDAOImpl implements UserDAO{
 		
 		 return sqlSession.selectOne(namespace + ".pwChange", userVO);
  
+	 }
+	 @Override
+	 public int withdrawal(UserVO userVO) throws Exception{	
+		 
+		 return sqlSession.delete(namespace + ".withdrawal", userVO);
 	 }
 }

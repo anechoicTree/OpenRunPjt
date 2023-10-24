@@ -21,5 +21,5 @@ public interface SellerDAO {
 	public SellerVO findIdCheck(SellerVO sellerVO);
 	public SellerVO findPwCheck(SellerVO sellerVO);
 	public String pwChange(SellerVO sellerVO);
-	public SellerVO withdrawal(SellerVO sellerVO);
+	 public int withdrawal(SellerVO sellerVO)throws Exception;
 }

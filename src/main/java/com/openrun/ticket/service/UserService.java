@@ -12,4 +12,5 @@ public interface UserService {
 	public UserVO findIdCheck(UserVO userVO);
 	public UserVO findPwCheck(UserVO userVO);
 	public String pwChange(UserVO userVO);
+	public int withdrawal(UserVO userVO) throws Exception;
 }

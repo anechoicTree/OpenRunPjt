@@ -16,7 +16,7 @@
 				<div>"${sellerLoginResult.s_business_name}"님의 <br>회원가입 승인이 진행 중 입니다</div>
 				<div id="main_content">회원가입 승인이 일주일 이상 진행되고 있다면 문의해주세요</div>
 			</div>
-			<button class="next_button" onclick="location.href='홈으로 가기''">홈으로 가기</button>
+			<button class="next_button" onclick="location.href='/ticket'">홈으로 가기</button>
 		</div>
 		<jsp:include page="../common/footer.jsp" />
 </body>

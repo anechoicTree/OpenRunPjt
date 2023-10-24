@@ -165,7 +165,7 @@ $(document).ready(function() {
 		<div id="add_button_container">
 			<button class="add_button" id="find_login" onclick="location.href='/ticket/loginForm'">로그인</button>
 			<button class="add_button" id="find_password" onclick="location.href='userFindId'">아이디찾기</button>
-			<button class="add_button" id="find_join" onclick="location.href='/ticket'">회원가입</button>
+			<button class="add_button" id="find_join" onclick="location.href='/ticket/joinMember'">회원가입</button>
 		</div>	
 	</div>
 </div>

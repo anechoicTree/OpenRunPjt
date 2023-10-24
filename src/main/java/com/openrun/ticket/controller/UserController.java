@@ -279,18 +279,39 @@ public class UserController {
 		String nextPage = "user/reservationCancelOk";
 		return nextPage;
 	}
-
-	// 연결 test
-	@GetMapping("/user/my")
-	public String reservationCancelOk2(Model model) throws Exception {
-
-		List<UserVO> list;
-		list = userService.user();
-		model.addAttribute("useTest", list);
-
-		System.out.println("userController / reservationCancelOk2");
-		String nextPage = "user/reservationCancelOk2";
+	//user 회원탈퇴 페이지
+	@GetMapping("/product/admin/userWithdrawal")
+	public String userWithdrawal(HttpSession session) {
+		System.out.println("userController / userWithdrawal");
+						
+		String nextPage = "user/userWithdrawal";
 		return nextPage;
+	}
+	//user 회원 탈퇴 비밀번호 입력 페이지
+	@GetMapping("/product/admin/userWithdrawalOk")
+	public String userWithdrawalOk(HttpSession session) {
+		System.out.println("userController / userWithdrawalOk");
+						
+		String nextPage = "user/userWithdrawalOk";
+		return nextPage;
+	}
+	//user 회원 탈퇴 
+	@PostMapping("/product/admin/withdrawalOkUser")
+	@ResponseBody
+	public String withdrawalOkUser(UserVO userVO, HttpSession session) throws Exception {
+		System.out.println("userController / withdrawalOkUser");
+
+	    int withdrawalResult = userService.withdrawal(userVO);
+	    System.out.println(withdrawalResult);
+
+	    if (withdrawalResult == 1) {
+	    	session.removeAttribute("userLoginResult");
+	        System.out.println("회원 탈퇴 성공");
+	        return "1"; // 회원 탈퇴 성공
+	    } else {
+	    	System.out.println("회원 탈퇴 실패");
+	    	return "0"; // 회원 탈퇴 실패
+	    }
 	}
 
 }
