@@ -9,6 +9,30 @@
 <c:url value="/resources/common/image/search_btn.png" var="search_btn" />
 <link rel="stylesheet" href="${css}">
 
+<script>
+	$(document).ready(function() {
+	    // menu-btn 클릭 이벤트 핸들러
+	    $('.menu-btn').click(function() {
+	    	if ($(this).data('id') != "home") {
+	    		var category = $(this).attr('value'); // 클릭한 버튼의 value 값 가져오기
+		        var url = '/ticket/search?category=' + category; // 카테고리를 URL 파라미터로 추가
+		        $.ajax({
+		            type: 'GET', // GET 요청
+		            url: url,
+		            success: function(data) {
+		                // GET 요청이 성공하면 페이지 이동
+		                window.location.href = url;
+		            },
+		            error: function() {
+		                // GET 요청에 실패하면 오류 처리
+		                console.error('Failed to load page: ' + url);
+		            }
+		        });
+	    	}
+	    });
+	});
+</script>
+
 <div class="header-container">
 	<div class="header-container-sub"> 
 
@@ -80,19 +104,19 @@
 				<button class="menu-btn" data-id="home" onclick="location.href='/ticket'">홈</button>
 			</div>
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="musical">뮤지컬</button>
+				<button class="menu-btn" data-id="musical" value="뮤지컬">뮤지컬</button>
 			</div>
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="concert">콘서트</button>
+				<button class="menu-btn" data-id="concert" value="콘서트">콘서트</button>
 			</div>
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="drama">연극</button>
+				<button class="menu-btn" data-id="drama" value="연극">연극</button>
 			</div>
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="classic">클래식/무용</button>
+				<button class="menu-btn" data-id="classic" value="클래식">클래식/무용</button>
 			</div>
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="exhibition">전시/행사</button>
+				<button class="menu-btn" data-id="exhibition" value="전시">전시/행사</button>
 			</div>
 			<div class="main-nav-btn">
 				<button class="menu-btn" data-id="ranking">랭킹</button>

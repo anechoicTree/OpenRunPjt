@@ -46,6 +46,7 @@ $(document).ready(function(){
         $('.main-banner-body').css('transform', 'translateX(' + moveAmount + '%)');
     }
 });
+
 </script>
 </head>
 <body>
@@ -53,60 +54,58 @@ $(document).ready(function(){
     <div class="view">
     	<div class="main-banner-container">
 			<div class="main-banner-container-sub">
-				<div id="main-banner-title">티켓 랭킹</div>
-					<div class="filter">
-						<ul id="filter-list">
-							<li class="filter-item">
-								<button class="filter-btn" id="">뮤지컬</button>
-							</li>
-							<li class="filter-item">
-								<button class="filter-btn" id="">콘서트</button>
-							</li>
-							<li class="filter-item">
-								<button class="filter-btn" id="">연극</button>
-							</li>
-							<li class="filter-item">
-								<button class="filter-btn" id="">클래식/무용</button>
-							</li>
-							<li class="filter-item">
-								<button class="filter-btn" id="">전시/행사</button>
-							</li>
-						</ul>
-					</div>
-					<div class="main-banner-body">
-						<div class="ticket-info">
-			           		<!-- 더미 이미지 삽입 -->
-							<img src="${img1}">
-						</div>
-						<div class="ticket-info">
-							<!-- 더미 이미지 삽입 -->
-							<img src="${img2}">
-						</div>
-						<div class="ticket-info">
-							<!-- 더미 이미지 삽입 -->
-							<img src="${img3}">
-						</div>
-					</div><br>
-					
-					<div class="main-banner-body">
-		                <c:forEach items="${selectList}" var="ticket">
-		                	<div class="banner-list">
-					            <div class="ticket-info">
-									<strong>티켓 번호:</strong> ${ticket.ticketNo}
-								</div>
-								<div class="ticket-info">
-								    <strong>카테고리 번호:</strong> ${ticket.categoryNo}
-								</div>
-								<div class="ticket-info">
-								    <strong>티켓 이름:</strong> ${ticket.ticketName}
-								</div>
-				            </div>
-		                </c:forEach>
-					</div>
+				<span id="main-banner-title">티켓 랭킹</span>
+				<div class="filter">
+					<ul id="filter-list">
+						<li class="filter-item">
+							<button class="filter-btn" id="">뮤지컬</button>
+						</li>
+						<li class="filter-item">
+							<button class="filter-btn" id="">콘서트</button>
+						</li>
+						<li class="filter-item">
+							<button class="filter-btn" id="">연극</button>
+						</li>
+						<li class="filter-item">
+							<button class="filter-btn" id="">클래식/무용</button>
+						</li>
+						<li class="filter-item">
+							<button class="filter-btn" id="">전시/행사</button>
+						</li>
+					</ul>
 				</div>
-			</div>	
-		</div>
+				<div class="main-banner-body">
+					<div class="ticket-info">
+		           		<!-- 더미 이미지 삽입 -->
+						<img src="${img1}">
+					</div>
+					<div class="ticket-info">
+						<!-- 더미 이미지 삽입 -->
+						<img src="${img2}">
+					</div>
+					<div class="ticket-info">
+						<!-- 더미 이미지 삽입 -->
+						<img src="${img3}">
+					</div>
+				</div><br>
+				
+				<div class="main-banner-body">
+	                <c:forEach items="${selectList}" var="ticket">
+	                	<div class="banner-list">
+				            <div class="ticket-info">
+								<strong>티켓 번호:</strong> ${ticket.ticketNo}
+							</div>
+							<div class="ticket-info">
+							    <strong>카테고리 번호:</strong> ${ticket.categoryNo}
+							</div>
+							<div class="ticket-info">
+							    <strong>티켓 이름:</strong> ${ticket.ticketName}
+							</div>
+			            </div>
+	                </c:forEach>
+				</div>
+			</div>
+		</div>	
 	</div>
 	<%@ include file="./common/footer.jsp" %>
-	<%@ include file="./common/commonJs.jsp" %>
 </body>
