@@ -1,0 +1,74 @@
+@charset "UTF-8";
+*{
+	font-family: 'SUITE';
+}
+#main_nav{
+	text-align: center; 
+	margin-top:60px;
+}
+#main_title{
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 44px;
+	top: 230px;
+	color: #000000;
+}
+#login_form_container{
+	box-sizing: border-box;
+	top: 300px;
+}
+
+#login_form_container_sub{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 50px;
+	display: inline-block;
+}
+
+.login_input_container{
+	box-sizing: border-box;
+	margin-bottom: 30px;
+	width: 400px;
+	
+	text-align: left;
+	color: #6E63CF;
+	font-size: 24px;
+	font-weight: 400;
+	border-bottom: 1px solid #6E63CF;
+}
+.input_text{
+	border: none;
+	font-size: 18px;
+	outline: none;
+	width: 300px;
+	margin-left:10px;
+}
+.next_button{
+	width: 340px;
+	height: 50px;
+	
+	background: #6E63CF;
+	border: 1px solid #6E63CF;
+	border-radius: 12px;
+	font-size: 30px;
+	color: #FFFFFF;	
+}
+#add_button_container{
+	list-style: none;
+	margin-top:30px
+
+}
+.add_button{
+	border: none;
+	color: #9f9f9f;
+	background: none;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 10px;
+	color: #808080;
+	text-align: center; 
+}
+#find_id,#find_password{
+	border-right: 1px solid #9f9f9f;
+}
