@@ -29,8 +29,8 @@
 			<hr>
 			<div class="sub_title">회원정보</div>
 			<div class="content_nav">
-				<button id="modify_button" class="index_button">회원정보 수정</button>
-				<button id="wthdr_button" class="index_button">회원탈퇴</button>
+				<button id="modify_button" class="index_button" onclick="location.href='userModification'">회원정보 수정</button>
+				<button id="wthdr_button" class="index_button" onclick="location.href='userWithdrawal'">회원탈퇴 </button>
 			</div>
 		</div>
 		<div class="csbanner">

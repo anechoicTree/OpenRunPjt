@@ -313,5 +313,14 @@ public class UserController {
 	    	return "0"; // 회원 탈퇴 실패
 	    }
 	}
+	//user 회원 정보 수정
+	@GetMapping("/product/admin/userModification")
+	public String userModification() {
+		System.out.println("userController / userModification");
+		
+		String nextPage = "user/userModification";
+		return nextPage;
+		
+	}
 
 }
