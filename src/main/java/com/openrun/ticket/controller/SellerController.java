@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -380,5 +381,38 @@ public class SellerController /*implements SellerController*/ {
 		return "0"; //비밀번호 수정 실패 
 	}
 	}
-	
+	//seller 회원탈퇴 페이지
+	@GetMapping("/product/admin/sellerWithdrawal")
+	public String sellerWithdrawal(HttpSession session) {
+		System.out.println("sellerController / sellerWithdrawal");
+					
+		String nextPage = "seller/sellerWithdrawal";
+		return nextPage;
+	}
+	//seller 회원 탈퇴 비밀번호 입력 페이지
+	@GetMapping("/product/admin/sellerWithdrawalOk")
+	public String sellerWithdrawalOk( HttpSession session) {
+		System.out.println("sellerController / sellerWithdrawalOk");
+					
+		String nextPage = "seller/sellerWithdrawalOk";
+		return nextPage;
+	}
+	//seller 회원 탈퇴 
+	@PostMapping("/product/admin/withdrawalOk")
+	@ResponseBody
+	public String withdrawalOk(SellerVO sellerVO, HttpSession session) {
+	    System.out.println("sellerController / withdrawalOk");
+
+	    SellerVO withdrawalResult = sellerService.withdrawal(sellerVO);
+
+	    if (withdrawalResult != null) {
+	        // 회원 탈퇴가 성공한 경우
+	        // 탈퇴 성공 메시지 생성
+	        return "1"; // 성공
+	    } else {
+	        // 회원 탈퇴가 실패한 경우
+	        // 탈퇴 실패 메시지 생성
+	        return "0"; // 실패
+	    }
+	}
 }

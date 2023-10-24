@@ -19,7 +19,7 @@
 		<!-- 로그인 전 -->
 		<%
 		UserVO userLoginResult = (UserVO) session.getAttribute("userLoginResult");
-				SellerVO sellerLoginResult = (SellerVO) session.getAttribute("sellerLoginResult");
+		SellerVO sellerLoginResult = (SellerVO) session.getAttribute("sellerLoginResult");
 		%>
 		<% 
 		if (userLoginResult != null){

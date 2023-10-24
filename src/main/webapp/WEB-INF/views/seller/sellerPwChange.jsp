@@ -82,7 +82,7 @@ $(document).ready(function() {
 	
 	<div id="main_nav">
 	<div id="main_nav_container">
-	<jsp:include page="../user/side/side.jsp" />
+	<jsp:include page="../seller/seller_nav_side.jsp" />
 	<div id="main_nav_sub">
 		<div id="main_title">비밀번호 변경</div>
 		<div id="main_content">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</div>

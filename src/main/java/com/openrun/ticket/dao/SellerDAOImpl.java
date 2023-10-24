@@ -102,5 +102,9 @@ public class SellerDAOImpl implements SellerDAO {
 			 
 			 
 		 }
-
+		 @Override
+		 public SellerVO withdrawal(SellerVO sellerVO) {	
+			 
+			 return sqlSession.selectOne(namespace + ".withdrawal", sellerVO);
+		 }
 	}

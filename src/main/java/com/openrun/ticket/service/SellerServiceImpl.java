@@ -76,5 +76,10 @@ public class SellerServiceImpl implements SellerService{
 	public String pwChange(SellerVO sellerVO){
 		return sellerDAO.pwChange(sellerVO);
 	}
+	@Override
+	public SellerVO withdrawal(SellerVO sellerVO) {
+		return sellerDAO.withdrawal(sellerVO);
+	}
+	
 	   
 }

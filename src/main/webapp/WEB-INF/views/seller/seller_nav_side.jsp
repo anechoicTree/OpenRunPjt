@@ -30,7 +30,7 @@
 			<div class="stitle">회원정보</div>
 			<div class="ssub">
 				<button id="menu_smod_btn" class="indexbtn">회원정보 수정</button>
-				<button id="menu_squit_btn" class="indexbtn">회원탈퇴</button>
+				<button id="menu_squit_btn" class="indexbtn" onclick="location.href='sellerWithdrawal'">회원탈퇴</button>
 			</div>
 		</div>
 		<div class="csbanner">
