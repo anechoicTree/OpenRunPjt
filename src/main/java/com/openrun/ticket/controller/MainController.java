@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.openrun.ticket.service.SearchService;
 import com.openrun.ticket.service.SelectService;
 import com.openrun.ticket.service.UserService;
-import com.openrun.ticket.vo.SelectVO;
+import com.openrun.ticket.vo.SearchVO;
 import com.openrun.ticket.vo.UserVO;
 
 @Controller
@@ -23,14 +24,8 @@ public class MainController {
 	
     @Autowired
     private SelectService selectService;
-    
-    @RequestMapping(value={"/"}, method = RequestMethod.GET)
-    public String listNotices(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-    	
-		List<SelectVO> selectList = selectService.getAllTicketsOrderBySelectNo();
-		model.addAttribute("selectList", selectList);
-	    return "main";
-    }
+    @Autowired
+    private SearchService searchService;
     
 	private UserService service;
 	
@@ -39,6 +34,14 @@ public class MainController {
         this.service = userService;
     }
 	
+    @RequestMapping(value={"/"}, method = RequestMethod.GET)
+    public String listNotices(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+    	
+    	List<SearchVO> searchResults = searchService.searchContentsAll();
+    	model.addAttribute("searchResults", searchResults);
+	    return "main";
+    }
+    
 	@RequestMapping(value= {"/joinMember"} , method = RequestMethod.GET)
 	public String joinMember(Model model) throws Exception {
 		List<UserVO> list = new ArrayList<>(); // 빈 리스트를 초기화하여 NullPointerException을 방지

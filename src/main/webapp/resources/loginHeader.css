@@ -1,0 +1,76 @@
+@charset "UTF-8";
+* {
+	box-sizing: border-box;
+  	height: fit-content;
+	margin: 0;
+}
+
+/* header 컨테이너 */
+	.header-container {
+		font-family: 'SUITE';
+		maxwidth: 100%;
+		border-top: 1px solid #eee;
+		padding: 20px 0;
+	    background-color: #ffffff;
+	    border-bottom: 1px solid #6E63CF;
+	    
+	}
+	
+/* header 컨테이너-서브 */
+	.header-container-sub {
+		width: 1080px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    vertical-align: top;
+	}
+
+/* 로고, user-nav */
+	#main-title {
+		display: grid;
+		grid-template-columns: 30% 40% 30%;
+	}
+
+	/* 로고 */
+	#main-logo > img {
+		image-rendering: optimizeQuality;
+		display: block;
+		margin-left: 0px;
+		margin-right: auto;
+		border: none;
+		cursor: pointer;
+	}
+	
+	/* 로그인/회원가입/고객센터 */
+	#main-user-nav {
+		display: grid;
+		grid-template-columns: 20% 80%;
+		justify-items: end;
+		align-items: start;
+	}
+		
+	#user-nav {
+		list-style: none;
+		margin: 0px;	
+	}
+	
+	#user-nav > li {
+		float: left;
+		font-size: 0.8rem;
+	}
+	
+	.user-nav-btn {
+	  border: 0;
+    font-weight: 700;
+    background-color: white;
+    color: #9F9F9F;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    margin-right:5px; 
+	}
+	
+	.user-nav-btn:hover {
+		color: rgb(120,86,184);
+		font-weight: bold;
+	}
+	

@@ -1,0 +1,131 @@
+	/* 메인 콘텐츠화면 */
+	section {
+	margin : 0 auto;
+	}
+	
+	#section_wrap {
+		font-family: 'SUITE';
+		width: 1200px;
+		margin: 0 auto;
+		display : flex;
+		}
+	
+	#section_wrap .word {
+		width: 1024px;
+		margin: 0 auto;
+		flex : auto;
+		font-size : large;
+		padding-left : 10px;
+		}
+		
+	#section_wrap .top_nav {
+		width: 1024px;
+		margin: 0 auto;
+		flex : auto;
+		float : left;
+		font-size : large;
+		padding-left : 10px;
+		}
+		
+	#section_wrap .inquiry_product_form {
+		width: 516px;
+		margin: 0 auto;
+		text-align: center;
+		flex : auto;
+		padding-top : 80px;
+		}
+	
+	#section_wrap .inquiry_product_form input {
+		width: 250px;
+		margin: 3px;
+		font-family : 'SUITE';
+		padding : 2px 5px;
+		}
+	
+	#section_wrap .inquiry_product_form select {
+		width: 250px;
+		margin: 3px;
+		font-family : 'SUITE';
+		padding : 2px 5px;
+		}
+		
+	/* 제목 입력란 510px 너비 */
+		
+	#section_wrap .inputTitle input{
+		width : 510px;
+	}
+	
+	/* 등록/취소 버튼 css */
+	
+	#buttons {
+		float : right;
+	}
+	
+	#section_wrap .inquiry_product_form input[type='submit']{
+		width: 50px;
+		background-color : #6E63CF;
+		color : #FFFFFF;
+		border : none;
+		border-radius : 5px;
+		margin-top : 10px;
+		margin-bottom : 10px;
+		}
+		
+	#section_wrap .inquiry_product_form input[type='reset'] {
+		width: 50px;
+		background-color : #FFFFFF;
+		color : #000000;
+		border : 1px solid #cccccc;
+		border-radius : 5px;
+		margin-top : 10px;
+		margin-bottom : 10px;
+		}	
+		
+	select option[value=""][disable] {
+		font-family : 'SUITE';
+		display:none;
+	}
+	
+	/* 좌석 추가버튼 왼쪽정렬 */
+	
+	#left_only {
+		text-align : left;
+	}
+	
+	/* 포스터 이미지 파일 업로드 css */
+	
+	.filebox {
+		float : left;
+	} 
+	
+	.filebox .upload-name {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 5px;
+    vertical-align: middle;
+    width: 78%;
+    color: #999999;
+	}
+	
+	.filebox label {
+    display: inline-block;
+    padding: 2px 5px;
+    color: #FFFFFF;
+    vertical-align: middle;
+    background-color: #6E63CF;
+    cursor: pointer;
+    height: 25px;
+    margin-left: 5px;
+	}
+	
+	.filebox input[type="file"] {
+	  position: absolute;
+	  width: 1px;
+	  height: 1px;
+	  padding: 0;
+	  margin: -1px;
+	  overflow: hidden;
+	  clip:rect(0,0,0,0);
+	  border: 0;
+	}
+	

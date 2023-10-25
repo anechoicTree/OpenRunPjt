@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+*{
+	font-family: 'SUITE';
+}
+#main_container{
+	width:1080px;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+#main_container_sub{
+	display: flex;
+	justify-content: center;
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+#main_title{
+	font-weight: 400;
+	font-size: 30px;
+	color: #000000;	
+	margin-top:150px;
+}
+.next_button{
+	margin-top:50px;
+	margin-bottom: 50px;
+	width: 250px;
+	height: 50px;
+	
+	background: #6E63CF;
+	border: 1px solid #6E63CF;
+	border-radius: 12px;
+	font-weight: bold;
+	font-size: 25px;
+
+	color: #FFFFFF;	
+}

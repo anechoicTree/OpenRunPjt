@@ -42,13 +42,6 @@
 			<button type="submit" name="submit" >로그인</button>
 		</div>
 
-		<!-- 로그인 유지 기능
-		<div class = "row">
-	        <label>
-	            <input type = "checkbox" name = "useCookie"> 로그인유지
-	        </label>
-		</div>
-		 -->
 	</div>
 </form>
 </body>

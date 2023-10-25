@@ -37,7 +37,7 @@ form {
 	background-color: #F5F5F5;
 	color: #6E63CF;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: bold;
 	width: 25%;
 	maring: 10px 30px 10px 30px;
@@ -49,8 +49,13 @@ form {
 .input-content {
 	background-color: white;
 	width: 75%;
-	padding-left: 20px;
+	padding: 10px 30px 10px 30px;
 	text-align: left;
+	font-size: 14px;
+}
+
+td.input-content {
+    vertical-align: middle;
 }
 
 #qna-q-body {
@@ -67,8 +72,9 @@ textarea {
     border: none;
     resize: none;
     font-family: 'SUITE';
-   	font-size: 18px;
 	font-weigth: 600;
+	outline: none;
+    line-height: 14px;
 }
 
 #textarea-body {

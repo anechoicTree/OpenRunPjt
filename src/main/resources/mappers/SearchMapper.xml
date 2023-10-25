@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.openrun.ticket.mappers.SearchMapper">
+	<resultMap id="contentsResult" type="searchVO">
+		<result property="cno" column="CNO" />
+		<result property="title" column="TITLE" />
+		<result property="hallName" column="HALL_NAME" />
+		<result property="rsvStart" column="RSV_START" />
+		<result property="rsvEnd" column="RSV_END" />
+		<result property="pfmDate" column="PFM_DATE" />
+		<result property="img" column="IMG" />
+		<result property="location" column="LOCATION" />
+		<result property="category" column="CATEGORY" />
+		<result property="views" column="VIEWS" />
+	</resultMap>
+
+	<select id="searchContentsByTitle" resultMap="contentsResult" parameterType="String">
+    	select * from contents where TITLE like CONCAT('%', #{searchKeyword}, '%') order by CNO desc
+	</select>
+	
+	<select id="searchContentsByCategory" resultMap="contentsResult" parameterType="String">
+    	select * from contents where CATEGORY = #{category} order by CNO desc
+	</select>
+	
+	<select id="searchContentsAll" resultMap="contentsResult">
+   		select * from contents order by CNO desc
+	</select>
+
+</mapper>
