@@ -51,9 +51,9 @@ public class UserDAOImpl implements UserDAO{
 	 }
 	 
 	 @Override
-	 public String pwChange(UserVO userVO) {
+	 public int pwChange(UserVO userVO) {
 		
-		 return sqlSession.selectOne(namespace + ".pwChange", userVO);
+		 return sqlSession.update(namespace + ".pwChange", userVO);
  
 	 }
 	 @Override
@@ -61,4 +61,14 @@ public class UserDAOImpl implements UserDAO{
 		 
 		 return sqlSession.delete(namespace + ".withdrawal", userVO);
 	 }
+	 @Override 
+	 public UserVO modificationPwCheck(UserVO userVO) {
+		 return sqlSession.selectOne(namespace + ".modificationPwCheck", userVO);
+	 }
+	 @Override
+	 public int modification(UserVO userVO) {
+		
+		 return sqlSession.update(namespace + ".modification", userVO);
+
+	 }	 
 }

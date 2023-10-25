@@ -10,8 +10,9 @@
 	margin-right:auto;
 }
 #main_nav_container{
-	display: grid;
-	grid-template-columns: 20% 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 #main_nav_sub{
 	padding-top: 80px;
@@ -40,12 +41,21 @@
 	display: inline-block;
 	border-top: 1px solid #000000;
 	border-bottom: 1px solid #000000;
+	margin-bottom:30px;
 }
+
 #modify_pw_nav{
 	display:flex;
 	justify-content:center;
 	align-items: center;
 	height: 100%;
+}
+#modify_pw_nav_sub{
+	width:100%;
+	height:100%;
+	display:flex;
+	justify-content:center;
+	align-items: center;
 }
 #modify_pw_content{
 	display: inline-block;
@@ -78,7 +88,7 @@
 .next_button{
 	width: 65px;
 	height: 58px;
-
+	margin-left:10px;
 	border: 1px solid #FFFFFF;
 	background: #6E63CF;
 	border-radius: 5px;	

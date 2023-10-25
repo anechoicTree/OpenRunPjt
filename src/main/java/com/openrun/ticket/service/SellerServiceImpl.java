@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.openrun.ticket.dao.SellerDAO;
 import com.openrun.ticket.vo.SellerVO;
+import com.openrun.ticket.vo.UserVO;
 
 /*@Transactional(propagation=Propagation.REQUIRED) */
 @Service
@@ -73,12 +74,20 @@ public class SellerServiceImpl implements SellerService{
 		return sellerDAO.findPwCheck(sellerVO);
 	}
 	@Override
-	public String pwChange(SellerVO sellerVO){
+	public int pwChange(SellerVO sellerVO){
 		return sellerDAO.pwChange(sellerVO);
 	}
 	@Override
 	public int withdrawal(SellerVO sellerVO) throws Exception{
 		return sellerDAO.withdrawal(sellerVO);
+	}
+	@Override
+	public SellerVO modificationPwCheck(SellerVO sellerVO) {
+		return sellerDAO.modificationPwCheck(sellerVO);
+	}
+	@Override
+	public int modification(SellerVO sellerVO) {
+		return sellerDAO.modification(sellerVO);
 	}
 	
 	   

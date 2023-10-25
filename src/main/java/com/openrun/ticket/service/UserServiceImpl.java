@@ -44,12 +44,20 @@ public class UserServiceImpl implements UserService {
 		return userDAO.findPwCheck(userVO);
 	}
 	@Override
-	public String pwChange(UserVO userVO){
+	public int pwChange(UserVO userVO){
 		return userDAO.pwChange(userVO);
 	}
 	@Override
 	public int withdrawal(UserVO userVO) throws Exception{
 		return userDAO.withdrawal(userVO);
 	}
-	
+	@Override
+	public UserVO modificationPwCheck(UserVO userVO) {
+		return userDAO.modificationPwCheck(userVO);
+	}
+	@Override
+	public int modification(UserVO userVO) {
+		return userDAO.modification(userVO);
+	}
+
 }

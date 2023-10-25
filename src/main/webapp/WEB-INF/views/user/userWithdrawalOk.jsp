@@ -49,7 +49,7 @@ $(document).ready(function() {
 });
 
 </script>
-<jsp:include page="../header.jsp" />
+<jsp:include page="../common/header.jsp" />
 	<div id="main_nav">
 	<div id="main_nav_container">
 		<jsp:include page="side/side.jsp" />

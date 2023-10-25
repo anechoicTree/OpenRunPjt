@@ -78,29 +78,27 @@ $(document).ready(function() {
     });
 });
 </script>
-	<jsp:include page="../header.jsp" />
+<jsp:include page="../common/header.jsp" />
 	
 	<div id="main_nav">
 	
 	<div id="main_nav_container">
-	<jsp:include page="side/side.jsp" />
 	
 	<div id="main_nav_sub">
 		<div id="main_title">비밀번호 변경</div>
 		<div id="main_content">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</div>
 		
 		<div id="main_content_sub">
-		
 			<div id="modify_pw_nav">	
 			
-			<form name="userPwChange" method="POST" action="/userPwChange">
+			<form name="userPwChange"  id ="userPwChange" method="POST" action="/userPwChange">
 			<div id="modify_pw_nav_sub">
 				<div id="modify_pw_content">
 					<div id="modify_pw_content1">새로운 비밀번호
-						<input class="input_text" type="text" id="u_new_pw" placeholder="8~12자 영문, 숫자, 특수문자"><br>
+						<input class="input_text" type="text" id="u_new_pw" placeholder="8~12자 영문, 숫자, 특수문자">
 					</div>
 					<div id="modify_pw_content2">새로운 비밀번호 확인
-						<input class="input_text" type="text" id="u_new_pw_again" placeholder="8~12자 영문, 숫자, 특수문자"><br>
+						<input class="input_text" type="text" id="u_new_pw_again" placeholder="8~12자 영문, 숫자, 특수문자">
 					</div>
 					
 				</div>

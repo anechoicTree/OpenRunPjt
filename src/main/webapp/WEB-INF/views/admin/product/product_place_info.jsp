@@ -11,7 +11,7 @@
 <jsp:include page="../include/calendar_js.jsp" />
 </head>
 <body>
-	<jsp:include page="../../../views/header.jsp" />
+	<jsp:include page="../../common/header.jsp" />
 	<section>
 		<div id="section_wrap">
 			<div class="product_all_wrap">
@@ -79,7 +79,7 @@
 			</div>
 		</div>
 	</section>
-	<jsp:include page="../../../views/footer.jsp" />
+	<jsp:include page="../../common/footer.jsp" />
 	
 	<%
     LocationVO locationVo  = new LocationVO();

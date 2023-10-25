@@ -28,4 +28,12 @@
      <delete id="withdrawal" parameterType="userVO">
        DELETE FROM user WHERE u_id = #{u_id} AND u_pw = #{u_pw};
     </delete>
+    <select id="modificationPwCheck" parameterType="userVO" resultType="userVO">
+    	SELECT * FROM user WHERE u_id = #{u_id} AND u_pw = #{u_pw}
+    </select>
+    <update id="modification" parameterType="userVO">
+        UPDATE user SET u_pw = #{u_pw},u_name = #{u_name},u_birth = #{u_birth},u_phone = #{u_phone},u_email = #{u_email},
+        				u_bank_name = #{u_bank_name},u_account_no = #{u_account_no},u_address = #{u_address}
+        				WHERE u_id = #{u_id}
+    </update>
 	</mapper>

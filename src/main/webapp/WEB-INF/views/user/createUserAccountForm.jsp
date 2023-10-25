@@ -211,7 +211,7 @@ $(document).ready(function() {
 				<span class="slabel">휴대폰 번호</span>
 					<input class="input_text" type="text" name="u_phone" placeholder="ex)010-1234-5678"><br>
 				</div>
-				<div class="create_explanation">ex)010-1234-5678 형식으로 입력해 주세요</div>
+				<div class="create_explanation">ex)01012345678 형식으로 입력해 주세요</div>
 			</div>
 			<div class="create_form_container_sub">
 				<div class="create_input_container">

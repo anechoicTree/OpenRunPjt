@@ -27,8 +27,8 @@
 		%>
 			<ul id="user-nav">
 			<li class="user-nav-item">
-			    <button class="user-nav-btn" id="login" onclick="location.href='exLoginOut'">로그아웃</button>
-				<button class="user-nav-btn" id="join" onclick="location.href='/ticket/product/admin/userWithdrawal'">마이페이지</button>
+			    <button class="user-nav-btn" id="login" onclick="location.href='user/logOut'">로그아웃</button>
+				<button class="user-nav-btn" id="join" onclick="location.href='/ticket/product/admin/userModificationPwCheck'">마이페이지</button>
 				<button class="user-nav-btn" id="as" onclick="location.href='/ticket/cs/main'">고객센터</button>
 			</li>	
 		</ul>
@@ -41,8 +41,8 @@
 		%>
 		<ul id="user-nav">
 			<li class="user-nav-item">
-			    <button class="user-nav-btn" id="login" onclick="location.href='exLoginOut'">로그아웃</button>
-				<button class="user-nav-btn" id="join" onclick="location.href='/ticket/user/payment'">마이페이지</button>
+			    <button class="user-nav-btn" id="login" onclick="location.href='seller/logOut'">로그아웃</button>
+				<button class="user-nav-btn" id="join" onclick="location.href='/ticket/product/admin/sellerModificationPwCheck'">마이페이지</button>
 				<button class="user-nav-btn" id="as" onclick="location.href='/ticket/cs/main'">고객센터</button>
 			</li>	
 		</ul>

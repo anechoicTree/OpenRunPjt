@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="resources/css/review.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 <div class="review-container">
 	<jsp:include page="side.jsp" />
@@ -27,6 +27,6 @@
 </div>
 
 
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

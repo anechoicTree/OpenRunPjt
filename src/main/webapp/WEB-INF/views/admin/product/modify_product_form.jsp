@@ -11,7 +11,7 @@
 <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 </head>
 <body>
-	<jsp:include page="../../../views/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 
 	<section>
 		<div id="section_wrap">
@@ -111,7 +111,7 @@
 			</div>
 		</div>
 	</section>
-	<jsp:include page="../../../views/footer.jsp" />
+	<jsp:include page="../../common/footer.jsp" />
 	
 	
 	

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.openrun.ticket.comment.CommentDAO" %>
+
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="comment" class="com.openrun.ticket.comment.CommentVO" scope="page"/>
+
 <jsp:setProperty name="comment" property="commentContent" />
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
 <jsp:include page="../include/calendar_js.jsp" />
 </head>
 <body>
-	<jsp:include page="../../../views/header.jsp" />
+	<jsp:include page="../../common/header.jsp" />
 	<section>
 		<div id="section_wrap">
 			<div class="product_all_wrap">
@@ -105,6 +105,6 @@
 			</div>
 		</div>
 	</section>
-	<jsp:include page="../../../views/footer.jsp" />
+	<jsp:include page="../../common/footer.jsp" />
 </body>
 </html>

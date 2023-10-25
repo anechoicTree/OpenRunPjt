@@ -1,7 +1,6 @@
 package com.openrun.ticket.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -35,7 +34,7 @@ public class UserController {
 	}
 
 	@Autowired
-	private JavaMailSender mailSender;
+	private JavaMailSender mailSender;     
 
 	// user 회원가입 동의서
 	@GetMapping("/user/createUserAccountAgreementForm")
@@ -87,6 +86,7 @@ public class UserController {
 	@PostMapping("/user/loginUser")
 	@ResponseBody
 	public String Login(@ModelAttribute UserVO userVO, HttpSession session) {
+		System.out.println("userController / Login");
 		UserVO userLoginResult = userService.Login(userVO);
 
 		if (userLoginResult != null) {
@@ -97,35 +97,16 @@ public class UserController {
 			return "0"; // 로그인 실패
 		}
 	}
-
-	// user 로그인 완료
-	@GetMapping("/user/loginOk")
-	public String loginOk() {
-		System.out.println("userController / loginOk");
-
-		String nextPage = "user/loginOk";
+	// user 로그아웃
+	@GetMapping("/user/logOut")
+	public String logOut(HttpSession session) throws Exception {
+		System.out.println("userController / logOut");
+		
+		session.removeAttribute("userLoginResult");
+		
+		String nextPage = "redirect:/";
 		return nextPage;
 	}
-
-	// user 로그아웃-예시
-	@GetMapping("/user/exLoginOut")
-	public String exLoginOut(HttpSession session) {
-		System.out.println("userController / exLoginOut");
-		
-		session.invalidate();
-		
-		String nextPage = "user/exLoginOut";
-		return nextPage;
-	}
-	// user 로그인-예시
-	@GetMapping("/user/exLoginOk")
-	public String exLoginOk(HttpSession session) {
-		System.out.println("userController / exLoginOk");
-		
-		String nextPage = "user/exLoginOk";
-		return nextPage;
-	}
-
 	// user 이메일 인증
 	@GetMapping("/user/emailSend")
 	@ResponseBody
@@ -252,9 +233,9 @@ public class UserController {
 	public String pwChange(UserVO userVO) {
 		System.out.println("userController / pwChange");
 	 
-			String pwChangeResult = userService.pwChange(userVO);
+			int pwChangeResult = userService.pwChange(userVO);
 
-			if (pwChangeResult == null) {
+			if (pwChangeResult == 1) {
 				System.out.println("비밀번호 수정 성공");
 		        return "1"; // 비밀번호 수정 성공
 		    } else {
@@ -279,7 +260,7 @@ public class UserController {
 		String nextPage = "user/reservationCancelOk";
 		return nextPage;
 	}
-	//user 회원탈퇴 페이지
+	//user 회원탈퇴 페이지 이동
 	@GetMapping("/product/admin/userWithdrawal")
 	public String userWithdrawal(HttpSession session) {
 		System.out.println("userController / userWithdrawal");
@@ -287,7 +268,7 @@ public class UserController {
 		String nextPage = "user/userWithdrawal";
 		return nextPage;
 	}
-	//user 회원 탈퇴 비밀번호 입력 페이지
+	//user 회원 탈퇴 비밀번호 입력 페이지 이동
 	@GetMapping("/product/admin/userWithdrawalOk")
 	public String userWithdrawalOk(HttpSession session) {
 		System.out.println("userController / userWithdrawalOk");
@@ -309,18 +290,52 @@ public class UserController {
 	        System.out.println("회원 탈퇴 성공");
 	        return "1"; // 회원 탈퇴 성공
 	    } else {
-	    	System.out.println("회원 탈퇴 실패");
+	    	System.out.println("비밀번호를 다시 입력해 주세요");
 	    	return "0"; // 회원 탈퇴 실패
 	    }
 	}
-	//user 회원 정보 수정
+	//user회원 정보 수정 비밀번호 인증 페이지 이동
+	@GetMapping("/product/admin/userModificationPwCheck")
+	public String userModificationPwCheck(){
+		System.out.println(" userController/ userModificationPwCheck");
+		
+		String nextPage = "user/userModificationPwCheck";
+		return nextPage;
+	}
+	//user회원 정보 수정 비밀번호 인증
+	@PostMapping("/product/admin/modificationPwCheckUser")
+	@ResponseBody
+	public String modificationPwCheckUser(@ModelAttribute UserVO userVO) {
+		
+		UserVO userPwCheckResult = userService.modificationPwCheck(userVO);
+		
+		if (userPwCheckResult != null) {
+			
+			return "1"; // 회원 정보수정 비밀번호 인증 성공
+		} else {
+			return "0"; // 회원 정보수정 비밀번호 인증 실패
+		}
+	}
+	//user 회원 정보 수정 페이지 이동
 	@GetMapping("/product/admin/userModification")
 	public String userModification() {
 		System.out.println("userController / userModification");
 		
 		String nextPage = "user/userModification";
-		return nextPage;
-		
+		return nextPage;	
 	}
-
+	//user 회원 정보 수정
+	@PostMapping("/product/admin/modificationUser")
+	@ResponseBody
+	public String modificationUser(UserVO userVO) {
+		System.out.println("userController / userModification");
+		int userLoginResult = userService.modification(userVO);
+		
+		if (userLoginResult == 1) {
+			System.out.println("userController / userModification");
+			return "1"; // 회원 정보 수정 성공
+		} else {
+			return "0"; //회원 정보 수정 실패
+		}
+	}
 }

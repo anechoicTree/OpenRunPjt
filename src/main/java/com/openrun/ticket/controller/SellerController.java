@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.openrun.ticket.service.SellerService;
 import com.openrun.ticket.vo.SellerVO;
+import com.openrun.ticket.vo.UserVO;
 
 @Controller
 public class SellerController /*implements SellerController*/ {
@@ -268,22 +269,14 @@ public class SellerController /*implements SellerController*/ {
 		String nextPage = "seller/sellerLogin";
 		return nextPage;
 	}
-	// seller 로그아웃-예시
-	@GetMapping("/seller/exLoginOut")
-	public String exLoginOut(HttpSession session) {
-		System.out.println("sellerController / exLoginOut");
+	// seller 로그아웃
+	@GetMapping("/seller/logOut")
+	public String logOut(HttpSession session) {
+		System.out.println("sellerController / logOut");
 			
-		session.invalidate();
+		session.removeAttribute("sellerLoginResult");
 			
-		String nextPage = "seller/exLoginOut";
-		return nextPage;
-	}
-	// seller 로그인-예시
-	@GetMapping("/seller/exLoginOk")
-	public String exLoginOk(HttpSession session) {
-		System.out.println("sellerController / exLoginOk");
-			
-		String nextPage = "seller/exLoginOk";
+		String nextPage = "redirect:/";
 		return nextPage;
 	}
 	//seller 로그인 승인예정
@@ -368,11 +361,11 @@ public class SellerController /*implements SellerController*/ {
 	 public String pwChange(SellerVO sellerVO) {
 	 System.out.println("sellerController / pwChange");
 	 
-	 String pwChangeResult = sellerService.pwChange(sellerVO);
+	 int pwChangeResult = sellerService.pwChange(sellerVO);
 	 
 	 System.out.println(pwChangeResult);
 	 
-	 if(pwChangeResult==null) { 
+	 if(pwChangeResult==1) { 
 		 System.out.println("비밀번호 수정 성공");
 		 return "1"; //비밀번호 수정 성공 
 	} else { 
@@ -410,9 +403,53 @@ public class SellerController /*implements SellerController*/ {
             System.out.println("회원 탈퇴 성공");
             return "1"; // 회원 탈퇴 성공
         } else {
-            System.out.println("회원 탈퇴 실패");
+            System.out.println("비밀번호를 다시 입력해 주세요");
             return "0"; // 회원 탈퇴 실패
         }
     }
+  //seller회원 정보 수정 비밀번호 인증 페이지 이동
+  	@GetMapping("/product/admin/sellerModificationPwCheck")
+  	public String sellerModificationPwCheck(){
+  		System.out.println(" sellerController/ sellerModificationPwCheck");
+  		
+  		String nextPage = "seller/sellerModificationPwCheck";
+  		return nextPage;
+  	}
+  	//seller 회원 정보 수정 비밀번호 인증
+  	@PostMapping("/product/admin/modificationPwCheckSeller")
+  	@ResponseBody
+  	public String modificationPwCheck(@ModelAttribute SellerVO sellerVO) {
+  		
+  		SellerVO sellerLoginResult = sellerService.modificationPwCheck(sellerVO);
+  		
+  		if (sellerLoginResult != null) {
+  			
+  			return "1"; // 회원 정보수정 비밀번호 인증 성공
+  		} else {
+  			return "0"; // 회원 정보수정 비밀번호 인증 실패
+  		}
+  	}
+  	//seller 회원 정보 수정 페이지 이동
+  	@GetMapping("/product/admin/sellerModification")
+  	public String sellerModification() {
+  		System.out.println("sellerController / sellerModification");
+  		
+  		String nextPage = "seller/sellerModification";
+  		return nextPage;	
+  	}
+  	//seller 회원 정보 수정
+  	@PostMapping("/product/admin/modificationSeller")
+  	@ResponseBody
+  	public String sellerModification(SellerVO sellerVO) {
+  		System.out.println("sellerController / sellerModification");
+  		int sellerLoginResult = sellerService.modification(sellerVO);
+  		
+  		if (sellerLoginResult == 1) {
+  			System.out.println("sellerController / sellerModification");
+  			return "1"; // 회원 정보 수정 성공
+  		} else {
+  			return "0"; //회원 정보 수정 실패
+  		}
+  	}
 	
 }

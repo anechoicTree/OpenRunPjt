@@ -10,7 +10,7 @@
 <title>결제 하기 완료</title>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../common/header.jsp" />
 		<div id="main_container">
 			<div id="main_container_sub">
 				<div id="main_content">결제 완료 되었습니다</div>
@@ -18,6 +18,6 @@
 				<button class="home_button" onclick="location.href='/ticket'">홈으로 가기 </button>
 			</div>
 		</div>
-	<jsp:include page="../footer.jsp" />
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

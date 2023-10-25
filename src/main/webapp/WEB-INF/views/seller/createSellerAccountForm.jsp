@@ -38,14 +38,14 @@ function sellerCheck() {
         form.s_pw_again.value = "";
         return false;
     }
-    /* var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
+  	var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
     if (!passwordRegex.test(form.s_pw.value)) {
         alert('비밀번호는 8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다');
         form.s_pw.focus();
         form.s_pw.value = "";
         form.s_pw_again.value = "";
         return false;
-    } */
+    }
     if (form.s_business_name.value === '') {
         alert('사업자명을 입력해주세요');
         form.s_business_name.focus();

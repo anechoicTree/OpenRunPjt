@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="user/side/inquiry.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 <div class="inquiry-container">
 	<jsp:include page="side.jsp" />
@@ -27,6 +27,6 @@
 </div>
 
 
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

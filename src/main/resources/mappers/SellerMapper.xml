@@ -49,26 +49,34 @@
 	<select id='seller' resultType="SellerVo">
 		select * from seller
 	</select>
-	<insert id="insertSeller" parameterType="SellerVo">
+	<insert id="insertSeller" parameterType="sellerVO">
     	INSERT INTO seller (s_id, s_pw, s_business_name, s_business_reg_no, s_address, s_phone, s_email, s_bank_name, s_account_no)
     	VALUES (#{s_id}, #{s_pw}, #{s_business_name}, #{s_business_reg_no}, #{s_address}, #{s_phone}, #{s_email}, #{s_bank_name}, #{s_account_no})
     </insert>
     <select id="idCheck" resultType="int" parameterType="String">
         SELECT COUNT(*) FROM seller WHERE s_id = #{s_id}
     </select>
-    <select id="login" parameterType="SellerVo" resultType="SellerVo" >
+    <select id="login" parameterType="sellerVO" resultType="sellerVO" >
         SELECT * FROM seller WHERE s_id = #{s_id} AND s_pw = #{s_pw}
     </select>
-    <select id="findIdCheck" parameterType="SellerVo" resultType="SellerVo" >
+    <select id="findIdCheck" parameterType="sellerVO" resultType="sellerVO" >
         SELECT * FROM seller WHERE s_business_name = #{s_business_name} AND s_business_reg_no = #{s_business_reg_no}
     </select>
-    <select id="findPwCheck" parameterType="SellerVo" resultType="SellerVo" >
+    <select id="findPwCheck" parameterType="sellerVO" resultType="sellerVO" >
         SELECT * FROM seller WHERE s_id = #{s_id} AND s_business_name = #{s_business_name} AND s_business_reg_no = #{s_business_reg_no}
     </select>
-    <update id="pwChange" parameterType="SellerVo">
+    <update id="pwChange" parameterType="sellerVO">
         UPDATE seller SET s_pw = #{s_pw} WHERE s_id = #{s_id}
     </update>
-    <delete id="withdrawal" parameterType="SellerVo">
+    <delete id="withdrawal" parameterType="sellerVO">
        DELETE FROM seller WHERE s_id = #{s_id} AND s_pw = #{s_pw};
     </delete>
+    <select id="modificationPwCheck" parameterType="sellerVO" resultType="sellerVO">
+    	SELECT * FROM seller WHERE s_id = #{s_id} AND s_pw = #{s_pw}
+    </select>
+    <update id="modification" parameterType="sellerVO">
+        UPDATE seller SET s_pw = #{s_pw},s_business_name = #{s_business_name},s_business_reg_no = #{s_business_reg_no},s_phone = #{s_phone},s_email = #{s_email},
+        				s_bank_name = #{s_bank_name},s_account_no = #{s_account_no},s_address = #{s_address}
+        				WHERE s_id = #{s_id}
+    </update>
 </mapper>

@@ -46,7 +46,7 @@
 				<button  class="next_button"  onclick="Submit()">다음단계</button>
 		</div>
 	<div id="footer_nav">
-		<jsp:include page="../footer.jsp" />
+		<jsp:include page="../common/footer.jsp" />
 	</div>
 	
 	<script type="text/javascript">

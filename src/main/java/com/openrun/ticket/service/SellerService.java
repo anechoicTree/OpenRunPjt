@@ -18,6 +18,10 @@ public interface SellerService {
 	 public SellerVO Login(SellerVO sellerVO);
 	 public SellerVO findIdCheck(SellerVO sellerVO);
 	 public SellerVO findPwCheck(SellerVO sellerVO);
-	 public String pwChange(SellerVO sellerVO);
+	 public int pwChange(SellerVO sellerVO);
 	 public int withdrawal(SellerVO sellerVO)throws Exception;
+	 public SellerVO modificationPwCheck(SellerVO sellerVO);
+	 public int modification(SellerVO sellerVO);
+
 }
+

@@ -11,6 +11,8 @@ public interface UserService {
 	public UserVO Login(UserVO userVO);
 	public UserVO findIdCheck(UserVO userVO);
 	public UserVO findPwCheck(UserVO userVO);
-	public String pwChange(UserVO userVO);
+	public int pwChange(UserVO userVO);
 	public int withdrawal(UserVO userVO) throws Exception;
+	public UserVO modificationPwCheck(UserVO userVO);
+	public int modification(UserVO userVO);
 }

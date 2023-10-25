@@ -89,7 +89,7 @@ $(document).ready(function() {
 });
 
 </script>
-<jsp:include page="../header.jsp" />
+<jsp:include page="../common/header.jsp" />
 <form name="insertReservation" action="<c:url value='/insertReservation' />" method="POST" >
 	<div id="main_container">
 		<div id="main_container_sub">
@@ -120,6 +120,6 @@ $(document).ready(function() {
 		<button class="next_button" id="button" onclick="return false;"> 결제하기 </button>
 	</div>
 </form>
-<jsp:include page="../footer.jsp" />
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

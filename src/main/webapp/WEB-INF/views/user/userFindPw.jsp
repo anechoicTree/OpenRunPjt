@@ -108,7 +108,7 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.result === '1') {
                 	 console.log("u_id:", response.u_id); 
-                	 alert("비밀번호 성공")
+                	 alert("비밀번호 찾기 성공")
                
                 	 window.location.href = "userPwChange?u_id=" + encodeURIComponent(response.u_id);
                 } else {
