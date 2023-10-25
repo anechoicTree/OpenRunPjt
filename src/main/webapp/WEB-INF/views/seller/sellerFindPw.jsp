@@ -124,31 +124,31 @@ $(document).ready(function() {
 	<div id="find_pw_container">	
 		<div class="find_pw_container_sub">
 			<div class="find_input_container">아이디
-				<input class="input_text" type="text" id="s_id"  placeholder="6~20자 영문, 숫자"><br>
+				<input class="input_text" type="text" id="s_id"  placeholder="6~20자 영문, 숫자" autocomplete="off"><br>
 			</div>
 			<div class="find_explanation">영문으로 시작하는 6~20자 영문(소문자), 숫자만 사용 가능합니다</div>
 		</div>
 		<div class="find_pw_container_sub">
 			<div class="find_input_container">사업자명
-				<input class="input_text" type="text" id="s_business_name"><br>
+				<input class="input_text" type="text" id="s_business_name" autocomplete="off"><br>
 			</div>
 		</div>
 		<div class="find_pw_container_sub">
 			<div class="find_input_container">사업자등록번호
-				<input class="input_text" type="text"  id="s_business_reg_no" ><br>
+				<input class="input_text" type="text"  id="s_business_reg_no" autocomplete="off"><br>
 			</div>
 			<div class="find_explanation">ex)YYYY-MM-DD 형식으로 입력해 주세요</div>
 		</div>
 		<div class="find_pw_container_sub">
 			<div class="find_input_container">이메일
-				<input class="input_text" type="text" id="s_email" placeholder="ex)****@naver.com">
+				<input class="input_text" type="text" id="s_email" placeholder="ex)****@naver.com" autocomplete="off">
 				<button type="button" id="emailSendButton" >보내기</button>
 			</div>
 			<div class="find_explanation">이메일 형식으로 입력해주세요</div>
 		</div>
 		<div class="find_pw_container_sub">
 			<div class="find_input_container">인증번호
-				<input class="input_text" type="text"  id="s_email_check">
+				<input class="input_text" type="text"  id="s_email_check" autocomplete="off"> 
 				<button type="button" id="emailCheckButton" >확인하기</button>
 			</div>
 		</div>

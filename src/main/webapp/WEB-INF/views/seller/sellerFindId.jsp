@@ -115,24 +115,24 @@ $(document).ready(function() {
 	<div id="find_id_container">		
 		<div class="find_id_container_sub">
 			<div class="find_input_container">사업자명
-				<input class="input_text" type="text"  id="s_business_name">
+				<input class="input_text" type="text"  id="s_business_name" autocomplete="off">
 			</div>
 		</div>
 		<div class="find_id_container_sub">
 			<div class="find_input_container">사업자등록번호
-				<input class="input_text" type="text" id="s_business_reg_no">
+				<input class="input_text" type="text" id="s_business_reg_no" autocomplete="off">
 			</div>
 		</div>
 		<div class="find_id_container_sub">
 			<div class="find_input_container">이메일
-				<input class="input_text" type="text" id ="s_email" placeholder="ex)****@naver.com">
+				<input class="input_text" type="text" id ="s_email" placeholder="ex)****@naver.com" autocomplete="off"> 
 				<button type="button" id="emailSendButton">보내기</button>
 			</div>
 			<div class="find_explanation">이메일 형식으로 입력해주세요</div>
 		</div>
 		<div class="find_id_container_sub">
 			<div class="find_input_container">인증번호
-				<input class="input_text" type="text"  id="s_email_check">
+				<input class="input_text" type="text"  id="s_email_check" autocomplete="off">
 				<button type="button" id="emailCheckButton">확인하기</button>
 			</div>
 		</div>

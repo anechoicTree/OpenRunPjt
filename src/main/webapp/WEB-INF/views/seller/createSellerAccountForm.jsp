@@ -147,7 +147,7 @@ $(document).ready(function() {
 				<div class="create_input_container">
 				<span class="symbol">*</span>
 				<span class="slabel">아이디</span>
-					<input class="input_text" type="text" name="s_id" id="s_id" placeholder="6~20자 영문, 숫자">
+					<input class="input_text" type="text" name="s_id" id="s_id" placeholder="6~20자 영문, 숫자" autocomplete="off">
 					<button type="button" id="idCheckButton">중복 확인</button>
 				</div>
 				<div class="create_explanation">영문으로 시작하는 6~20자 영문(소문자), 숫자만 사용 가능합니다</div>
@@ -171,21 +171,21 @@ $(document).ready(function() {
 				<div class="create_input_container">
 				<span class="symbol">*</span>
 				<span class="slabel">사업자명</span>
-					<input class="input_text" type="text" name="s_business_name"><br>
+					<input class="input_text" type="text" name="s_business_name" autocomplete="off"><br>
 				</div>
 			</div>
 			<div class="create_form_container_sub">
 				<div class="create_input_container">
 				<span class="symbol">*</span>
 				<span class="slabel">사업자등록번호</span>
-					<input class="input_text" type="text" name="s_business_reg_no"><br>
+					<input class="input_text" type="text" name="s_business_reg_no" autocomplete="off"><br>
 				</div>
 			</div>
 			<div class="create_form_container_sub">
 				<div class="create_input_container">
 				<span class="symbol">*</span>
 				<span class="slabel">휴대폰 번호</span>
-					<input class="input_text" type="text" name="s_phone" placeholder="ex)010-1234-5678"><br>
+					<input class="input_text" type="text" name="s_phone" placeholder="ex)010-1234-5678" autocomplete="off"><br>
 				</div>
 				<div class="create_explanation">ex)010-1234-5678 형식으로 입력해 주세요</div>
 			</div>
@@ -193,7 +193,7 @@ $(document).ready(function() {
 				<div class="create_input_container">
 				<span class="symbol">*</span>
 				<span class="slabel">이메일</span>
-					<input class="input_text" type="email" name="s_email" id="s_email" placeholder="ex)****@naver.com">
+					<input class="input_text" type="email" name="s_email" id="s_email" placeholder="ex)****@naver.com" autocomplete="off">
 					<button type="button" id="emailSendButton">보내기</button>
 				</div>
 				<div class="create_explanation">이메일 형식으로 입력해주세요</div>
@@ -220,13 +220,13 @@ $(document).ready(function() {
 			<div class="create_form_container_sub">
 				<div class="create_input_container">
 				<span class="slabel">계좌번호</span>
-					<input class="input_text" type="text" name="s_account_no"><br>
+					<input class="input_text" type="text" name="s_account_no" autocomplete="off"><br>
 				</div>
 			</div>
 			<div class="create_form_container_sub">
 				<div class="create_input_container">
 				<span class="slabel">주소</span>
-					<input class="input_text" type="text" name="s_address"><br>
+					<input class="input_text" type="text" name="s_address" autocomplete="off"><br>
 				</div>
 			</div>
 		<button class="next_button" type="submit">승인신청</button>

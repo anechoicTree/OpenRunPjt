@@ -440,12 +440,11 @@ public class SellerController /*implements SellerController*/ {
   	//seller 회원 정보 수정
   	@PostMapping("/product/admin/modificationSeller")
   	@ResponseBody
-  	public String sellerModification(SellerVO sellerVO) {
-  		System.out.println("sellerController / sellerModification");
+  	public String modificationSeller(SellerVO sellerVO) {
+  		System.out.println("sellerController / modificationSeller");
   		int sellerLoginResult = sellerService.modification(sellerVO);
   		
   		if (sellerLoginResult == 1) {
-  			System.out.println("sellerController / sellerModification");
   			return "1"; // 회원 정보 수정 성공
   		} else {
   			return "0"; //회원 정보 수정 실패

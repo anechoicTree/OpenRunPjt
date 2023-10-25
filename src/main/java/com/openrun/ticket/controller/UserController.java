@@ -328,11 +328,10 @@ public class UserController {
 	@PostMapping("/product/admin/modificationUser")
 	@ResponseBody
 	public String modificationUser(UserVO userVO) {
-		System.out.println("userController / userModification");
+		System.out.println("userController / modificationUser");
 		int userLoginResult = userService.modification(userVO);
 		
 		if (userLoginResult == 1) {
-			System.out.println("userController / userModification");
 			return "1"; // 회원 정보 수정 성공
 		} else {
 			return "0"; //회원 정보 수정 실패

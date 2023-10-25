@@ -23,7 +23,12 @@ $(document).ready(function() {
             alert('비밀번호를 입력해주세요.');
             return;
         }
-        
+		var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
+		
+		if (!passwordRegex.test(s_pw)) {
+	        alert('비밀번호는 8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다');
+	        return;
+		}
         var dataToSend = {
         		s_pw: s_pw,
                 s_id: s_id

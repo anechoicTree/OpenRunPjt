@@ -22,7 +22,30 @@
         var selectElement = document.getElementsByName("u_bank_name")[0];
         selectElement.value = bankName;
     });
-	
+	function modificationUser(){
+		if ($("#u_pw").val() == "") {
+            $("#u_pw").val("${userLoginResult.u_pw}");
+        }
+	 	if ($("#u_pw_again").val() == "") {
+            $("#u_pw_again").val("${userLoginResult.u_pw}");
+        }
+	 	 var u_pw = $("#u_pw").val();
+	     var u_pw_again = $("#u_pw_again").val();
+		let form = document.modificationUser;
+	    var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
+		
+		if (!passwordRegex.test(u_pw)) {
+	        alert('비밀번호는 8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다');
+	        return false;
+		}else if (u_pw !== u_pw_again) {
+	        alert('비밀번호와 비밀번호 확인의 입력값이 다릅니다');
+
+	        return false;
+	    } else {
+	        return true;
+	    };
+		
+	}
 	 $(document).ready(function() {
 		 $(document).on("click", "#modificationButton", function(){
 			 
@@ -64,7 +87,7 @@
                 u_account_no: $("#u_account_no").val(),
                 u_address: $("#u_address").val()
              };
-
+             if (modificationUser()) {
              $.ajax({
                  type: "POST",
                  url: "modificationUser",
@@ -82,6 +105,7 @@
                      }
                  }
              });
+            }
          });
      });
 </script>
@@ -99,7 +123,7 @@
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>아이디</span>
-								<input class="input_text" type="text" id="u_id" value="${userLoginResult.u_id}">
+								<input class="input_text" type="text" id="u_id" value="${userLoginResult.u_id}" autocomplete="off">
 							</div>
 							<div class="create_explanation" id="create_explanation_id">아이디는 수정이 불가능 합니다</div>
 						</div>
@@ -119,26 +143,26 @@
 						</div>
 						<div class="input_container">
 							<span>이름</span>
-							<input class="input_text" type="text" id="u_name" placeholder="${userLoginResult.u_name}">
+							<input class="input_text" type="text" id="u_name" placeholder="${userLoginResult.u_name}" autocomplete="off">
 						</div>
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>생년월일</span>
-								<input class="input_text" type="text" id="u_birth" placeholder="${userLoginResult.u_birth}" >
+								<input class="input_text" type="text" id="u_birth" placeholder="${userLoginResult.u_birth}"  autocomplete="off">
 							</div>
 							<div class="create_explanation">ex)YYYYMMDD 형식으로 입력해 주세요</div>
 						</div>
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>휴대폰 번호</span>
-								<input class="input_text" type="text" id="u_phone" placeholder="${userLoginResult.u_phone}">
+								<input class="input_text" type="text" id="u_phone" placeholder="${userLoginResult.u_phone}" autocomplete="off">
 							</div>
 								<div class="create_explanation">ex)01012345678 형식으로 입력해 주세요</div>
 						</div>
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>이메일</span>
-								<input class="input_text" type="email" id="u_email" placeholder="${userLoginResult.u_email}">
+								<input class="input_text" type="email" id="u_email" placeholder="${userLoginResult.u_email}" autocomplete="off">
 							</div>
 							<div class="create_explanation">이메일 형식으로 입력해주세요</div>
 						<div class="modification_form_container_sub">
@@ -153,11 +177,11 @@
 						</div>
 						<div class="input_container">
 							<span>계좌번호</span>
-							<input class="input_text" type="text" id="u_account_no" placeholder="${userLoginResult.u_account_no}">
+							<input class="input_text" type="text" id="u_account_no" placeholder="${userLoginResult.u_account_no}" autocomplete="off">
 						</div>
 						<div class="input_container">
 							<span>주소</span>
-							<input class="input_text" type="text" id="u_address" placeholder="${userLoginResult.u_address}">
+							<input class="input_text" type="text" id="u_address" placeholder="${userLoginResult.u_address}" autocomplete="off">
 						</div>
 						<button class="next_button" id="modificationButton"  type="submit" >수정하기</button>
 					</div>

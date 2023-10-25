@@ -77,7 +77,7 @@ $(document).ready(function() {
 				<input class="input_text" type="text" name="s_id"  id="s_id" autocomplete="off"  placeholder="6~20자 영문, 숫자"><br>
 			</div>
 			<div class="login_input_container">비밀번호
-				<input class="input_text" type="password" name="s_pw" id="s_pw" autocomplete="off"  placeholder="8~12자 영문, 숫자, 특수문자"><br>
+				<input class="input_text" type="password" name="s_pw" id="s_pw"  placeholder="8~12자 영문, 숫자, 특수문자"><br>
 			</div>
 			<button class="next_button" id="loginSellerButton" type="submit">로그인하기</button>
 		</div>

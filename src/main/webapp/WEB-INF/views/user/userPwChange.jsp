@@ -95,10 +95,10 @@ $(document).ready(function() {
 			<div id="modify_pw_nav_sub">
 				<div id="modify_pw_content">
 					<div id="modify_pw_content1">새로운 비밀번호
-						<input class="input_text" type="text" id="u_new_pw" placeholder="8~12자 영문, 숫자, 특수문자">
+						<input class="input_text" type="password" id="u_new_pw" placeholder="8~12자 영문, 숫자, 특수문자">
 					</div>
 					<div id="modify_pw_content2">새로운 비밀번호 확인
-						<input class="input_text" type="text" id="u_new_pw_again" placeholder="8~12자 영문, 숫자, 특수문자">
+						<input class="input_text" type="password" id="u_new_pw_again" placeholder="8~12자 영문, 숫자, 특수문자">
 					</div>
 					
 				</div>

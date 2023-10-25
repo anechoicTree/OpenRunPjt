@@ -65,10 +65,10 @@ $(document).ready(function() {
 		<form name="loginUser" action="loginUser" method="POST">
 		<div id="login_form_container_sub">
 			<div class="login_input_container" >아이디
-				<input class="input_text" type="text" name="u_id"  id="u_id" placeholder="6~20자 영문, 숫자">
+				<input class="input_text" type="text" name="u_id"  id="u_id" placeholder="6~20자 영문, 숫자" autocomplete="off">
 			</div>
 			<div class="login_input_container">비밀번호
-				<input class="input_text" type="password"  name="u_pw" id="u_pw" placeholder="8~12자 영문, 숫자, 특수문자"><br>
+				<input class="input_text" type="password"  name="u_pw" id="u_pw" placeholder="8~12자 영문, 숫자, 특수문자" ><br>
 			</div>
 			<button class="next_button" id="loginUserButton" type="submit">로그인하기</button>
 		</div>

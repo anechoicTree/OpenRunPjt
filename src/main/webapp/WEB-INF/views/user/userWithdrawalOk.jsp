@@ -23,7 +23,12 @@ $(document).ready(function() {
             alert('비밀번호를 입력해주세요.');
             return;
         }
-        
+		var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
+		
+		if (!passwordRegex.test(u_pw)) {
+	        alert('비밀번호는 8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다');
+	        return;
+		}
         var dataToSend = {
                 u_pw: u_pw,
                 u_id: u_id
@@ -61,7 +66,7 @@ $(document).ready(function() {
 					<div id="withdrawal_content">
 					<input class="input_text" type="hidden" id="u_id" name="u_id" value="${userLoginResult.u_id}">
 						<div id="withdrawal_content1">비밀번호
-							<input class="input_text" type="password" id="u_pw" name="u_pw" placeholder="8~12자 영문, 숫자, 특수문자"><br>
+							<input class="input_text" type="password" id="u_pw" name="u_pw" placeholder="8~12자 영문, 숫자, 특수문자" ><br>
 						</div>
 					</div>
 					<button class="next_button" id="userWithdrawalButton" type="submit">확인</button>

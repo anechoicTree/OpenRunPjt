@@ -24,6 +24,12 @@ $(document).ready(function() {
             return;
         }
         
+		var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
+		
+		if (!passwordRegex.test(u_pw)) {
+	        alert('비밀번호는 8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다');
+	        return;
+		}
         var dataToSend = {
                 u_pw: u_pw,
                 u_id: u_id

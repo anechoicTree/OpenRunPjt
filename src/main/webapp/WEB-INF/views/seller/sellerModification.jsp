@@ -12,24 +12,54 @@
 </head>
 <body>
 <script>
-	//아이디 변경 불가 설정
+	//변경 불가 설정
 	$(document).ready(function() {
    		var inputField = document.getElementById("s_id");
-   	 	inputField.readOnly = true;
+   		var businessNameField = document.getElementById("s_business_name");
+   		var businessRegNoField = document.getElementById("s_business_reg_no");
+   		
+   		inputField.readOnly = true;
+   		businessNameField.readOnly = true;
+   		businessRegNoField.readOnly = true;
 	
 	//은행명 option 설정
         var bankName = "${userLoginResult.s_bank_name}";
         var selectElement = document.getElementsByName("s_bank_name")[0];
         selectElement.value = bankName;
     });
-	
+	function modificationSeller(){
+		if ($("#s_pw").val() == "") {
+            $("#s_pw").val("${sellerLoginResult.s_pw}");
+        }
+	 	if ($("#s_pw_again").val() == "") {
+            $("#s_pw_again").val("${sellerLoginResult.s_pw}");
+        }
+	 	 var s_pw = $("#s_pw").val();
+	     var s_pw_again = $("#s_pw_again").val();
+	     
+		let form = document.modificationSeller;
+	    var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$/;
+		
+		if (!passwordRegex.test(s_pw)) {
+	        alert('비밀번호는 8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다');
+	        return false;
+		}else if (s_pw !== s_pw_again) {
+	        alert('비밀번호와 비밀번호 확인의 입력값이 다릅니다');
+
+	        return false;
+	    } else {
+	        return true;
+	    };
+		
+	}
 	 $(document).ready(function() {
 		 $(document).on("click", "#modificationButton", function(){
-			 
-			 if ($("#s_pw").val() == "") {
+			 	if ($("#s_pw").val() == "") {
 		            $("#s_pw").val("${sellerLoginResult.s_pw}");
 		        }
-
+			 	if ($("#s_pw_again").val() == "") {
+		            $("#s_pw_again").val("${sellerLoginResult.s_pw}");
+		        }
 		        if ($("#s_business_name").val() == "") {
 		            $("#s_business_name").val("${sellerLoginResult.s_business_name}");
 		        }
@@ -53,6 +83,7 @@
 		        if ($("#s_address").val() == "") {
 		            $("#s_address").val("${sellerLoginResult.s_address}");
 		        }
+		       
              var modifiedData = {
             	s_id: $("#s_id").val(), 
             	s_pw: $("#s_pw").val(),
@@ -64,7 +95,7 @@
                 s_account_no: $("#s_account_no").val(),
                 s_address: $("#s_address").val()
              };
-
+             if (modificationSeller()) {
              $.ajax({
                  type: "POST",
                  url: "modificationSeller",
@@ -82,6 +113,7 @@
                      }
                  }
              });
+		 	}
          });
      });
 </script>
@@ -94,12 +126,12 @@
 		<div id="main_title">회원 정보수정</div>
 			<div id="main_content_sub">
 				<div id="modification_nav">	
-				<form name="sellerModification" action="<c:url value='/sellerModification' />" method="POST"></form>
+				<form name="modificationSeller" action="<c:url value='modificationSeller' />" method="POST"></form>
 					<div id="modification_content">
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>아이디</span>
-								<input class="input_text" type="text" id="s_id" value="${sellerLoginResult.s_id}">
+								<input class="input_text" type="text" id="s_id" value="${sellerLoginResult.s_id}" autocomplete="off">
 							</div>
 							<div class="create_explanation" id="create_explanation_id">아이디는 수정이 불가능 합니다</div>
 						</div>
@@ -119,24 +151,24 @@
 						</div>
 						<div class="input_container">
 							<span>사업자명</span>
-							<input class="input_text" type="text" id="s_business_name" placeholder="${sellerLoginResult.s_business_name}">
+							<input class="input_text" type="text" id="s_business_name" placeholder="${sellerLoginResult.s_business_name}" autocomplete="off">
 						</div>
 			
 							<div class="input_container">
 								<span>사업자등록번호</span>
-								<input class="input_text" type="text" id="s_business_reg_no" placeholder="${sellerLoginResult.s_business_reg_no}" >
+								<input class="input_text" type="text" id="s_business_reg_no" placeholder="${sellerLoginResult.s_business_reg_no}"  autocomplete="off">
 							</div>
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>휴대폰 번호</span>
-								<input class="input_text" type="text" id="s_phone" placeholder="${sellerLoginResult.s_phone}">
+								<input class="input_text" type="text" id="s_phone" placeholder="${sellerLoginResult.s_phone}" autocomplete="off">
 							</div>
 								<div class="create_explanation">ex)01012345678 형식으로 입력해 주세요</div>
 						</div>
 						<div class="modification_form_container_sub">
 							<div class="input_container">
 								<span>이메일</span>
-								<input class="input_text" type="email" id="s_email" placeholder="${sellerLoginResult.s_email}">
+								<input class="input_text" type="email" id="s_email" placeholder="${sellerLoginResult.s_email}" autocomplete="off">
 							</div>
 							<div class="create_explanation">이메일 형식으로 입력해주세요</div>
 						<div class="modification_form_container_sub">
@@ -151,13 +183,13 @@
 						</div>
 						<div class="input_container">
 							<span>계좌번호</span>
-							<input class="input_text" type="text" id="s_account_no" placeholder="${sellerLoginResult.s_account_no}">
+							<input class="input_text" type="text" id="s_account_no" placeholder="${sellerLoginResult.s_account_no}" autocomplete="off">
 						</div>
 						<div class="input_container">
 							<span>주소</span>
-							<input class="input_text" type="text" id="s_address" placeholder="${sellerLoginResult.s_address}">
+							<input class="input_text" type="text" id="s_address" placeholder="${sellerLoginResult.s_address}" autocomplete="off">
 						</div>
-						<button class="next_button" id="modificationButton"  type="submit" >수정하기</button>
+						<button class="next_button" id="modificationButton"  onclick="return false;">수정하기</button>
 					</div>
 				</div>
 			</div>
