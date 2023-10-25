@@ -50,6 +50,10 @@
     <select id="selectProduct" resultMap="productResult">
         SELECT * FROM product WHERE p_no = #{p_no}
     </select>
+    
+	<select id="selectAllProduct" resultMap="productResult">
+		SELECT * FROM product ORDER BY p_no ASC
+	</select>    
 
     <update id="updateProduct" parameterType="productVO">
         UPDATE product

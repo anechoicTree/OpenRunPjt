@@ -3,6 +3,9 @@ package com.openrun.ticket.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.dao.DataAccessException;
+
+import com.openrun.ticket.vo.ProductQnaVO;
 import com.openrun.ticket.vo.ProductVO;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -40,14 +43,19 @@ public class ProductDAOImpl implements ProductDAO {
         return sqlSession.selectOne("com.openrun.ticket.mappers.ProductMapper.selectProduct", p_no);
     }
 
-    @Override
-    public int updateProduct(ProductVO productVo) {
-        return sqlSession.update("com.openrun.ticket.mappers.ProductMapper.updateProduct", productVo);
-    }
+	@Override
+	public int updateProduct(ProductVO productVO) throws DataAccessException {
+	    return sqlSession.update("com.openrun.ticket.mappers.ProductMapper.updateProduct", productVO);
+	}
 
     @Override
     public int deleteProduct(int p_no) {
         return sqlSession.delete("com.openrun.ticket.mappers.ProductMapper.deleteProduct", p_no);
     }
+    
+	@Override
+	public List<ProductVO> selectAllProduct(ProductVO productVO) throws DataAccessException {
+        return sqlSession.selectList("com.openrun.ticket.mappers.ProductMapper.selectAllProduct", productVO);
+	}
 }
 

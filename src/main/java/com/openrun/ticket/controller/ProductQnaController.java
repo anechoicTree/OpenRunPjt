@@ -22,7 +22,6 @@ public class ProductQnaController {
 	@Autowired
 	ProductQnaServiceImpl productQnaService;
 	
-	//seller_product_list.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
 	@GetMapping("/inquiryProductList")
 	public String inquiryProductList(Model model, ProductQnaVO productQnaVO) {
 		System.out.println("[ProductQnaController] inquiryProductList()");

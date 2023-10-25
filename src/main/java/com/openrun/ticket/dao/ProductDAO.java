@@ -14,5 +14,6 @@ public interface ProductDAO {
 	 public ProductVO selectProduct(int p_no) throws DataAccessException; //
 	 public int updateProduct(ProductVO productVO) throws DataAccessException;
 	 public int deleteProduct(int p_no) throws DataAccessException;
+	 public List<ProductVO> selectAllProduct(ProductVO productVO);
 
 }

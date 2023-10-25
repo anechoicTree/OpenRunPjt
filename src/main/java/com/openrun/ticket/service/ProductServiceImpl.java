@@ -2,10 +2,13 @@ package com.openrun.ticket.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.openrun.ticket.dao.ProductDAO;
+import com.openrun.ticket.vo.ProductQnaVO;
 import com.openrun.ticket.vo.ProductVO;
+import com.openrun.ticket.vo.ReplyVO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -59,12 +62,29 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.selectProduct(p_no);
 	}
 	
+    
     @Override
-	public int modifyProductConfirm(ProductVO productVO) {
-		System.out.println("[ProductService] modifyProductConfirm()");
-		
-		return productDAO.updateProduct(productVO);
-	}
+    public int modifyProductConfirm(ProductVO productVO) {
+        System.out.println("[ProductService] modifyProductConfirm");
+
+        // isPNum은 p_no이 존재하는지 확인하는 용도
+        boolean isPNum = productDAO.isPNum(productVO.getP_no());
+
+        // isPNum의 존재 여부에 따라 updateProduct를 실행할지 말지 정하는 코드
+        // update문을 사용할 것이므로 isPNum이 true일 때(p_no이 존재할 때) updateProduct가 실행된다
+        // p_no이 존재하지 않으면 실패하도록 설계
+        if (isPNum) {
+            int result = productDAO.updateProduct(productVO);
+
+            if (result > 0) {
+                return PRODUCT_REGISTER_SUCCESS;
+            } else {
+                return PRODUCT_REGISTER_FAIL;
+            }
+        } else {
+            return PRODUCT_PNUM_ALREADY_EXIST;
+        }
+    }  
 	
     @Override
 	public int deleteProductConfirm(int p_no) {
@@ -103,6 +123,11 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("[ProductService] sellerProductList()");
 		
 		return productDAO.sellerList(p_no);
+	}
+	
+	@Override
+	public List<ProductVO> selectAllProduct(ProductVO productVO) throws DataAccessException {
+	     return productDAO.selectAllProduct(productVO);
 	}
 	
 }

@@ -15,39 +15,39 @@
 		<div id="section_wrap">
 			<div class="product_all_wrap">
 				<div class="product_name">
-					<h3>${productVo.p_name}</h3>
+					<h3>${productVO.p_name}</h3>
 				<hr>
 				</div>
 				
 				<div class="product_img">
-					<img src="<c:url value="/productUploadImg/${productVo.p_img}"/>">
+					<img src="<c:url value="/productUploadImg/${productVO.p_img}"/>" style="width : 200px;">
 							<!-- DB에서 받아올 상품 썸네일 -->
 				</div>
 				<div class="product_table">
 					<table>
 							<tr>
 								<th>장소</th>
-								<td>${productVo.p_hall}</td>
+								<td>${productVO.p_hall}</td>
 							</tr>	
 							<tr>	
 								<th>공연기간</th>
-								<td>${productVo.p_perfo_start_date} ~ ${productVo.p_perfo_end_date}</td>
+								<td>${productVO.p_perfo_start_date} ~ ${productVO.p_perfo_end_date}</td>
 							</tr>
 							<tr>
 								<th>공연시간</th>
-								<td>${productVo.p_viewing_time}</td>
+								<td>${productVO.p_viewing_time}</td>
 							</tr>
 							<tr>
 								<th>관람연령</th>
-								<td>${productVo.p_viewing_grade}</td>
+								<td>${productVO.p_viewing_grade}</td>
 							</tr>
 							<tr>	
 								<th>가격</th>
-								<td>${productVo.p_price}원</td>
+								<td>${productVO.p_price}원</td>
 							</tr>
 							<tr>
 								<th>유의사항</th>
-								<td>${productVo.p_resev_start_date} ~ ${productVo.p_resev_end_date}까지<br>
+								<td>${productVO.p_resev_start_date} ~ ${productVO.p_resev_end_date}까지<br>
 									구매 가능합니다.</td>
 							</tr>
 					</table>
@@ -55,43 +55,43 @@
 				<div class="main_content">
 					<div>
 						<div class="product_content">
-			              <button class="select_btn" data-id="content" onclick="location.href='productDetail?p_no=${productVo.p_no}'">공연정보</button>
+			              <button class="select_btn" data-id="content" onclick="location.href='productDetail?p_no=${productVO.p_no}'">공연정보</button>
 			            </div>
 			            <div class="sell_info">
-			              <button class="content_btn" data-id="info" onclick="location.href='productSellInfo?p_no=${productVo.p_no}'">판매정보</button>
+			              <button class="content_btn" data-id="info" onclick="location.href='productSellInfo?p_no=${productVO.p_no}'">판매정보</button>
 			            </div>
 			            <div class="review">
-			              <button class="content_btn" data-id="review" onclick="location.href='productReview?p_no=${productVo.p_no}'">관람후기</button>
+			              <button class="content_btn" data-id="review" onclick="location.href='productReview?p_no=${productVO.p_no}'">관람후기</button>
 			            </div>
 			            <div class="place_info">
-			              <button class="content_btn" data-id="place" onclick="location.href='productPlaceInfo?p_no=${productVo.p_no}'">장소안내</button>
+			              <button class="content_btn" data-id="place" onclick="location.href='productPlaceInfo?p_no=${productVO.p_no}'">장소안내</button>
 			            </div>
 					</div>
 					<div class="sell_detail" style="width: 700px;">
 						<div id="agency_info">
 							<h3>기획사 정보</h3>
-							<p>주최/주관 : ${sellerVO.s_comName}</p>
+							<p>주최/주관 : ${sellerVO.s_business_name}</p>
 						</div>
 						<div id="product_info"> <!-- 표 한번 정리해야됨 -->
 							<h3>상품관련 정보</h3>
 							<table>
 								<tr>
 									<th>주최/기획</th>
-									<td>${sellerVo.s_comName}</td>
+									<td>${sellerVO.s_business_name}</td>
 									<th>고객문의</th>
 									<td>1588-8282</td>
 								</tr>
 								<tr>
 									<th>공연시간</th>
-									<td>${productVo.p_viewing_time}</td>
+									<td>${productVO.p_viewing_time}</td>
 									<th>관람등급</th>
-									<td>${productVo.p_viewing_grade}</td>
+									<td>${productVO.p_viewing_grade}</td>
 								</tr>
 								<tr>
 									<th>주연</th>
 									<td>스테이씨</td>
 									<th>공연장소</th>
-									<td>${productVo.p_hall}</td>
+									<td>${productVO.p_hall}</td>
 								</tr>
 								<tr>
 									<th>예매수수료</th>
@@ -101,7 +101,7 @@
 								</tr>
 								<tr>
 									<th>유효기간/이용조건</th>
-									<td>${productVo.p_perfo_start_date} ~ ${productVo.p_perfo_end_date}
+									<td>${productVO.p_perfo_start_date} ~ ${productVO.p_perfo_end_date}
 											예매한 공연 날짜, 회차에 한해 이용가능</td>
 								</tr>
 								<tr>
@@ -160,23 +160,23 @@
 							<table>
 								<tr>
 									<th>상호</th>
-									<td>${sellerVo.s_comName}</td>
+									<td>${sellerVO.s_business_name}</td>
 									<th>대표자명</th>
-									<td>${sellerVo.s_name}</td>
+									<td>${sellerVo.s_business_name}</td>
 								</tr>
 								<tr>
 									<th>사업자등록번호</th>
-									<td>${sellerVo.s_corRegiNum}</td>
+									<td>${sellerVO.s_business_reg_no}</td>
 									<th>E-mail</th>
-									<td>${sellerVo.s_email}</td>
+									<td>${sellerVO.s_email}</td>
 								</tr>
 								<tr>
 									<th>연락처</th>
-									<td>${sellerVo.s_number}</td>
+									<td>${sellerVO.s_phone}</td>
 								</tr>
 								<tr>
 									<th>주소</th>
-									<td>${sellerVo.s_addr}</td>
+									<td>${sellerVO.s_address}</td>
 								</tr>
 							</table>
 						</div>

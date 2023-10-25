@@ -31,7 +31,7 @@
 					</table>
 				</div>
 				<div class="register_product_form">
-					<h3>상품이 등록되었습니다!</h3>
+					<h3>상품이 수정되었습니다!</h3>
 				</div>
 			</div>
 		</div>

@@ -18,4 +18,5 @@ public interface ProductService {
 	 public ProductVO productReview(int p_no) throws DataAccessException;
 	 public ProductVO productPlaceInfo(int p_no) throws DataAccessException;
 	 public boolean sellerProductList(int p_no) throws DataAccessException;
+	 public List<ProductVO> selectAllProduct(ProductVO productVO) throws DataAccessException;
 }

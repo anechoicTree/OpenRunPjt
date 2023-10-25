@@ -25,7 +25,8 @@
 				<jsp:include page="../../seller/seller_nav_side.jsp"/>
 			</div>
 			<form action="<c:url value='/product/seller/registerInquiryConfirm' />" name="register_inquiry_form" method="post">
-				<input type="hidden" name="i_no" value="${productQnaVO.i_no}" />
+				<!-- i_no을 안보여주면서 form을 수정할때 i_no 값이 넘어갈 수 있도록 해둠-->
+				<input type="hidden" name="i_no" value="${productQnaVO.i_no}" /> 
 				<table>
 					<tr>
 						<th>번호</th>

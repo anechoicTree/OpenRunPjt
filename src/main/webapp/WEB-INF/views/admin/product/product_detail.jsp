@@ -56,7 +56,7 @@
 				</div>
 				<div class="main_content">
 					<div>
-					<div class="product_content">
+						<div class="product_content">
 			              <button class="select_btn" data-id="content" onclick="location.href='productDetail?p_no=${productVO.p_no}'">공연정보</button>
 			            </div>
 			            <div class="sell_info">

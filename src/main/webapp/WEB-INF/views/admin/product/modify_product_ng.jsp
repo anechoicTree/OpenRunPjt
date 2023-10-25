@@ -31,7 +31,7 @@
 					</table>
 				</div>
 				<div class="register_product_form">
-					<h3>상품등록에 실패했습니다!</h3>
+					<h3>상품수정에 실패했습니다!</h3>
 				</div>
 			</div>
 		</div>

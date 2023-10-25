@@ -186,5 +186,13 @@
 	<bean id="productQnaService" class="com.openrun.ticket.service.ProductQnaServiceImpl">
 	    <property name="productQnaDAO" ref="productQnaDAO" />
 	</bean>
+	
+	<bean id="productReplyDAO" class="com.openrun.ticket.dao.ProductReplyDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="productReplyService" class="com.openrun.ticket.service.ProductReplyServiceImpl">
+	    <property name="productReplyDAO" ref="productReplyDAO" />
+	</bean>
 
 </beans>
