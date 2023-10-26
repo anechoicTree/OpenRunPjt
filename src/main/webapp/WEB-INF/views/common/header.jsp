@@ -13,24 +13,33 @@
 	$(document).ready(function() {
 	    // menu-btn 클릭 이벤트 핸들러
 	    $('.menu-btn').click(function() {
-	    	if ($(this).data('id') != "home") {
-	    		var category = $(this).attr('value'); // 클릭한 버튼의 value 값 가져오기
-		        var url = '/ticket/search?category=' + category; // 카테고리를 URL 파라미터로 추가
-		        $.ajax({
-		            type: 'GET', // GET 요청
-		            url: url,
-		            success: function(data) {
-		                // GET 요청이 성공하면 페이지 이동
-		                window.location.href = url;
-		            },
-		            error: function() {
-		                // GET 요청에 실패하면 오류 처리
-		                console.error('Failed to load page: ' + url);
-		            }
-		        });
-	    	}
-	    });
-	});
+	    	var url = ""; // url 변수 초기화
+    		if ($(this).data('id') === "ranking") {
+    			url = '/ticket/search/ranking'
+    		} else if ($(this).data('id') === "location") {
+    			url = '/ticket/search/location'
+    		} else if ($(this).data('id') === "home") {
+    			url = '/ticket'
+    		} else {
+    			var category = $(this).attr('value'); // 클릭한 버튼의 value 값 가져오기
+		        url = '/ticket/search?category=' + category; // 카테고리를 URL 파라미터로 추가
+    		} 
+	    			
+	        $.ajax({
+	            type: 'GET', // GET 요청
+	            url: url,
+	            success: function(data) {
+	                // GET 요청이 성공하면 페이지 이동
+	                window.location.href = url;
+	            },
+	            error: function() {
+	                // GET 요청에 실패하면 오류 처리
+	                console.error('Failed to load page: ' + url);
+	            }
+	        });
+    	});
+    });
+
 </script>
 
 <div class="header-container">
@@ -101,7 +110,7 @@
 	<div id="main-nav">
 		<div id="main-nav-item1">
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="home" onclick="location.href='/ticket'">홈</button>
+				<button class="menu-btn" data-id="home">홈</button>
 			</div>
 			<div class="main-nav-btn">
 				<button class="menu-btn" data-id="musical" value="뮤지컬">뮤지컬</button>
@@ -122,10 +131,7 @@
 				<button class="menu-btn" data-id="ranking">랭킹</button>
 			</div>
 			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="area">지역</button>
-			</div>
-			<div class="main-nav-btn">
-				<button class="menu-btn" data-id="hall">공연장</button>
+				<button class="menu-btn" data-id="location">지역</button>
 			</div>
 		</div>
 		<div id="main-nav-item2">

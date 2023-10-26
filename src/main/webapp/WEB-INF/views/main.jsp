@@ -120,6 +120,7 @@
 	    /* 4. [배너] 페이지 로드시 초기값 설정 */
 	    // 페이지 로드시 필터링 초기값 뮤지컬로 설정, 2번 함수 이후에 위치 시켜줘야 제대로 동작
 	    $('#cat1').click();
+	    $('#cat1').addClass('active')
 
 		// 페이지 로드시 화살표 초기상태 설정        
 	 	if (bannerIndex === 0) {
@@ -128,7 +129,17 @@
 		if (bannerIndex === maxIndex) {
 	 		$("#next-btn").prop('disabled', true);
 		}
+		
+	    /* 5. [버튼] 클릭 이벤트 처리 - 색상 변경 */
+	    $('.filter-btn').click(function() {
+	        // 모든 필터 버튼의 클래스 초기화 (글자색을 검정색으로 변경)
+	        $('.filter-btn').removeClass('active');
+	        
+	        // 클릭된 버튼에 클래스 추가 (글자색을 보라색으로 변경)
+	        $(this).addClass('active');
+	    });
 	});
+
 
 </script>
 </head>

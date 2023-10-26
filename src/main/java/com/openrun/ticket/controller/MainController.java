@@ -37,7 +37,7 @@ public class MainController {
     @RequestMapping(value={"/"}, method = RequestMethod.GET)
     public String listNotices(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
     	
-    	List<SearchVO> searchResults = searchService.searchContentsAll();
+    	List<SearchVO> searchResults = searchService.searchContentsByRanking();
     	model.addAttribute("searchResults", searchResults);
 	    return "main";
     }

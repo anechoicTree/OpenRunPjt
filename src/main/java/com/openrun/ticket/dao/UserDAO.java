@@ -2,6 +2,7 @@ package com.openrun.ticket.dao;
 
 import java.util.List;
 
+import com.openrun.ticket.vo.NoticeVO;
 import com.openrun.ticket.vo.UserVO;
 
 public interface UserDAO {
@@ -12,4 +13,7 @@ public interface UserDAO {
 	public UserVO findIdCheck(UserVO userVO);
 	public UserVO findPwCheck(UserVO userVO);
 	public String pwChange(UserVO userVO);
+	
+	public List<UserVO> selectAllUserListWithPagination(int start, int pageSize);
+	public int selectTotalUserCount();
 }

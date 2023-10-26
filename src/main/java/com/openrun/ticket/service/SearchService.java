@@ -8,4 +8,5 @@ public interface SearchService {
 	 public List<SearchVO> searchContentsByTitle(String searchKeyword);
 	 public List<SearchVO> searchContentsByCategory(String category);
 	 public List<SearchVO> searchContentsAll();
+	 public List<SearchVO> searchContentsByRanking();
 }

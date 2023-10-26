@@ -2,6 +2,7 @@ package com.openrun.ticket.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.openrun.ticket.dao.UserDAO;
@@ -46,6 +47,14 @@ public class UserServiceImpl implements UserService {
 	public String pwChange(UserVO userVO){
 		return userDAO.pwChange(userVO);
 	}
-
 	
+    @Override
+    public List<UserVO> selectAllUserListWithPagination(int start, int pageSize) throws DataAccessException {
+	    return userDAO.selectAllUserListWithPagination(start, pageSize);
+    }
+	
+    @Override
+    public int selectTotalUserCount() throws DataAccessException {
+	    return userDAO.selectTotalUserCount();
+    }
 }

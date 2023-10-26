@@ -1,9 +1,12 @@
 package com.openrun.ticket.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.annotation.Primary;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.openrun.ticket.vo.UserVO;
@@ -55,4 +58,17 @@ public class UserDAOImpl implements UserDAO{
 		 return sqlSession.selectOne(namespace + ".pwChange", userVO);
  
 	 }
+	 
+	 @Override
+	 public List<UserVO> selectAllUserListWithPagination(int start, int pageSize) throws DataAccessException {
+	  	 Map<String, Integer> params = new HashMap<>();
+         params.put("start", start);
+         params.put("pageSize", pageSize);
+         return sqlSession.selectList("com.openrun.ticket.mappers.UserMapper.selectAllUserListWithPagination", params);
+ 	 };
+
+     @Override
+     public int selectTotalUserCount() throws DataAccessException {
+         return sqlSession.selectOne("com.openrun.ticket.mappers.UserMapper.selectTotalUserCount");
+     }
 }

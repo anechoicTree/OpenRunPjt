@@ -29,4 +29,9 @@ public class SearchDAOImpl implements SearchDAO {
 	public List<SearchVO> searchContentsAll() throws DataAccessException {
 	    return sqlSession.selectList("com.openrun.ticket.mappers.SearchMapper.searchContentsAll");
 	}
+	
+	@Override
+	public List<SearchVO> searchContentsByRanking() throws DataAccessException {
+	    return sqlSession.selectList("com.openrun.ticket.mappers.SearchMapper.searchContentsByRanking");
+	}
 }

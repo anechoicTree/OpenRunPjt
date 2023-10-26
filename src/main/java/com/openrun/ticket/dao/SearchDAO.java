@@ -11,6 +11,7 @@ public interface SearchDAO {
 	public List<SearchVO> searchContentsByTitle(String searchKeyword) throws DataAccessException;
 	public List<SearchVO> searchContentsByCategory(String category) throws DataAccessException;
 	public List<SearchVO> searchContentsAll() throws DataAccessException;
+	public List<SearchVO> searchContentsByRanking() throws DataAccessException;
 }
 
 

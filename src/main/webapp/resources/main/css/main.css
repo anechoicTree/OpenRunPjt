@@ -81,7 +81,7 @@ body:hover::-webkit-scrollbar-thumb {
 
 .filter {
 	max-width: 100%;
-	margin-bottom: 40px;
+	margin: 20px 0 40px 0;
 }
 
 #filter-list {
@@ -102,6 +102,15 @@ body:hover::-webkit-scrollbar-thumb {
     border: none;
     cursor: pointer;
 }
+
+.filter-btn:hover {
+	color: #6E63CF;
+}
+
+.filter-btn.active {
+	color: #6E63CF;
+}
+
 
 .filter-item {
     margin-top: 10px;
@@ -443,21 +452,27 @@ body:hover::-webkit-scrollbar-thumb {
     height: 100%;
 }
 
+.main-banner-items-container {
+	display: flex;
+	justify-content: center;	
+	width: 100%;
+}
+
 .main-banner-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 34px;
     justify-content: flex-start;
     transition: transform 0.3s; /* 슬라이드 애니메이션을 부드럽게 만들어줍니다 */
     width: 100%;
 	min-height: 60%;
 	max-height: fit-content;
+	padding: 0 20px;
 }
 
 .main-banner-item {
     display: flex;
     flex-basis: calc(33% - 20px); /* 3개 항목, 20px는 gap으로 인한 간격 조정 */
-    flex-grow: 1; /* 남은 공간을 균등하게 분배 */
 	width: calc(33% - 20px); /* 너비 설정 */
     box-sizing: border-box;
     border: 1px solid #e1e1e1;

@@ -233,23 +233,25 @@
 				</c:if>
 				<!-- 검색된 결과를 나열합니다 -->
 				<c:if test="${!empty searchResults}">
-			        <div class="sResult-items">
-			            <c:forEach items="${searchResults}" var="search">
-                            <div class="sResult-item" data-category="${search.category}" data-location="${search.location}" data-views="${search.views}">
-			                	<div class="item-img">
-                	           		<!-- DB에서 가져온 이미지 주소를 사용하여 이미지 표시 -->
-       							    <img src="${pageContext.request.contextPath}${search.img}" alt="${search.title}">
-			                	</div>
-			                    <div class="item-number">${search.cno}</div>
-			                    <div class="item-category">${search.title}</div>
-			                    <div class="item-title">${search.rsvStart}</div>
-			                    <div class="item-body">${search.rsvEnd}</div>
-			                    <div class="item-date">${search.pfmDate}</div>
-			                    <div class="item-views">${search.views}</div>
-			                    <div class="item-location">${search.location}</div>
-			                    <div class="item-category">${search.category}</div>
-			                </div>
-			            </c:forEach>
+					<div class="main-banner-items-container">
+				        <div class="sResult-items">
+				            <c:forEach items="${searchResults}" var="search">
+	                            <div class="sResult-item" data-category="${search.category}" data-location="${search.location}" data-views="${search.views}">
+				                	<div class="item-img">
+	                	           		<!-- DB에서 가져온 이미지 주소를 사용하여 이미지 표시 -->
+	       							    <img src="${pageContext.request.contextPath}${search.img}" alt="${search.title}">
+				                	</div>
+				                    <div class="item-number">${search.cno}</div>
+				                    <div class="item-category">${search.title}</div>
+				                    <div class="item-title">${search.rsvStart}</div>
+				                    <div class="item-body">${search.rsvEnd}</div>
+				                    <div class="item-date">${search.pfmDate}</div>
+				                    <div class="item-views">${search.views}</div>
+				                    <div class="item-location">${search.location}</div>
+				                    <div class="item-category">${search.category}</div>
+				                </div>
+				            </c:forEach>
+				        </div>
 			        </div>
 			    </c:if>
    				<!-- 검색된 결과 필터링의 결과가 존재하지 않을 때 -->

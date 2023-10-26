@@ -28,4 +28,7 @@
    		select * from contents order by CNO desc
 	</select>
 
+	<select id="searchContentsByRanking" resultMap="contentsResult">
+   		select * from contents order by VIEWS desc
+	</select>
 </mapper>

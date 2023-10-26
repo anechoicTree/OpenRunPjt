@@ -142,7 +142,6 @@
 		box-sizing: border-box;
 		padding: 0px 5px;
 		height: 24px;
-		width: 240px;
 		border: 1px solid #E7EAEE;
 		border-radius: 12px;
 		background: #FFFFFF;
@@ -152,14 +151,17 @@
 		font-size: 16px;
 	    border: none;
 		outline: none;
+	    padding-left: 10px;
+   		width: 200px;
 	}
 	
 	#search-submit {
-		width: 20px;
-		height: 20px;
+		width: 16px;
+		height: 16px;
 	    border: none;
 		cursor: pointer;
 		background: #FFFFFF;
+		margin: 0 5px;
 	}
 
 /* footer 컨테이너 */

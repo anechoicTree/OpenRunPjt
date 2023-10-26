@@ -3,7 +3,8 @@
         'guide_btn': '/ticket/admin/guide',
         'notice_btn': '/ticket/admin/notice',
         'qna_btn': '/ticket/admin/qna',
-        'sellerApproval_btn': '/ticket/admin/seller',
+        'approval_btn': '/ticket/admin/seller',
+        'member_btn': '/ticket/admin/member',
         'notice-create-btn': 'noticeForm',
         'notice-update-btn': 'noticeUpdateForm',
         'notice-delete-btn': 'noticeDelete'

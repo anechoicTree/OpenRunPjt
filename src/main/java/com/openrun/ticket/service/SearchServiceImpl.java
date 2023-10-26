@@ -29,4 +29,10 @@ public class SearchServiceImpl implements SearchService{
 	   public List<SearchVO> searchContentsAll() {
 	       return searchDAO.searchContentsAll();
 	   }
+	   
+	   @Override
+	   public List<SearchVO> searchContentsByRanking() {
+	       return searchDAO.searchContentsByRanking();
+	   }
+	   
 }
