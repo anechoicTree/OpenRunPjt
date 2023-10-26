@@ -3,8 +3,52 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.openrun.ticket.reservationMapper">
-  <insert id="insertReservation" parameterType="java.util.HashMap">
+  	<resultMap id="reservation" type="reservationVO">
+		<result property="r_no" column="r_no" />
+		<result property="p_no" column="p_no" />
+		<result property="r_date" column="r_date" />
+		<result property="r_count" column="r_count" />
+		<result property="r_amount" column="r_amount" />
+		<result property="u_no" column="u_no" />
+		<result property="pay_no" column="pay_no" />
+	</resultMap>
+  	<resultMap id="productResult" type="productVO">
+		<result property="p_no" column="p_no" />
+		<result property="p_name" column="p_name" />
+		<result property="p_img" column="p_img" />
+		<result property="p_category" column="p_category" />
+		<result property="p_location" column="p_location" />
+		<result property="p_perfo_start_date" column="p_perfo_start_date" />
+		<result property="p_perfo_end_date" column="p_perfo_end_date" />
+		<result property="p_resev_start_date" column="p_resev_start_date" />
+		<result property="p_resev_end_date" column="p_resev_end_date" />
+		<result property="p_viewing_time" column="p_viewing_time" />
+		<result property="p_viewing_grade" column="p_viewing_grade" />
+		<result property="p_hall" column="p_hall" />
+		<result property="p_seat" column="p_seat" />
+		<result property="p_grade" column="p_grade" />
+		<result property="p_price" column="p_price" />
+		<result property="p_content" column="p_content" />
+	</resultMap>
+  	<insert id="insertReservation" parameterType="java.util.HashMap">
         INSERT INTO reservation (r_count, r_amount, u_no, pay_no)
         VALUES (#{r_count}, #{r_amount}, #{u_no}, #{pay_no})
-    </insert>
+   </insert>
+       <!-- 페이지네이션을 위한 쿼리 -->
+	<select id="listWithPagination" resultType="map">
+	    SELECT r.*, p.* 
+    	FROM reservation r
+    	INNER JOIN product p ON r.p_no = p.p_no
+    	ORDER BY r.r_no DESC
+    	LIMIT #{pageSize} OFFSET #{start}
+	    <!--  
+	    limit #{start}, #{pageSize}
+		-->
+	</select>
+
+    <!-- 전체 공지사항 개수를 가져오는 쿼리 -->
+    <select id="reservationCount" resultType="int">
+        select count(*) from reservation
+    </select>
+    
   </mapper>

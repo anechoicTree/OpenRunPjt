@@ -7,7 +7,6 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.dao.DataAccessException;
 
-import com.openrun.ticket.vo.FaqVO;
 import com.openrun.ticket.vo.NoticeVO;
 
 public class NoticeDAOImpl implements NoticeDAO {

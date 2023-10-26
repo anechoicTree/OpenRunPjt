@@ -1,11 +1,15 @@
 package com.openrun.ticket.service;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.openrun.ticket.dao.UserDAO;
-import com.openrun.ticket.vo.SellerVO;
+import com.openrun.ticket.vo.NoticeVO;
+import com.openrun.ticket.vo.ProductVO;
+import com.openrun.ticket.vo.ReservationVO;
 import com.openrun.ticket.vo.UserVO;
 
 @Service
@@ -59,5 +63,16 @@ public class UserServiceImpl implements UserService {
 	public int modification(UserVO userVO) {
 		return userDAO.modification(userVO);
 	}
+	@Override
+	public List<Map<String, Object>> listWithPagination(int start, int pageSize) throws DataAccessException {
+		return userDAO.listWithPagination(start, pageSize);
+	}
+	@Override
+	public int reservationCount() throws DataAccessException {
+		return userDAO.reservationCount();
+	}
+
+
+
 
 }

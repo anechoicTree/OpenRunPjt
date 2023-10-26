@@ -1,12 +1,15 @@
 package com.openrun.ticket.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.annotation.Primary;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.openrun.ticket.vo.SellerVO;
+import com.openrun.ticket.vo.ReservationVO;
 import com.openrun.ticket.vo.UserVO;
 
 @Repository
@@ -70,5 +73,16 @@ public class UserDAOImpl implements UserDAO{
 		
 		 return sqlSession.update(namespace + ".modification", userVO);
 
-	 }	 
+	 }
+	 @Override
+	 public List<Map<String, Object>> listWithPagination(int start, int pageSize) throws DataAccessException {
+	     Map<String, Integer> params = new HashMap<>();
+	     params.put("start", start);
+	     params.put("pageSize", pageSize);
+	     return sqlSession.selectList("com.openrun.ticket.reservationMapper.listWithPagination", params);
+	 }
+	 @Override
+	 public int reservationCount() throws DataAccessException {
+	     return sqlSession.selectOne("com.openrun.ticket.reservationMapper"+".reservationCount");
+	 }
 }

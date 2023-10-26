@@ -1,0 +1,129 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	font-family: 'SUITE';
+}
+#main_nav{
+	width:1080px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#main_nav_container{
+	display: grid;
+	grid-template-columns: 20% 80%;
+	margin-top: 50px;
+}
+#main_nav_sub{
+	padding-top: 30px;
+}
+#main_title{
+	display: auto;
+	width: 154px;
+	margin-bottom:5px;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 32px;
+
+	color: #000000;
+}
+#main_content_sub{
+	width: 870px;
+	height: 350px;
+	display: inline-block;
+	border-bottom: 1px solid #000000;
+	height: 100%;
+}
+#category_button_container{
+	width: 80%;
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20% 20%;
+	place-items: center;
+	margin-bottom:30px;
+	margin-top:10px;
+}
+.category_button {
+	border: none;
+	font-family: SUITE;
+	font-weight: 500;
+	font-size: 18px;	
+	color: #000000;
+	background-color: #FFFFFF;
+	margin-top:10px;
+}
+.category_button:hover {
+	cursor: pointer;
+	color: #6E63CF;
+	font-weight: bold;
+}
+#reservation_list_container{
+	margin-top: 10px;
+	width: 100%;	
+}
+#reservation_list{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	place-items: center;
+	background-color: #DDDDDD;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+}
+#reservation_list_content{
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	place-items: center; 
+}
+.reservation_list_content{
+	margin-top:10px;
+}
+
+/* 페이지 넘기는 버튼 */
+#cs-board-page {
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+#cs-board-page > * {
+	margin: 5px;
+}
+.page-buttons{
+	border: none;
+    background-color: white;
+    color: #555;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.page-buttons:hover{
+    border: none;
+    background-color: rgb(240, 239, 239);
+    cursor: pointer;
+}
+
+.page-buttons.selected {
+	border: none;
+	color: rgb(70, 200, 180);
+}
+
+.page-buttons.active {
+    color: #6E63CF; /* 선택된 페이지 버튼 색상 변경 */
+    font-weight: bold;  
+}
+.move-buttons {
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	border-radius: 2px;
+	font-weight: 700;
+}
+
+.move-buttons:hover {
+	border: none;
+	background-color: rgb(240, 239, 239);
+	cursor: pointer;
+}

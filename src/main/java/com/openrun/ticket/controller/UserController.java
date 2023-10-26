@@ -1,10 +1,13 @@
 package com.openrun.ticket.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.openrun.ticket.service.UserService;
+import com.openrun.ticket.vo.NoticeVO;
+import com.openrun.ticket.vo.ProductVO;
+import com.openrun.ticket.vo.ReservationVO;
 import com.openrun.ticket.vo.UserVO;
 
 
@@ -336,5 +342,55 @@ public class UserController {
 		} else {
 			return "0"; //회원 정보 수정 실패
 		}
+	}
+	//user 예매 내역 조회 페이지 이동
+	@GetMapping("/product/admin/userReservationList")
+	public String userReservationList( 
+			HttpServletRequest request,
+	        HttpServletResponse response,
+	        @RequestParam(name = "page", defaultValue = "1") int page) throws Exception{
+		System.out.println("userController / userReservationList");
+		
+		 	int pageSize = 10;
+		    
+		    // 페이지 관련 데이터 설정
+		    int totalCount = userService.reservationCount();
+		    int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+		    request.setAttribute("currentPage", page);
+		    request.setAttribute("totalPages", totalPages);
+	    	
+		    int start = (page - 1) * pageSize;
+		    // 데이터 가져오는 쿼리 수정
+		    List<Map<String, Object>> reservationList = userService.listWithPagination(start, pageSize);
+		    
+		    request.setAttribute("reservationList", reservationList);
+		    
+		    String nextPage = "user/userReservationList";
+		    return nextPage;
+	}
+	//user 예매 내역 조회 리스트 페이지 이동
+	@GetMapping("/product/admin/userReservationListContainer")
+	public String userReservationListContainer(HttpServletRequest request,
+	        HttpServletResponse response,
+	        @RequestParam(name = "page", defaultValue = "1") int page) throws Exception{
+		System.out.println("userController / userReservationListContainer");
+		
+		int pageSize = 10;
+	    
+	    
+	    // 페이지 관련 데이터 설정
+	    int totalCount = userService.reservationCount();
+	    int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+	    request.setAttribute("currentPage", page);
+	    request.setAttribute("totalPages", totalPages);
+    	
+	    int start = (page - 1) * pageSize;
+	    // 데이터 가져오는 쿼리 수정
+	    List<Map<String, Object>> reservationList = userService.listWithPagination(start, pageSize);
+	    
+	    request.setAttribute("reservationList", reservationList);
+	    System.out.println(reservationList);
+		String nextPage = "user/userReservationListContainer";
+		return nextPage;	
 	}
 }
