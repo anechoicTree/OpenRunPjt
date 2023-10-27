@@ -20,4 +20,6 @@ public interface UserDAO {
 	public int modification(UserVO userVO);
 	public List<Map<String, Object>> listWithPagination(int start, int pageSize) throws DataAccessException;
 	public int reservationCount() throws DataAccessException;
+	public List<Map<String, Object>> lisCategorytWithPagination(String p_category, int start, int pageSize) throws DataAccessException;
+	public int reservationCategoryCount(String p_category) throws DataAccessException;
 }

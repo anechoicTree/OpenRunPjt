@@ -85,4 +85,17 @@ public class UserDAOImpl implements UserDAO{
 	 public int reservationCount() throws DataAccessException {
 	     return sqlSession.selectOne("com.openrun.ticket.reservationMapper"+".reservationCount");
 	 }
+	 @Override
+	 public int reservationCategoryCount(String p_category) throws DataAccessException {
+	     return sqlSession.selectOne("com.openrun.ticket.reservationMapper"+".reservationCategoryCount");
+	 }
+	 @Override
+	 public List<Map<String, Object>> lisCategorytWithPagination(String p_category, int start, int pageSize) throws DataAccessException {
+	     Map<String, Object> params = new HashMap<>();
+	     params.put("start", start);
+	     params.put("pageSize", pageSize);
+	     params.put("p_category", p_category);
+	     return sqlSession.selectList("com.openrun.ticket.reservationMapper.lisCategorytWithPagination", params);
+	 }
+	 
 }

@@ -393,4 +393,39 @@ public class UserController {
 		String nextPage = "user/userReservationListContainer";
 		return nextPage;	
 	}
+	//user 예매 내역 조회 카테고리 
+	@GetMapping("/product/admin/userReservationListCategory")
+    public String userReservationListCategory(
+        HttpServletRequest request, 
+        @RequestParam("p_category") String p_category,
+        @RequestParam(name = "page", defaultValue = "1") int page, // 기본값은 1로 설정
+        Model model
+    ) throws Exception {
+		System.out.println("userController / userReservationListCategory");
+        request.setCharacterEncoding("utf-8");
+        
+        int pageSize = 10;
+        int start = (page - 1) * pageSize;
+
+    	int totalCount;
+    	
+    	 //데이터 가져오기
+        if ("전체".equals(p_category)) {
+            // "전체" 버튼을 누를 때 카테고리와 상관없이 모든 정보를 가져옴
+        	List<Map<String, Object>> reservationList = userService.listWithPagination(start, pageSize);
+        	totalCount = userService.reservationCount(); // 모든 예매 내역의 개수 가져오기
+        	request.setAttribute("reservationList", reservationList);
+        } else {
+            // 특정 카테고리에 따른 예매 내역 가져오기
+        	List<Map<String, Object>>  reservationList = userService.lisCategorytWithPagination(p_category, start, pageSize);
+        	totalCount = userService.reservationCategoryCount(p_category); // 특정 카테고리에 따른 예매 내역의 개수 가져오기
+        	request.setAttribute("reservationList", reservationList);
+        }
+        // 페이지 번호와 총 페이지 개수 계산하여 전달
+        int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("p_category", p_category);
+        return "user/userReservationListContainer";
+    }
 }

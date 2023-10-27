@@ -71,7 +71,14 @@ public class UserServiceImpl implements UserService {
 	public int reservationCount() throws DataAccessException {
 		return userDAO.reservationCount();
 	}
-
+	@Override
+	public List<Map<String, Object>> lisCategorytWithPagination(String p_category, int start, int pageSize) throws DataAccessException {
+		return userDAO.lisCategorytWithPagination(p_category, start, pageSize);
+	}
+	@Override
+	public int reservationCategoryCount(String p_category) throws DataAccessException {
+		return userDAO.reservationCategoryCount(p_category);
+	}
 
 
 
