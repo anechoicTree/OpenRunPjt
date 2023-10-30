@@ -43,7 +43,6 @@ $(document).ready(function() {
         buyer_name: '${userLoginResult.u_name}',
         buyer_tel: '${userLoginResult.u_phone}',
         buyer_addr: '${userLoginResult.u_address}',
-        buyer_postcode: ''
     }, function(rsp) {
     	console.log(rsp);
         console.log("결제검증");
@@ -71,18 +70,14 @@ $(document).ready(function() {
                 	 contentType: "application/json",
                 	 dataType: "json",
                 }).done(function (result) {
-                	 console.log("그다음");
-                	 console.log(result);
-                    if (parseInt(result) === 1) {
-                        alert("결제가 완료 되었습니다");
-                        window.location.href = "paymentOk";
+                	if (result === '1') {
+    					alert('결제가 취소 되었습니다');
+                     	window.location.href = "/ticket"
                     } else {
-                        alert("결제가 실패 되었습니다");
-                    }
+                        alert('결제 취소 실패');
+                        console.log('결제 취소 실패');
+                     }
                 });
-            } else {
-                alert("결제 실패");
-            }
         });
     });
 });

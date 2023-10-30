@@ -80,6 +80,59 @@
 .reservation_list_content{
 	margin-top:10px;
 }
+#p_name:hover {
+	border-bottom: 3px solid #6E63CF;
+}
+#detail_container{
+	width: 870px;
+	height: 100%;
+	display: inline-block;
+	border-top: 1px solid #000000;
+}
+#detail_container_sub{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-top:30px;
+}
+#img{
+	width: 400px;
+	height: 400px;
+	border: 1px solid #000000;
+}
+.detail_content_nav{
+	font-size: 20px;
+	font-weight: 400;
+	padding-bottom: 20px;
+}
+.content{
+	margin-bottom:10px;
+}
+#detail_content_nav2, #detail_content_nav3, #detail_content_nav4{
+	border-top: 1px solid #000000;
+	padding-top: 20px;
+}
+#r_cancel_date{
+	color: red; 
+	font-weight: 600;
+}
+#buttom_container{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+.next_button{
+	margin-top:50px;
+	width: 250px;
+	height: 50px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	background: #6E63CF;
+	border: 1px solid #6E63CF;
+	border-radius: 12px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #FFFFFF;	
+}
 
 /* 페이지 넘기는 버튼 */
 #cs-board-page {

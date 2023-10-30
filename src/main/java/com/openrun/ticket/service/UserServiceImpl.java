@@ -79,7 +79,31 @@ public class UserServiceImpl implements UserService {
 	public int reservationCategoryCount(String p_category) throws DataAccessException {
 		return userDAO.reservationCategoryCount(p_category);
 	}
-
+	@Override
+	public List<Map<String, Object>> reservationListDetail(int r_no) throws DataAccessException {
+		return userDAO.reservationListDetail(r_no);
+	}
+	
+	@Override
+	public List<Map<String, Object>> cancelListWithPagination(int start, int pageSize) throws DataAccessException {
+		return userDAO.cancelListWithPagination(start, pageSize);
+	}
+	@Override
+	public int cancelReservationCount() throws DataAccessException {
+		return userDAO.cancelReservationCount();
+	}
+	@Override
+	public List<Map<String, Object>> cancelLisCategorytWithPagination(String p_category, int start, int pageSize) throws DataAccessException {
+		return userDAO.cancelLisCategorytWithPagination(p_category, start, pageSize);
+	}
+	@Override
+	public int cancelReservationCategoryCount(String p_category) throws DataAccessException {
+		return userDAO.cancelReservationCategoryCount(p_category);
+	}
+	@Override
+	public List<Map<String, Object>> cancelReservationListDetail(int r_no) throws DataAccessException {
+		return userDAO.cancelReservationListDetail(r_no);
+	}
 
 
 }

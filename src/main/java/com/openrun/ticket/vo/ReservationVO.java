@@ -8,7 +8,21 @@ public class ReservationVO {
 	int r_amount; //총결제 금액
 	int u_no; //구매자 번호
 	String pay_no; //결제번호(예약번호)
+	String r_status; // 결제 상태
+	String r_cancel_date; //취소날짜
 	
+	public String getR_cancel_date() {
+		return r_cancel_date;
+	}
+	public void setR_cancel_date(String r_cancel_date) {
+		this.r_cancel_date = r_cancel_date;
+	}
+	public String getR_status() {
+		return r_status;
+	}
+	public void setR_status(String r_status) {
+		this.r_status = r_status;
+	}
 	public String getPay_no() {
 		return pay_no;
 	}

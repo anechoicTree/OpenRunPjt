@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link href="${css}" rel="stylesheet">
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>예매 내역 조회-카테고리</title>
+<title>취소 내역 조회-카테고리</title>
 <script>
 
 //1. 상세 페이지
@@ -18,7 +18,7 @@ $(document).on('click', '#p_name', function(event) {
 	console.log(r_no);
     $.ajax({
         type: 'GET',
-        url: '/ticket/product/admin/userReservationListDetail?r_no=' + r_no,
+        url: '/ticket/product/admin/userCancelReservationListDetail?r_no=' + r_no,
         	success: function(data) {
             $('#view').html(data); // div 내용을 응답 데이터로 업데이트
             console.log(data);
@@ -48,7 +48,7 @@ $(document).on('click', '.category_button', function(event) {
     // Ajax 요청을 보냅니다.
     $.ajax({
         type: 'GET',
-        url: '/ticket/product/admin/userReservationListCategory?p_category=' + p_category, // 카테고리에 따른 공지사항 목록을 가져오는 URL로 변경
+        url: '/ticket/product/admin/userCancelReservationListCategory?p_category=' + p_category, // 카테고리에 따른 공지사항 목록을 가져오는 URL로 변경
         success: function(data) {
     	    var totalPages = ${totalPages}; // 총 페이지 수
     		var currentPage = ${currentPage}; // 현재 페이지
@@ -67,7 +67,7 @@ $(document).on('click', '.category_button', function(event) {
 	<div id="main_nav_container">
 		<jsp:include page="side/side.jsp" />
 			<div id="main_nav_sub">
-				<div id="main_title">예매 내역 조회</div>
+				<div id="main_title">취소 내역 조회</div>
 				
 				<div id="view">
 				<div id="category_button_container">
@@ -81,7 +81,7 @@ $(document).on('click', '.category_button', function(event) {
 				</div>
 				<div id="main_content_sub">
 					<div id="selectNoticeListContainer">
-						<%@ include file="userReservationListContainer.jsp" %>
+						<%@ include file="userCancelReservationListContainer.jsp" %>
 					</div>
 				</div>
 				</div>

@@ -368,7 +368,7 @@ public class UserController {
 		    String nextPage = "user/userReservationList";
 		    return nextPage;
 	}
-	//user 예매 내역 조회 리스트 페이지 이동
+	//user 예매 내역 조회 공연 리스트 
 	@GetMapping("/product/admin/userReservationListContainer")
 	public String userReservationListContainer(HttpServletRequest request,
 	        HttpServletResponse response,
@@ -428,4 +428,117 @@ public class UserController {
         model.addAttribute("p_category", p_category);
         return "user/userReservationListContainer";
     }
+	//user 예매 내역 조회 공연 상세  
+    @GetMapping("/product/admin/userReservationListDetail")
+	public String userReservationListDetail(HttpServletRequest request, @RequestParam("r_no") int r_no, Model model) throws Exception {
+	    request.setCharacterEncoding("utf-8");
+	  
+	    List<Map<String, Object>> reservationListDetail = userService.reservationListDetail(r_no);
+	    System.out.println("여기까지 됨");
+		System.out.println(reservationListDetail);
+	    // Model에 데이터를 추가하여 JSP로 전달
+	    model.addAttribute("reservationListDetail", reservationListDetail);
+	    
+		String nextPage = "user/userReservationListDetail";
+		return nextPage;
+	}
+    //user 취소 내역 조회 페이지 이동
+  	@GetMapping("/product/admin/userCancelReservationList")
+  	public String userCancelReservationList( 
+  			HttpServletRequest request,
+  	        HttpServletResponse response,
+  	        @RequestParam(name = "page", defaultValue = "1") int page) throws Exception{
+  		System.out.println("userController / userCancelReservationList");
+  		
+  		 	int pageSize = 10;
+  		    
+  		    // 페이지 관련 데이터 설정
+  		    int totalCount = userService.cancelReservationCount();
+  		    int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+  		    request.setAttribute("currentPage", page);
+  		    request.setAttribute("totalPages", totalPages);
+  	    	
+  		    int start = (page - 1) * pageSize;
+  		    // 데이터 가져오는 쿼리 수정
+  		    List<Map<String, Object>> cancelReservationList = userService.cancelListWithPagination(start, pageSize);
+  		    
+  		    request.setAttribute("cancelReservationList", cancelReservationList);
+  		    
+  		    String nextPage = "user/userCancelReservationList";
+  		    return nextPage;
+  	}
+  	//user 취소 내역 조회 공연 리스트 
+  	@GetMapping("/product/admin/userCancelReservationListContainer")
+  	public String userCancelReservationListContainer(HttpServletRequest request,
+  	        HttpServletResponse response,
+  	        @RequestParam(name = "page", defaultValue = "1") int page) throws Exception{
+  		System.out.println("userController / userCancelReservationListContainer");
+  		
+  		int pageSize = 10;
+  	    
+  	    
+  	    // 페이지 관련 데이터 설정
+  	    int totalCount = userService.cancelReservationCount();
+  	    int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+  	    request.setAttribute("currentPage", page);
+  	    request.setAttribute("totalPages", totalPages);
+      	
+  	    int start = (page - 1) * pageSize;
+  	    // 데이터 가져오는 쿼리 수정
+  	    List<Map<String, Object>> cancelReservationList = userService.cancelListWithPagination(start, pageSize);
+  	    
+  	    request.setAttribute("cancelReservationList", cancelReservationList);
+  	    System.out.println(cancelReservationList);
+  		String nextPage = "user/userCancelReservationListContainer";
+  		return nextPage;	
+  	}
+  	//user 취소 내역 조회 카테고리 
+  	@GetMapping("/product/admin/userCancelReservationListCategory")
+      public String userCancelReservationListCategory(
+          HttpServletRequest request, 
+          @RequestParam("p_category") String p_category,
+          @RequestParam(name = "page", defaultValue = "1") int page, // 기본값은 1로 설정
+          Model model
+      ) throws Exception {
+  		System.out.println("userController / userCancelReservationListCategory");
+          request.setCharacterEncoding("utf-8");
+          
+          int pageSize = 10;
+          int start = (page - 1) * pageSize;
+
+      	int totalCount;
+      	
+      	 //데이터 가져오기
+          if ("전체".equals(p_category)) {
+              // "전체" 버튼을 누를 때 카테고리와 상관없이 모든 정보를 가져옴
+          	List<Map<String, Object>> cancelReservationList = userService.cancelListWithPagination(start, pageSize);
+          	totalCount = userService.cancelReservationCount(); // 모든 예매 내역의 개수 가져오기
+          	request.setAttribute("cancelReservationList", cancelReservationList);
+          } else {
+              // 특정 카테고리에 따른 예매 내역 가져오기
+          	List<Map<String, Object>>  cancelReservationList = userService.cancelLisCategorytWithPagination(p_category, start, pageSize);
+          	totalCount = userService.cancelReservationCategoryCount(p_category); // 특정 카테고리에 따른 예매 내역의 개수 가져오기
+          	request.setAttribute("cancelReservationList", cancelReservationList);
+          }
+          // 페이지 번호와 총 페이지 개수 계산하여 전달
+          int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+          model.addAttribute("currentPage", page);
+          model.addAttribute("totalPages", totalPages);
+          model.addAttribute("p_category", p_category);
+          return "user/userCancelReservationListContainer";
+      }
+  	//user 취소 내역 조회 공연 상세  
+      @GetMapping("/product/admin/userCancelReservationListDetail")
+  	public String userCancelReservationListDetail(HttpServletRequest request, @RequestParam("r_no") int r_no, Model model) throws Exception {
+  	    request.setCharacterEncoding("utf-8");
+  	  
+  	    List<Map<String, Object>> cancelReservationListDetail = userService.cancelReservationListDetail(r_no);
+  	    System.out.println("여기까지 됨-취소");
+  		System.out.println(cancelReservationListDetail);
+  	    // Model에 데이터를 추가하여 JSP로 전달
+  	    model.addAttribute("cancelReservationListDetail", cancelReservationListDetail);
+  	    
+  		String nextPage = "user/userCancelReservationListDetail";
+  		return nextPage;
+  	}
 }

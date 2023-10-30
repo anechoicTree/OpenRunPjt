@@ -22,4 +22,10 @@ public interface UserDAO {
 	public int reservationCount() throws DataAccessException;
 	public List<Map<String, Object>> lisCategorytWithPagination(String p_category, int start, int pageSize) throws DataAccessException;
 	public int reservationCategoryCount(String p_category) throws DataAccessException;
+	public List<Map<String, Object>> reservationListDetail(int r_no) throws DataAccessException;
+	public List<Map<String, Object>> cancelListWithPagination(int start, int pageSize) throws DataAccessException;
+	public int cancelReservationCount() throws DataAccessException;
+	public int cancelReservationCategoryCount(String p_category) throws DataAccessException;
+	public List<Map<String, Object>> cancelLisCategorytWithPagination(String p_category, int start, int pageSize) throws DataAccessException;
+	public List<Map<String, Object>> cancelReservationListDetail(int r_no) throws DataAccessException;
 }

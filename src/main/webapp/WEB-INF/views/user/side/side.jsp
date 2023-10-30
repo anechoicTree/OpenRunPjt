@@ -11,13 +11,13 @@
 		<div class="side_nav_menu">
 			<div class="sub_title">예매관리</div>
 			<div class="content_nav">
-				<button id="reservation_button" class="index_button">예매 내역 조회</button>
-				<button id="cancellation_button" class="index_button">취소 내역 조회</button>
+				<button id="reservation_button" class="index_button" onClick="location.href='userReservationList'">예매 내역 조회</button>
+				<button id="cancellation_button" class="index_button" onClick="location.href='userCancelReservationList'">취소 내역 조회</button>
 			</div>
 			<hr>
 			<div class="sub_title">문의관리</div>
-			<div class="content_nav">
-				<button id="product_button" class="index_button" onClick="location.href='inquiry-check'">상품 문의 조회</button>
+			<div class="content_nav"><!-- onClick="location.href='inquiry-check'" -->
+				<button id="product_button" class="index_button" onClick="location.href='/ticket/user/payment'">상품 문의 조회</button>
 				<button id="system_button" class="index_button" onClick="location.href='system-inquiry-check'">시스템 문의 조회</button>
 			</div>
 			<hr>

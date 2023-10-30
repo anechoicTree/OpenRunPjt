@@ -1,12 +1,18 @@
 package com.openrun.ticket.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +20,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
 import com.openrun.ticket.service.ReservationService;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
+import com.siot.IamportRestClient.request.CancelData;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
 
@@ -72,6 +81,9 @@ public class ReservationController{
 	 this.api = new IamportClient("7554562643455857", "AGXZo9SECKHDt3L60G4WhZUbuJXdjr9Yc21LhWTwCS3Kx23wG4BLPPFXFo3ngePyIhNtAJb5cg00ccca"); 
 	 }
 	 
+	 private final String apiKey = "7554562643455857";
+	 private final String apiSecret = "AGXZo9SECKHDt3L60G4WhZUbuJXdjr9Yc21LhWTwCS3Kx23wG4BLPPFXFo3ngePyIhNtAJb5cg00ccca";
+	 
 	 @ResponseBody	 
 	 @RequestMapping(value="/verifyIamport/{imp_uid}") 
 	 public IamportResponse<Payment> paymentByImpUid( Model model , Locale locale , HttpSession session , 
@@ -89,5 +101,20 @@ public class ReservationController{
 		String nextPage = "reservation/paymentOk";
 		return nextPage;
 	}
+	//결제 취소
+	@PostMapping("/product/admin/cancelPayment/{merchant_uid}")
+	@ResponseBody
+	public String cancelPayment(@PathVariable String merchant_uid) {
+	    // 요청에서 merchant_uid 가져오기
+	    int cancelPaymentResult = reservationService.cancelPayment(merchant_uid);
+	    System.out.println(cancelPaymentResult);
 
+	    if (cancelPaymentResult == 1) {
+	        System.out.println("결제 취소 성공");
+	        return "1"; // 결제 취소 성공
+	    } else {
+	        System.out.println("결제 취소 실패");
+	        return "0"; // 결제 취소 실패
+	    }
+	}
 }

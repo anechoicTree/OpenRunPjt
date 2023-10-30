@@ -11,6 +11,8 @@
 		<result property="r_amount" column="r_amount" />
 		<result property="u_no" column="u_no" />
 		<result property="pay_no" column="pay_no" />
+		<result property="r_status" column="r_status" />
+		<result property="r_cancel_date" column="r_cancel_date" />
 	</resultMap>
   	<resultMap id="productResult" type="productVO">
 		<result property="p_no" column="p_no" />
@@ -29,6 +31,20 @@
 		<result property="p_grade" column="p_grade" />
 		<result property="p_price" column="p_price" />
 		<result property="p_content" column="p_content" />
+		<result property="r_status" column="r_status" />
+	</resultMap>
+	<resultMap id="userResult" type="userVO">
+		<result property="user_no" column="user_no" />
+		<result property="u_id" column="u_id" />
+		<result property="u_pw" column="u_pw" />
+		<result property="u_name" column="u_name" />
+		<result property="u_birth" column="u_birth" />
+		<result property="u_address" column="u_address" />
+		<result property="u_phone" column="u_phone" />
+		<result property="u_email" column="u_email" />
+		<result property="u_bank_name" column="u_bank_name" />
+		<result property="u_account_no" column="u_account_no" />
+		<result property="u_join_date" column="u_join_date" />
 	</resultMap>
   	<insert id="insertReservation" parameterType="java.util.HashMap">
         INSERT INTO reservation (r_count, r_amount, u_no, pay_no)
@@ -39,31 +55,80 @@
 	    SELECT r.*, p.* 
     	FROM reservation r
     	INNER JOIN product p ON r.p_no = p.p_no
+    	where r.r_status = 'n'
     	ORDER BY r.r_no DESC
     	LIMIT #{pageSize} OFFSET #{start}
 	    <!--  
 	    limit #{start}, #{pageSize}
 		-->
 	</select>
-
-    <!-- 전체 공지사항 개수를 가져오는 쿼리 -->
+    <!-- 전체개수를 가져오는 쿼리 -->
     <select id="reservationCount" resultType="int">
         select count(*) from reservation
+        where r_status = 'n'
     </select>
-    <!-- 공지사항 상세 조회 -->
+    <!-- 상세 조회 -->
 	<select id="reservationCategoryCount" resultType="int">
   	  	select count(r.r_no) from reservation r
   	  	INNER JOIN product p ON r.p_no = p.p_no
-  	  	where p.p_category = #{p_category}
+  	  	where p.p_category = #{p_category} and r.r_status = 'n'
 	</select>
-	<!-- 카테고리로 필터링된 공지사항 목록을 가져오는 쿼리 -->
+	<!-- 카테고리로 필터링된 목록을 가져오는 쿼리 -->
 	<select id="lisCategorytWithPagination" resultType="map">
    	 	select r.*, p.* from reservation r
    	 	INNER JOIN product p ON r.p_no = p.p_no
-    	where p.p_category = #{p_category}
+    	where p.p_category = #{p_category} and r.r_status = 'n'
     	order by r.r_no desc
     	limit #{pageSize} offset #{start}
 	</select>
-   
-    
+	<!--  상세 조회 -->
+	<select id="reservationListDetail" resultType="map">
+        SELECT r.*, p.*, u.*
+		FROM reservation r
+		INNER JOIN product p ON r.p_no = p.p_no
+		INNER JOIN user u ON r.u_no = u.user_no
+		where r.r_no = #{r_no}
+    </select>
+  	<update id="cancelPayment" parameterType="String">
+        UPDATE reservation SET r_status = 'y', r_cancel_date = NOW()
+        WHERE pay_no = #{merchant_uid}
+    </update>
+    <select id="cancelListWithPagination" resultType="map">
+	    SELECT r.*, p.* 
+    	FROM reservation r
+    	INNER JOIN product p ON r.p_no = p.p_no
+    	where r.r_status = 'y'
+    	ORDER BY r.r_no DESC
+    	LIMIT #{pageSize} OFFSET #{start}
+	    <!--  
+	    limit #{start}, #{pageSize}
+		-->
+	</select>
+    <!-- 전체개수를 가져오는 쿼리 -->
+    <select id="cancelReservationCount" resultType="int">
+        select count(*) from reservation
+        where r_status = 'y'
+    </select>
+    <!-- 상세 조회 -->
+	<select id="cancelReservationCategoryCount" resultType="int">
+  	  	select count(r.r_no) from reservation r
+  	  	INNER JOIN product p ON r.p_no = p.p_no
+  	  	where p.p_category = #{p_category} and r.r_status = 'y'
+	</select>
+	<!-- 카테고리로 필터링된 목록을 가져오는 쿼리 -->
+	<select id="cancelLisCategorytWithPagination" resultType="map">
+   	 	select r.*, p.* from reservation r
+   	 	INNER JOIN product p ON r.p_no = p.p_no
+    	where p.p_category = #{p_category} and r.r_status = 'y'
+    	order by r.r_no desc
+    	limit #{pageSize} offset #{start}
+	</select>
+	<!--  상세 조회 -->
+	<select id="cancelReservationListDetail" resultType="map">
+        SELECT r.*, p.*, u.*
+		FROM reservation r
+		INNER JOIN product p ON r.p_no = p.p_no
+		INNER JOIN user u ON r.u_no = u.user_no
+		where r.r_no = #{r_no}
+    </select>
   </mapper>

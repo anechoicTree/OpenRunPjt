@@ -3,6 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.openrun.ticket.UserMapper">
+  <resultMap id="userResult" type="userVO">
+		<result property="user_no" column="user_no" />
+		<result property="u_id" column="u_id" />
+		<result property="u_pw" column="u_pw" />
+		<result property="u_name" column="u_name" />
+		<result property="u_birth" column="u_birth" />
+		<result property="u_address" column="u_address" />
+		<result property="u_phone" column="u_phone" />
+		<result property="u_email" column="u_email" />
+		<result property="u_bank_name" column="u_bank_name" />
+		<result property="u_account_no" column="u_account_no" />
+		<result property="u_join_date" column="u_join_date" />
+	</resultMap>
 	<select id='user' resultType="userVO">
 		select * from user
 	</select>

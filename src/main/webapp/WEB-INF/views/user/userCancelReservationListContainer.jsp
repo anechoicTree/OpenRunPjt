@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="${css}" rel="stylesheet">
-<title>예매 내역 조회-공연 리스트</title>
+<title>취소 내역 조회-공연 리스트</title>
 <script>
 
 var totalPages = ${totalPages}; // 총 페이지 수
@@ -18,7 +18,7 @@ $(document).ready(function() { // 페이지 로드 시 초기 버튼 상태 업�
     updatePageButtons(currentPage);
 });
 function changePage(page) {
-    var url = "/ticket/product/admin/userReservationListContainer?page=" + page;
+    var url = "/ticket/product/admin/userCancelReservationListContainer?page=" + page;
 
     $.ajax({
         type: 'GET',
@@ -69,12 +69,12 @@ function updatePageButtons(currentPage) {
 					<div>취소가능기간</div>
 				</div>
 		
-		<c:forEach items="${reservationList}" var="reservationList">
+		<c:forEach items="${cancelReservationList}" var="cancelReservationList">
 				<div id="reservation_list_content">
-					<div class="reservation_list_content">${reservationList.pay_no}</div>
-					<div class="reservation_list_content"  id="p_name" data-reservation-id="${reservationList.r_no}">${reservationList.p_name}</div>
-					<div class="reservation_list_content">${reservationList.p_perfo_start_date}</div>
-					<div class="reservation_list_content">${reservationList.p_resev_end_date}</div>
+					<div class="reservation_list_content">${cancelReservationList.pay_no}</div>
+					<div class="reservation_list_content"  id="p_name" data-reservation-id="${cancelReservationList.r_no}">${cancelReservationList.p_name}</div>
+					<div class="reservation_list_content">${cancelReservationList.p_perfo_start_date}</div>
+					<div class="reservation_list_content">${cancelReservationList.p_resev_end_date}</div>
 				</div>
 		</c:forEach>	
 	</div>

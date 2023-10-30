@@ -6,9 +6,9 @@ public class ProductVO {
 	private String p_img;
 	private String p_category;
 	private String p_location;
-	private String p_perfo_start_date;
+	private String p_perfo_start_date;//공연
 	private String p_perfo_end_date;
-	private String p_resev_start_date;
+	private String p_resev_start_date;//예약
 	private String p_resev_end_date;
 	private String p_viewing_time;
 	private String p_viewing_grade;
