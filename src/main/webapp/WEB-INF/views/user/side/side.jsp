@@ -17,7 +17,7 @@
 			<hr>
 			<div class="sub_title">문의관리</div>
 			<div class="content_nav"><!-- onClick="location.href='inquiry-check'" -->
-				<button id="product_button" class="index_button" onClick="location.href='/ticket/user/payment'">상품 문의 조회</button>
+				<button id="product_button" class="index_button" onClick="location.href='/ticket/user/exProduct'">상품 문의 조회</button>
 				<button id="system_button" class="index_button" onClick="location.href='system-inquiry-check'">시스템 문의 조회</button>
 			</div>
 			<hr>

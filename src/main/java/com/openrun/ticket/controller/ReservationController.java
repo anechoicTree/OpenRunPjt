@@ -3,9 +3,11 @@ package com.openrun.ticket.controller;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.openrun.ticket.service.ReservationService;
+import com.openrun.ticket.vo.ProductVO;
+import com.openrun.ticket.vo.UserVO;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.request.CancelData;
@@ -43,29 +47,34 @@ public class ReservationController{
 	 }
 	//결제하기 페이지
 	@GetMapping("/user/payment")
-	public String payment(HttpSession session){
+	public String payment(HttpSession session, @RequestParam("p_no") int p_no, Model model){
 		System.out.println("ReservationController / payment");
 		
+		List<String> exProductDetail = reservationService.exProductDetail(p_no);
+
+        model.addAttribute("exProductDetail", exProductDetail);
+        
 		String nextPage = "reservation/payment";
 		return nextPage;
 	}
 	// 결제
 	@PostMapping("/user/insertReservation")
 	@ResponseBody
-    public String insertReservation(@RequestBody Map<String,Object> params, Model model) {
+    public String insertReservation(@RequestBody Map<String,Object> params) {
 		System.out.println("ReservationController / insertReservation");
 		
+		int p_no = (int) params.get("p_no");
 		String r_count = (String) params.get("r_count");
 		String r_amount = (String) params.get("r_amount");
 		int u_no = (int) params.get("u_no");
 		String pay_no = (String) params.get("pay_no");
 		
+		System.out.println(p_no);
 		System.out.println(r_count);
 		System.out.println(r_amount);
 		System.out.println(u_no);
 		System.out.println(pay_no);
 		
-
 		int result = reservationService.insertReservation(params);
 		 
 		if (result > 0) {
@@ -117,4 +126,28 @@ public class ReservationController{
 	        return "0"; // 결제 취소 실패
 	    }
 	}
+	//예시 예매하기 상품 페이지
+	@GetMapping("/user/exProduct")
+	public String exProduct(Model model) throws Exception {
+	    System.out.println("ReservationController / exProduct");
+
+	    List<String> exProduct = reservationService.exProduct(); // 서비스에서 데이터 가져오기
+
+	    model.addAttribute("exProduct", exProduct);
+	    System.out.println(exProduct);
+
+	    String nextPage = "reservation/exProduct";
+		return nextPage;
+	}
+	@GetMapping("/user/exProductDetail")
+    public String exProductDetail(@RequestParam("p_no") int p_no, Model model) {
+		
+		List<String> exProductDetail = reservationService.exProductDetail(p_no);
+
+        model.addAttribute("exProductDetail", exProductDetail);
+
+        String nextPage = "reservation/exProductDetail";
+        return nextPage;
+    }
+	
 }

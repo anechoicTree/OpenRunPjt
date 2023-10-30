@@ -47,8 +47,8 @@
 		<result property="u_join_date" column="u_join_date" />
 	</resultMap>
   	<insert id="insertReservation" parameterType="java.util.HashMap">
-        INSERT INTO reservation (r_count, r_amount, u_no, pay_no)
-        VALUES (#{r_count}, #{r_amount}, #{u_no}, #{pay_no})
+        INSERT INTO reservation (r_count, r_amount, u_no, pay_no, p_no)
+        VALUES (#{r_count}, #{r_amount}, #{u_no}, #{pay_no}, #{p_no})
    </insert>
        <!-- 페이지네이션을 위한 쿼리 -->
 	<select id="listWithPagination" resultType="map">
@@ -128,7 +128,14 @@
         SELECT r.*, p.*, u.*
 		FROM reservation r
 		INNER JOIN product p ON r.p_no = p.p_no
-		INNER JOIN user u ON r.u_no = u.user_no
+		INNER JOIN user u ON r.u_no = u.user_nos
 		where r.r_no = #{r_no}
     </select>
+    <select id="exProduct" resultType="productVO">
+   	 	select * from product
+	</select>
+	  <select id="exProductDetail" resultType="productVO">
+   	 	select * from product 
+   	 	where p_no = #{p_no}
+	</select>
   </mapper>

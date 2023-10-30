@@ -385,7 +385,7 @@ public class UserController {
 	    request.setAttribute("totalPages", totalPages);
     	
 	    int start = (page - 1) * pageSize;
-	    // 데이터 가져오는 쿼리 수정
+	    // 데이터 가져오는 쿼리
 	    List<Map<String, Object>> reservationList = userService.listWithPagination(start, pageSize);
 	    
 	    request.setAttribute("reservationList", reservationList);
