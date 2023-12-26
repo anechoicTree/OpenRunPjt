@@ -1,0 +1,83 @@
+@charset "UTF-8";
+*{
+	font-family: 'SUITE';
+}
+#main_container{
+	text-align: center; 
+	margin-top:60px;
+}
+#main_container_sub{
+	box-sizing: border-box;
+	top: 300px;
+}
+#main_title{
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 44px;
+	color: #000000;
+}
+#find_id_container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 30px;
+	display: inline-block;
+}
+.find_id_container_sub{
+	width: 400px;
+}
+.find_input_container{
+	box-sizing: border-box;
+	margin-top: 30px;
+	text-align: left;
+	color: #6E63CF;
+	font-size: 24px;
+	font-weight: 400;
+	border-bottom: 1px solid #6E63CF;
+}
+.input_text{
+	border: none;
+	font-size: 18px;
+	outline: none;
+	width: 230px;
+	margin-left:10px;
+}
+.find_explanation{
+	font-size: 14px;
+	color: #808080;
+	text-indent: 0.5em;
+	text-align: left;
+}
+#emailSendButton,#emailCheckButton{
+	border: 1px solid #6E63CF;
+	border-radius: 5px;
+	background-color: #6E63CF;
+	color: #FFFFFF;
+	float: right;
+
+}
+.next_button{
+	width: 340px;
+	height: 50px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	background: #6E63CF;
+	border: 1px solid #6E63CF;
+	border-radius: 12px;
+	
+	font-weight: bold;
+	font-size: 30px;
+	color: #FFFFFF;	
+}
+.add_button{
+	list-style: none;
+	border: none;
+	color: #9f9f9f;
+	background: none;
+	font-size: 18px;
+	line-height: 10px;
+	color: #808080;
+}
+#find_login,#find_password{
+	border-right: 1px solid #9f9f9f;
+}

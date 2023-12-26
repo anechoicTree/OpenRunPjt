@@ -1,0 +1,45 @@
+	/* 메인 콘텐츠화면 */
+	section {
+	margin : 0 auto;
+	}
+	
+	#section_wrap {
+		font-family: 'SUITE';
+		width: 1200px;
+		margin: 0 auto;
+		display : flex;
+		}
+	
+	#section_wrap .word {
+		width: 1024px;
+		margin: 0 auto;
+		flex : auto;
+		font-size : large;
+		padding-left : 10px;
+		}
+		
+	#section_wrap .top_nav {
+		width: 1024px;
+		margin: 0 auto;
+		flex : auto;
+		float : left;
+		font-size : large;
+		padding-left : 10px;
+		}
+		
+	#section_wrap .show_product_list {
+		width: 800px;
+		margin: 0 auto;
+		text-align: center;
+		flex : auto;
+		padding-top : 80px;
+		}
+	
+	/* 제목 입력란 510px 너비 */
+		
+	#section_wrap .inputTitle input{
+		width : 510px;
+	}
+
+		
+	

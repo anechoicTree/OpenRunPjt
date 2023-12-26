@@ -1,0 +1,419 @@
+
+form {
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+.cke {
+	border: none;
+}
+
+
+#input-form-container {
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+	padding: 5px;
+	display: flex;
+}
+
+.input-table {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    white-space-collapse: collapse;
+    text-wrap: wrap;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-color: gray;
+    font-variant: normal;
+	font-family: 'SUITE';
+	table-layout: fixed;
+}
+
+.input-title {
+	background-color: #F5F5F5;
+	color: #6E63CF;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	width: 25%;
+	maring: 10px 30px 10px 30px;
+	padding: 10px 30px 10px 30px;
+	white-space:nowrap;
+}
+
+.input-content {
+	background-color: white;
+	width: 75%;
+	padding-left: 20px;
+	text-align: left;
+}
+
+.cke_inner, .cke_editable {
+    border: none !important;  /* 테두리 제거 */
+}
+
+
+textarea {
+	width: 100%;
+	height: 100%;
+    border: none;
+    resize: none;
+    font-family: 'SUITE';
+   	font-size: 16px;
+	font-weigth: 600;
+	padding-top: 12px;
+}
+
+textarea:focus {
+    outline-color: #6E63CF;
+    outline-width: 1px;
+}
+
+#textareaBody {
+    height: 100%;
+}
+
+.textarea-title {
+	width: 100%;
+	height: 95%;
+    border: none;
+    resize: none;
+    font-family: 'SUITE';
+   	font-size: 16px;
+	font-weigth: 600;
+	padding-left: 5px;
+}
+
+.textarea-title:focus {
+    outline-color: #6E63CF;}
+
+.form-btn {
+    width: 72px;
+    height: 28px;
+    margin: 2px;
+    background: #6E63CF;
+    border: none;
+    border-radius: 6px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    line-height: 15px;
+}
+
+#form-cancel-btn {
+    background: #CCCCCC;
+}
+
+.form-btn:hover {
+	cursor: pointer;
+}
+
+
+#view2 {
+    max-height: fit-content; /* 원하는 높이로 설정하세요 */
+    overflow-y: auto;  /* 수직 스크롤 활성화 */
+}
+
+#cs-container {
+	height: fit-content;
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	column-gap: 20px;
+}
+
+#cs-container > * {
+	border-radius: 15px;
+	padding: 15px 10px 0;
+}
+
+#cs-board {
+	height: fit-content;
+	width: 100%;
+	background-color: white;
+
+}
+
+#cs-board > #cs-board-list-page-buttons{
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+
+#cs-board-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #555;
+	padding: 0 0 20px 0;
+}
+
+#cs-board-category {
+	padding: 15px 0px 15px 0px;
+	width: 100%;
+}
+
+#cs-board-category-nav {
+	padding: 10px 0px 10px 0px;
+	display: flex;
+	flex-direction: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 12px;
+}
+
+.category-box {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.category-btn {
+	border: none;
+	font-family: SUITE;
+	font-weight: 800;
+	font-size: 18px;	
+	color: #000000;
+	background-color: #FFFFFF;
+	padding: 1px 1px;
+}
+
+.category-btn:hover {
+	cursor: pointer;
+	color: #6E63CF;
+	font-weight: bold;
+}
+
+#cs-board-list {
+	margin-top: 10px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+#cs-board-list-guide {
+	margin-top: 10px;
+	width: 100%;
+}
+
+#cs-board-list-head {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 70% 15%;
+	place-items: center; 
+}
+
+#cs-board-list-head-faq {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	place-items: center; 
+}
+
+.cs-board-list-head-box {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	color: #6E63CF;
+	background-color: #F5F5F5;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#cs-board-list-row {
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 15% 70% 15%;
+	place-items: center; 
+}
+
+#cs-board-list-row-faq {
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	place-items: center; 
+}
+
+#cs-board-list-row-guide {
+	width: 100%;
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 100%;
+	place-items: center; 
+}
+
+.cs-board-list-row-box {
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.cs-board-list-row-box-img {
+    position: relative;  /* 이미지를 부모 안에서 절대 위치로 설정하기 위한 기준이 됩니다. */
+    overflow: hidden;    /* 이미지가 부모 컨테이너를 넘어갈 경우 숨깁니다. */
+    width: 100%;         /* 또는 원하는 너비로 설정 */
+    height: 480px;       /* 예시 높이, 실제로는 원하는 높이로 설정 */
+}
+
+.cs-board-list-row-box-img img {
+    display: block;
+    max-width: 100%;     /* 너비를 100%로 제한하여 부모 컨테이너 안에 맞춥니다. */
+    max-height: 100%;    /* 높이를 100%로 제한하여 부모 컨테이너 안에 맞춥니다. */
+    width: auto;         /* 원본 이미지의 비율을 유지합니다. */
+    height: auto;        /* 원본 이미지의 비율을 유지합니다. */
+    position: absolute;  /* 부모 컨테이너를 기준으로 절대 위치로 설정합니다. */
+    top: 50%;            /* 이미지의 중앙을 부모의 중앙과 일치시킵니다. */
+    left: 50%;           /* 이미지의 중앙을 부모의 중앙과 일치시킵니다. */
+    transform: translate(-50%, -50%);  /* 중앙 정렬 트릭 */
+}
+
+#cs-board-page {
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+#cs-board-page > * {
+	margin: 5px;
+}
+
+#cs-board-list-category-freq {
+	font-size: 1.1rem;
+	font-weight: 500;
+	text-align: center;
+	border: none;
+	background-color: rgb(236, 236, 236);
+}
+.cs-board-list-board-freq{
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	padding: 10px 20px;
+	border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.cs-board-list-board-freq>div:first-child {
+	text-align: center;
+}
+
+.cs-board-list-board-freq>div:last-child {
+	text-align: left;
+	padding: 0 50px;
+}
+.cs-board-list-board-freq>div:last-child:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.cs-board-list-board-freq a {
+	text-decoration: none;
+	color: black;
+}
+
+.cs-board-list-board {
+	border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.cs-board-list-board>div:first-child {
+	text-align: center;
+}
+
+.cs-board-list-board a {
+	text-decoration: none;
+	color: black;
+}
+
+.cs-board-list-board>div:nth-child(2):hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.cs-board-list-board>div:nth-child(3) {
+	text-align: center;
+}
+
+/* 상세 페이지 */
+#cs-board-detail {
+	margin-top: 10px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+#cs-board-detail-head-notice {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 70% 15%;
+	place-items: center; 
+}
+
+#cs-board-detail-head-faq {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	place-items: center; 
+}
+
+.cs-board-detail-head-box {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+	color: #191D23;
+	background-color: #F5F5F5;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.cs-board-detail-content {
+	min-height: 50%;
+	padding: 40px 20px 20px 30px;
+}
+
+.page-buttons{
+	border: none;
+    background-color: white;
+    color: #555;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.page-buttons:hover{
+    border: none;
+    background-color: rgb(240, 239, 239);
+    cursor: pointer;
+}
+
+.page-buttons.selected {
+	border: none;
+	color: rgb(70, 200, 180);
+}
+
+.page-buttons.active {
+    color: #6E63CF; /* 선택된 페이지 버튼 색상 변경 */
+    font-weight: bold;  
+}
+
+.move-buttons {
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	border-radius: 2px;
+	font-weight: 700;
+}
+
+.move-buttons:hover {
+	border: none;
+	background-color: rgb(240, 239, 239);
+	cursor: pointer;
+}

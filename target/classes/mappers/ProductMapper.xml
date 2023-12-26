@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.openrun.ticket.mappers.ProductMapper">
+	<resultMap id="productResult" type="productVO">
+		<result property="p_no" column="p_no" />
+		<result property="p_name" column="p_name" />
+		<result property="p_img" column="p_img" />
+		<result property="p_category" column="p_category" />
+		<result property="p_location" column="p_location" />
+		<result property="p_perfo_start_date" column="p_perfo_start_date" />
+		<result property="p_perfo_end_date" column="p_perfo_end_date" />
+		<result property="p_resev_start_date" column="p_resev_start_date" />
+		<result property="p_resev_end_date" column="p_resev_end_date" />
+		<result property="p_viewing_time" column="p_viewing_time" />
+		<result property="p_viewing_grade" column="p_viewing_grade" />
+		<result property="p_hall" column="p_hall" />
+		<result property="p_seat" column="p_seat" />
+		<result property="p_grade" column="p_grade" />
+		<result property="p_price" column="p_price" />
+		<result property="p_content" column="p_content" />
+	</resultMap>
+	
+	<select id="isPNum" resultType="int">
+        SELECT COUNT(*) FROM product WHERE p_no = #{p_no}
+    </select>
+
+    <!-- The "sellerList" function seems to be doing the same thing as "isPNum", 
+         but I'll include it for completeness -->
+    <select id="sellerList" resultType="int">
+        SELECT COUNT(*) FROM product WHERE p_no = #{p_no}
+    </select>
+
+    <insert id="insertProduct" parameterType="productVO">
+        INSERT INTO product(p_no, p_name, p_img, p_category, p_location, p_perfo_start_date,
+            p_perfo_end_date, p_resev_start_date, p_resev_end_date, p_viewing_time,
+            p_viewing_grade, p_hall, p_seat, p_grade, p_price, p_content)
+        VALUES(#{p_no}, #{p_name}, #{p_img}, #{p_category}, #{p_location}, #{p_perfo_start_date},
+            #{p_perfo_end_date}, #{p_resev_start_date}, #{p_resev_end_date}, #{p_viewing_time},
+            #{p_viewing_grade}, #{p_hall}, #{p_seat}, #{p_grade}, #{p_price}, #{p_content})
+    </insert>
+
+    <select id="selectProductBySearch" resultMap="productResult">
+        SELECT * FROM product WHERE p_name LIKE #{p_name} ORDER BY p_no DESC
+    </select>
+
+    <select id="selectProduct" resultMap="productResult">
+        SELECT * FROM product WHERE p_no = #{p_no}
+    </select>
+
+    <update id="updateProduct" parameterType="productVO">
+        UPDATE product
+        SET p_img = #{p_img},
+            p_name = #{p_name}, 
+            p_category = #{p_category}, 
+            p_location = #{p_location}, 
+            p_perfo_start_date = #{p_perfo_start_date},
+            p_perfo_end_date = #{p_perfo_end_date}, 
+            p_resev_start_date = #{p_resev_start_date}, 
+            p_resev_end_date = #{p_resev_end_date}, 
+            p_viewing_time = #{p_viewing_time},
+            p_viewing_grade = #{p_viewing_grade}, 
+            p_hall = #{p_hall}, 
+            p_seat = #{p_seat},
+            p_grade = #{p_grade}, 
+            p_price = #{p_price}, 
+            p_content = #{p_content}
+        WHERE p_no = #{p_no}
+    </update>
+
+    <delete id="deleteProduct">
+        DELETE FROM product WHERE p_no = #{p_no}
+    </delete>
+</mapper>
+

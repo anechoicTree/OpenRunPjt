@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- DBCP 설정 / MariaDB JDBC DataSource -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
+		<property name="url" value="jdbc:mariadb://127.0.0.1:3306/openrun" />
+		<property name="username" value="root" />
+		<property name="password" value="1234" />
+	</bean>		
+
+	<!-- SqlSessionFactory 설정 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath:/mappers/*Mapper.xml" />		
+	</bean>
+	
+	<!-- SqlSessionTemplate 설정 : 트랜잭션 제어를 지원 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>  
+	
+	<bean id="noticeDAO" class="com.openrun.ticket.dao.NoticeDAOImpl">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="noticeService" class="com.openrun.ticket.service.NoticeServiceImpl">
+		<property name="noticeDAO" ref="noticeDAO" />
+	</bean>
+	
+	<bean id="faqDAO" class="com.openrun.ticket.dao.FaqDAOImpl">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="faqService" class="com.openrun.ticket.service.FaqServiceImpl">
+		<property name="faqDAO" ref="faqDAO" />
+	</bean>
+	
+	<bean id="adminDAO" class="com.openrun.ticket.dao.AdminDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="adminService" class="com.openrun.ticket.service.AdminServiceImpl">
+	    <property name="adminDAO" ref="adminDAO" />
+	</bean>
+	
+	<bean id="sellerDAO" class="com.openrun.ticket.dao.SellerDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="sellerService" class="com.openrun.ticket.service.SellerServiceImpl">
+	    <property name="sellerDAO" ref="sellerDAO" />
+	</bean>
+	
+	<bean id="guideDAO" class="com.openrun.ticket.dao.GuideDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="guideService" class="com.openrun.ticket.service.GuideServiceImpl">
+	    <property name="guideDAO" ref="guideDAO" />
+	</bean>
+	
+	<bean id="qnaDAO" class="com.openrun.ticket.dao.QnaDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="qnaService" class="com.openrun.ticket.service.QnaServiceImpl">
+	    <property name="qnaDAO" ref="qnaDAO" />
+	</bean>
+	
+ 	<!-- 테스트 -->
+	 
+ 	<bean id="selectDAO" class="com.openrun.ticket.dao.SelectDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="selectService" class="com.openrun.ticket.service.SelectServiceImpl">
+	    <property name="selectDAO" ref="selectDAO" />
+	</bean>
+	 
+	
+	<!-- MultipartResolver 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	  <property name="maxUploadSize" value="100000000" />
+	  <property name="maxInMemorySize" value="100000000" />
+	  <property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<!-- 혜빈 -->
+	
+	<bean id="userDAO" class="com.openrun.ticket.dao.UserDAOImpl">
+		<property name="sqlSession"  ref="sqlSession" />
+	</bean>
+	<bean id="userService" class="com.openrun.ticket.service.UserServiceImpl">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean  id="reservationDAO" class="com.openrun.ticket.dao.ReservationDAOImpl">
+		<property name="sqlSession"  ref="sqlSession" />
+	</bean>
+	<bean id="reservationService" class="com.openrun.ticket.service.ReservationServiceImpl">
+		<property name="reservationDAO" ref="reservationDAO" />
+	</bean>
+	
+	<!--  황집과 중복이라 주석처리
+	
+	<bean  id="sellerDao" class="com.openrun.ticket.dao.SellerDAOImpl">
+		<property name="sqlSession"  ref="sqlSession" />
+	</bean>
+	
+	<bean id="sellerService" class="com.openrun.ticket.service.SellerServiceImpl">
+		<property name="sellerDAO" ref="sellerDAO" />
+	</bean>
+	
+	 -->
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" />
+		<property name="username" value="choihyebin971130@gmail.com" />
+		<property name="password" value="pacntmrkhclsvmde" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 예종 -->
+	 
+ 	<bean id="searchDAO" class="com.openrun.ticket.dao.SearchDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="searchService" class="com.openrun.ticket.service.SearchServiceImpl">
+	    <property name="searchDAO" ref="searchDAO" />
+	</bean>
+	
+	<!-- 혜진 -->
+	
+	<!-- 
+	 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	 	<property name="dataSource" ref="dataSource" />
+	 </bean> 
+	  -->
+	 
+  	<bean id="productDAO" class="com.openrun.ticket.dao.ProductDAOImpl">
+	    <property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="productService" class="com.openrun.ticket.service.ProductServiceImpl">
+	    <property name="productDAO" ref="productDAO" />
+	</bean>
+
+</beans>

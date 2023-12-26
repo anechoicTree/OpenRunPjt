@@ -1,0 +1,147 @@
+	/* 메인 콘텐츠화면 */
+	section {
+	margin : 0 auto;
+	}
+	
+	/* 상세페이지 화면 틀 */
+	
+	#section_wrap {
+		font-family: 'SUITE';
+		width: 1200px;
+		margin: 0 auto;
+		}
+		
+	#section_wrap .product_all_wrap {
+		width: 750px;
+		}		
+	
+	/* 상품명 */	
+		
+	#section_wrap .product_name {
+		width: 1024px;
+		font-size : large;
+		padding-left : 60px;
+		}
+		
+	#section_wrap .product_name hr{
+		width: 75%;
+		display : inline-block;
+		}
+	
+	/* 상품 이미지(썸네일) */
+		
+	#section_wrap .product_img {
+		margin: 0 auto;
+		font-size : large;
+		padding-left : 60px;
+		float : left;
+		}
+	
+	/* 상품정보 상품DB */
+		
+	#section_wrap .product_table {
+		margin: 0 auto;
+		font-size : large;
+		padding-left : 20px;
+		float : left;
+		}
+		
+	#section_wrap .product_table th {
+		text-align : left;
+		width : 80px;
+		vertical-align : top;
+		}
+	
+	#section_wrap .product_table td {
+		vertical-align : top;
+		}
+	
+	/* 날짜선택 캘린더 */
+		
+	#section_wrap .calendar {
+		margin: 0 auto;
+		font-size : large;
+		position : fixed;
+    	right : 20%;
+    	top : 250px;
+		}
+	
+	/* 공연정보 등 중간 네비바 */
+		
+	#section_wrap .main_content {
+		width : 1024px;
+		display : inline-block;
+		padding-top : 40px;
+		padding-left : 60px;
+		}
+
+	/* 선택된 중간 네비바  */
+		
+	button.select_btn {
+	  width : 90px;
+	  border : none;
+	  outline: none;
+	  font-family: 'SUITE';
+	  font-size: 18px;
+	  font-weight : 700;
+	  background : none;
+	  color: #6E63CF;
+	  cursor : pointer;
+	  text-align: left;
+	  padding: inherit;
+	}
+	
+	/* 선택안된 중간 네비바  */
+	
+	button.content_btn {
+	  width : 90px;
+	  border: 0;
+	  outline: none;
+	  font-family: 'SUITE';
+	  font-size: 18px;
+	  font-weight : 700;
+	  background : none;
+	  color: #000000;
+	  cursor : pointer;
+	  text-align: left;
+	  padding: inherit;
+	}		
+		
+	#section_wrap .product_content  {
+		width : 80px;
+		text-align: center;
+		float : left;
+		}		
+	#section_wrap .sell_info  {
+		width : 80px;
+		text-align: center;
+		float : left;
+		}
+	#section_wrap .review  {
+		width : 80px;
+		text-align: center;
+		float : left;
+		}
+	#section_wrap .place_info  {
+		width : 80px;
+		text-align: center;
+		float : left;
+		}	
+	
+	/* 네이버지도 API */
+	
+	#map {
+		width:400px;
+		height:400px;
+		margin-top : 50px;
+		margin-left : 150px;
+		}
+	
+	/* 에디터로 적은 글 가져오는 곳 */
+		
+	#section_wrap .place_API  {
+		width: 1024px;
+		display : inline-block;
+		}		
+
+	

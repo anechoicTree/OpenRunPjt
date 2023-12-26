@@ -1,0 +1,359 @@
+* {
+	box-sizing: border-box;
+}
+
+/* header 컨테이너 */
+	.header-container {
+		font-family: 'SUITE';
+		maxwidth: 100%;
+		border-top: 1px solid #eee;
+		padding: 20px 0;
+	    background-color: #ffffff;
+	}
+	
+/* header 컨테이너-서브 */
+	.header-container-sub {
+		width: 1080px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    vertical-align: top;
+	}
+
+/* 로고, user-nav */
+	#main-title {
+		display: grid;
+		grid-template-columns: 30% 40% 30%;
+	}
+
+	/* 로고 */
+	#main-logo > img {
+		image-rendering: optimizeQuality;
+		display: block;
+		margin-left: 0px;
+		margin-right: auto;
+		border: none;
+		cursor: pointer;
+	}
+	
+	/* 로그인/회원가입/고객센터 */
+	#main-user-nav {
+		display: grid;
+		grid-template-columns: 20% 80%;
+		justify-items: end;
+		align-items: start;
+	}
+		
+	#user-nav {
+		list-style: none;
+		margin: 0px;	
+	}
+	
+	#user-nav > li {
+		float: left;
+		font-size: 0.8rem;
+	}
+	
+	.user-nav-btn {
+		border: 0;
+		font-weight: 700;
+		background-color: white;
+		color: #9F9F9F;
+		font-size: 15px;
+		text-align: center;
+		cursor: pointer;
+	}
+	
+	.user-nav-btn:hover {
+		color: rgb(120,86,184);
+		font-weight: bold;
+	}
+	
+/* nav */
+	#main-nav-back {
+		max-width: 100%;
+		background-color: #6E63CF;
+	}
+
+	#main-nav {
+		width: 1080px;
+	    margin-left: auto;
+    	margin-right: auto;
+		display: grid;
+		grid-template-columns: 75% 25%;
+		margin-top: 10px;
+		background-color: #6E63CF;
+	}
+
+	#main-nav-item1 {
+		grid-template-columns: repeat(9, 1fr);
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	#main-nav-item2 {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	
+	#main-nav-item > div {
+		text-align: center;
+		padding: 1px 1px;
+		
+	}
+	
+	.menu-btn {
+		border: 0;
+		font-family: 'SUITE';
+		font-style: normal;
+		font-weight: 800;
+		font-size: 18px;	
+		color: #FFFFFF;
+		background-color: #6E63CF;
+		padding: 1px 1px;
+	}
+	
+	.menu-btn:hover {
+		color: rgb(70,200,180);
+		font-weight: bold;
+	}
+	
+	/* 검색창 */
+	.search {
+	}
+	
+	#search {
+		margin: 8px;		
+	}
+	
+	#search > div {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-end;
+		align-items: center;
+		box-sizing: border-box;
+		padding: 0px 5px;
+		height: 24px;
+		width: 240px;
+		border: 1px solid #E7EAEE;
+		border-radius: 12px;
+		background: #FFFFFF;
+	}
+	
+	#search-box {
+		font-size: 16px;
+	    border: none;
+		outline: none;
+	}
+	
+	#search-submit {
+		width: 20px;
+		height: 20px;
+	    border: none;
+		cursor: pointer;
+		background: #FFFFFF;
+	}
+
+/* footer 컨테이너 */
+	.footer-container {
+		width-max: 100%;
+		border-top: 1px solid #eee;
+	    padding: 20px 0;  
+	    background-color: #ffffff;
+	    font-family: 'SUITE';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 1.2;
+	}
+
+	.footer-container-sub {
+		width: 1080px;
+		display: grid;
+		grid-template-columns: 10% 45% 45%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	/* 회사소개 */
+	#footer-company {
+		width: 400px;
+	    font-size: 14px;
+ 	  	line-height: 2.1;
+	    color: #888;
+	    text-align: left;
+	}
+
+	#footer-company > img {
+		image-rendering: optimizeQuality;
+		width: 150px;
+		border: none;
+	}
+	/* 고객센터 */
+	#footer-as {
+		width: 600px;
+	}
+	
+	#footer-as > div:first-child {
+		margin-bottom: 20px;
+	}
+	
+	.footer-as-btn {
+	    width: 160px;
+	    border: 1px solid #d5d5d5;
+	    border-radius: 10px;
+	    padding: 5px 0;
+	    text-align: center;
+	    cursor: pointer;
+	}
+	
+	#footer-as > div:nth-child(2) {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	
+	#footer-as > div:nth-child(3) {
+		font-size: 30px;
+		font-weight: bold;
+		margin-bottom: 10px;	
+	}
+	
+	#footer-as > div:last-child {
+		font-size: 15px;
+	}
+
+	#personal {
+		color: black;
+		font-weight: bolder;
+		cursor: pointer;
+	}
+	#personal:hover {
+		text-decoration: underline;
+	}
+	
+	/* 메인 콘텐츠화면 */
+	section {
+	margin : 0 auto;
+	}
+	
+	#section_wrap {
+		font-family: 'SUITE';
+		width: 1200px;
+		margin: 0 auto;
+		display : flex;
+		}
+	
+	#section_wrap .word {
+		width: 1024px;
+		margin: 0 auto;
+		flex : auto;
+		font-size : large;
+		padding-left : 10px;
+		}
+		
+	#section_wrap .top_nav {
+		width: 1024px;
+		margin: 0 auto;
+		flex : auto;
+		float : left;
+		font-size : large;
+		padding-left : 10px;
+		}
+		
+	#section_wrap .register_product_form {
+		width: 516px;
+		margin: 0 auto;
+		text-align: center;
+		flex : auto;
+		padding-top : 100px;
+		}
+	
+	#section_wrap .register_product_form input {
+		width: 250px;
+		margin: 3px;
+		font-family : 'SUITE';
+		padding : 2px 5px;
+		}
+	
+	#section_wrap .register_product_form select {
+		width: 250px;
+		margin: 3px;
+		font-family : 'SUITE';
+		padding : 2px 5px;
+		}
+	
+	#section_wrap .register_product_form input[type='submit']{
+		width: 50px;
+		background-color : #6E63CF;
+		color : #FFFFFF;
+		border : none;
+		border-radius : 5px;
+		}
+		
+	#section_wrap .register_product_form input[type='reset'] {
+		width: 50px;
+		background-color : #ffffff;
+		color : #000000;
+		border : 1px solid #cccccc;
+		border-radius : 5px;
+		}
+		
+	select option[value=""][disable] {
+		font-family : 'SUITE';
+		display:none;
+	}
+	
+	.top_nav { 
+		width : 1024px;
+	}
+	
+	.top_nav > tr, th {
+		float : left;
+		width : 150px;
+		height : 35px;
+		margin-top : 3px;
+		padding : 5px 10px 5px 10px;
+		border : 1px solid black;
+		text-align : center;
+		display : inline-block;
+		vertical-align : middle;		
+	}
+	
+	#left_only {
+		text-align : left;
+	}
+	
+	.filebox .upload-name {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 5px;
+    vertical-align: middle;
+    width: 78%;
+    color: #999999;
+	}
+	
+	.filebox label {
+    display: inline-block;
+    padding: 2px 5px;
+    color: #FFFFFF;
+    vertical-align: middle;
+    background-color: #6E63CF;
+    cursor: pointer;
+    height: 25px;
+    margin-left: 5px;
+	}
+	
+	.filebox input[type="file"] {
+	  position: absolute;
+	  width: 1px;
+	  height: 1px;
+	  padding: 0;
+	  margin: -1px;
+	  overflow: hidden;
+	  clip:rect(0,0,0,0);
+	  border: 0;
+	}
+	

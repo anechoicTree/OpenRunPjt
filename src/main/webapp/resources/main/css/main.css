@@ -1,0 +1,512 @@
+html {
+    overflow-y: scroll; /* 항상 세로 스크롤바를 보이게 합니다. */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+	width: 1080px;
+	display: grid;
+	grid-template-columns: 25% 75%;
+	margin: 20px auto 40px auto;
+    vertical-align: top; 
+}
+
+body::-webkit-scrollbar {
+    width: 5px; /* 원하는 스크롤바의 폭을 설정 */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: transparent; /* 스크롤바 색상을 투명하게 설정 */
+}
+
+body:hover::-webkit-scrollbar-thumb {
+    background-color: #6E63CF; /* 마우스 호버 시 스크롤바 색상 설정 */
+}
+
+#view {
+	height: fit-content;
+	max-width: 100%;
+}
+
+.main-banner-container {
+	font-family: 'SUITE';
+	maxwidth: 100%;
+	padding: 50px 0;
+    background-color: #ffffff;
+    vertical-align: top;
+}
+	
+.main-banner-container-sub {
+	width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    align-items: center;
+    text-align: center;
+}
+
+#main-banner-title {
+	font-weight: 900;
+	font-size: 36px;
+	margin-bottom: 50px;
+}
+
+
+.main-banner-body {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.banner-list {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 120px;
+}
+
+<!-- 더미 이미지 -->
+.ticket-info img {
+    max-width: 15%; /* 이미지의 최대 너비를 부모 요소에 맞춥니다. */
+    height: auto; /* 이미지의 높이를 자동 조정하여 비율을 유지합니다. */
+    display: block; /* 이미지를 블록 요소로 표시합니다. */
+    margin: 0 auto; /* 가로 중앙 정렬합니다. */
+}
+
+.filter {
+	max-width: 100%;
+	margin: 40px 0 10px 0;
+}
+
+#filter-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0 200px 0 200px;
+    vertical-align: center;
+    justify-content: space-around;
+}
+
+.filter-btn {
+    font-size: 20px;
+    background-color: transparent;
+    /* border-radius: 15px; */
+    padding: 5px 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+	color: #6E63CF;
+}
+
+.filter-btn.active {
+	color: #6E63CF;
+	font-weight: bold;
+}
+
+
+.filter-item {
+    margin-top: 10px;
+    /* margin-right: 6px; */
+}
+
+
+.ls_wrap{
+    margin: 30px 0 30px 0;
+    padding: 0 10px 0 10px;
+}
+.ls_div_content{
+	width: 80%;
+    margin: auto;
+    height: 275px;
+    border: 1px solid #dadada;
+}
+.image_wrap{
+	width: 80%;
+    height: 60%;
+    margin: auto;
+    padding: 5% 0 5% 0;
+    display: flex;
+    align-items: center;    
+}
+.ls_category{
+	text-align: center;
+    font-size: 13px;
+    color: #3e74ab;
+}
+.ls_rating{
+	text-align: center;
+    font-size: 13px;
+    color: #e15b6e;
+}
+.ls_bookName{
+	text-align: center;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+}
+.ls_div_subject{
+	font-weight: bold;
+	font-size: 26px;
+	padding-bottom: 10px;
+}
+
+.view_dummy {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	font-family: SUITE;
+	font-size: 48px;
+	font-weight: bolder;
+	color: #6E63CF;
+}
+
+.view_dummy {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	font-family: SUITE;
+	font-size: 48px;
+	font-weight: bolder;
+	color: #6E63CF;
+}
+
+.sResult-container {
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    margin-bottom: 40px;
+}
+
+.sResult-board {
+	display: grid;
+	grid-template-columns: 86% 7% 7%;
+	margin: 20px 0px 40px 0px;
+}
+
+.sResult-board-title {
+	font-size: 24px;
+    font-weight: 700;
+    color: #555;
+}
+
+.sResult-filter {
+	text-align: right;
+	padding-right: 5px;
+	position: relative; 
+}
+
+/* sResult-sorter를 상대 위치로 설정. sResult-btn-sorter-sub를 절대 위치로 지정할 때 기준점이 된다. */
+.sResult-sorter {
+	text-align: right;
+	position: relative; 
+}
+
+/* sResult-btn-sorter-sub를 절대 위치로 설정하고 위쪽으로부터 거리를 0으로 지정. sResult-btn 바로 아래에 나타나게 됨. */
+.sResult-btn-sorter-sub {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    z-index: 1; /* 다른 요소 위에 나타나도록 z-index 값을 높게 설정합니다. */
+    margin: 2px;
+    padding: 5px auto 5px auto;
+    background: white;
+    border: solid 2px #6E63CF;
+    border-radius: 6px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #6E63CF;
+    line-height: 15px;
+	text-align: center;
+}
+
+.sResult-btn-sorter-sub:hover {
+    background: #6E63CF;
+    color: white;
+}
+
+.sResult-btn-sorter-sub button {
+	margin: 5px auto 5px auto;
+    border: none;
+    outline: none;
+    background: none;
+   	cursor: pointer;
+	transition: background 0.3s, color 0.3s; /* 부드럽게 변화하는 효과를 주기 위해 */
+	-webkit-appearance: none;  
+    -moz-appearance: none;    
+    appearance: none;
+    /* 상속받은 폰트 설정 사용 */
+    font-family: inherit; 
+    font-size: inherit;    
+    color: inherit;       
+    text-align: inherit;    
+    font-weight: 600;    
+}
+
+.sResult-btn-sorter-sub button:hover {
+	font-weight: bold;     
+}
+
+.sResult-btn {
+	width: 72px;
+    height: 28px;
+    margin: 2px;
+    background: white;
+    border: solid 2px #6E63CF;
+    border-radius: 6px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #6E63CF;
+    line-height: 15px;
+	text-align: center;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s; /* 부드럽게 변화하는 효과를 주기 위해 */
+}
+
+.sResult-btn:hover {
+    background: #6E63CF;
+    color: white;
+}
+
+.sResult-txt {
+	font-family: SUITE;
+    font-size: 36px;
+    font-weight: bolder;
+    color: #6E63CF;
+    text-align: center;
+}
+
+.sResult-content {
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.sResult-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.sResult-item {
+    flex-basis: calc(20% - 20px); /* 5개 항목, 20px는 gap으로 인한 간격 조정 */
+    flex-grow: 1; /* 남은 공간을 균등하게 분배 */
+    max-width: calc(20% - 20px); /* 최대 너비 설정 */
+    box-sizing: border-box;
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px; 
+}
+
+.item-img,
+.item-number,
+.item-category,
+.item-title,
+.item-body,
+.item-date {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.item-img img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
+#filterPanel {
+    position: absolute;
+    z-index: 1; /* 다른 요소 위에 나타나도록 z-index 값을 높게 설정합니다. */
+    width: fit-content;
+    height: fit-content;
+    margin: 2px;
+    padding: 5px auto 5px auto;
+    background: white;
+    border: solid 2px #6E63CF;
+    border-radius: 6px;
+    font-family: 'SUITE';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #6E63CF;
+    transition: left 0.3s ease; /* 부드러운 애니메이션 효과 */
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filterPanel-sub {
+	margin: 0 auto 20px auto;
+	padding: 10px;
+	width: fit-content;
+}
+
+.filterPanel-title {
+	font-family: 'SUITE';
+	font-size: 18px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.filterPanel-sub-option {
+	display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    width: 100%;
+    flex-basis: 25%; /* 4개 항목 */
+	flex-direction: row;
+}
+
+/* 체크박스 숨기기 */
+.filterPanel-sub-option input {
+    display: none;
+}
+
+.filterPanel-sub-option label {
+}
+
+.filterPanel-sub-option label:hover {
+	cursor: pointer;
+    font-weight: bold;
+}
+
+/* 체크박스가 선택됐을 때 레이블의 배경색을 검정색으로 변경 */
+.filterPanel-sub-option input[type="checkbox"]:checked + label {
+    background-color: #6E63CF;
+    color: #FFFFFF;
+}
+
+/* DatePicker를 통해 선택된 날짜의 배경색 */
+.highlighted-date {
+    background-color: #6E63CF; 
+}
+
+.filter-date-input-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+
+.filter-date {
+	margin-left: auto;
+	width: 100%;
+}
+
+.filter-date-input {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	margin-bottom:2px;
+}
+
+/* 화면 크기에 따른 반응형 디자인 (예: 모바일 화면) */
+@media screen and (max-width: 768px) {
+    .sResult-item {
+        flex-basis: calc(50% - 20px); /* 모바일에서는 2개 항목으로 조정 */
+    }
+}
+
+/* Main Banner 영역 */
+.main-banner-container-sub-sub {
+	display: grid;
+	grid-template-columns: 5% 90% 5%;
+	align-items: center;
+	
+}
+
+.main-banner-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    overflow: hidden; /* 슬라이드되는 아이템들을 숨깁니다 */
+    width: 100%;
+    height: 100%;
+}
+
+.main-banner-items-container {
+	display: flex;
+	justify-content: center;	
+	width: 100%;
+}
+
+.main-banner-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px;
+    justify-content: flex-start;
+    transition: transform 0.3s; /* 슬라이드 애니메이션을 부드럽게 만들어줍니다 */
+    width: 100%;
+	min-height: 60%;
+	max-height: fit-content;
+	padding: 0 20px;
+}
+
+.main-banner-item {
+    display: flex;
+    flex-basis: calc(33% - 20px); /* 3개 항목, 20px는 gap으로 인한 간격 조정 */
+	width: calc(33% - 20px); /* 너비 설정 */
+    box-sizing: border-box;
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; 
+}
+
+.main-banner-item > * {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.item-img img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
+.slider-arrow {
+    cursor: pointer;
+    background: #eee;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.slider-arrow:hover {
+    background: #ccc;
+}

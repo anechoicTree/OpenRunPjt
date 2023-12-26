@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.openrun.ticket.mappers.AdminMapper">
+	<resultMap id="adminResult" type="adminVO">
+		<result property="admin_id" column="ID" />
+		<result property="admin_pass" column="PASSWORD" />
+	</resultMap>
+	
+    <!-- 관리자 로그인 -->
+    <select id = "login_check" parameterType="adminVO" resultType="String">
+        select ID from admin
+        where ID=#{admin_id} and PASSWORD=#{admin_pass}
+    </select>   
+
+</mapper>
