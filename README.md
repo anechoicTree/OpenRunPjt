@@ -3,7 +3,7 @@
 # 🎫 OpenRunPjt
 티켓 예매 웹 서비스 구현 팀 프로젝트 / Team_5penRun
 
-+ [개발과정]((https://anechoictree.notion.site/Project_5penRun-41ed511250414a049450fbddcb550e39?pvs=74))
++ [개발과정](https://anechoictree.notion.site/Project_5penRun-41ed511250414a049450fbddcb550e39?pvs=74)
 <br>
 
 # 📚 STACKS
